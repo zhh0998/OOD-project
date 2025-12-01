@@ -1,0 +1,3 @@
+# Large data files (use git-lfs or download separately)
+nyt10/nyt10_train.txt
+nyt10/nyt10_test.txt
