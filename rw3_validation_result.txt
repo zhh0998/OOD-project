@@ -1,0 +1,8 @@
+RW3-HMCEN Validation Result: FAIL
+Pass Rate: 2/5
+Positive Rate: 2/5
+Synthetic-Intent: -0.2497
+Synthetic-Medium: -0.2829
+Synthetic-Varied: -0.2366
+CLINC150: 0.6000
+Banking77: 0.4900

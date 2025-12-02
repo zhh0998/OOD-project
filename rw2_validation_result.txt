@@ -1,0 +1,4 @@
+RW2-PAG-Mamba Validation Result: FAIL
+Jump Ratio: 0.9818
+Z-score: -2.6202
+Spectral Gap Change: 0.4730
