@@ -1,0 +1,30 @@
+{
+  "data": {
+    "n_total": 1750,
+    "n_id": 1600,
+    "n_ood": 150
+  },
+  "key_finding": "OOD samples have HIGHER homophily (cluster together)",
+  "cohens_d_nhr": 2.8545096013275106,
+  "best_auroc": 0.9556833333333334,
+  "C4-TDA": {
+    "AUROC": 0.5,
+    "Cohen's d": 1.7763567469654905e-07,
+    "p-value": 9.265990194361535e-249,
+    "Passed": false
+  },
+  "C1-H-GODE": {
+    "Best graph AUROC": 0.8603979166666667,
+    "Baseline AUROC": 0.4037604166666667,
+    "Combined AUROC": 0.6420208333333334,
+    "Improvement": 0.4566375,
+    "Passed": true
+  },
+  "CP-ABR++": {
+    "Cohen's d (NHR)": 2.8545096013275106,
+    "p-value": 7.526468411826162e-190,
+    "Stage0 AUROC": 0.9556833333333334,
+    "Stage3 AUROC": 0.8843583333333332,
+    "Passed": true
+  }
+}

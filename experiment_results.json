@@ -1,0 +1,30 @@
+{
+  "data_summary": {
+    "total_samples": 1630,
+    "id_samples": 1600,
+    "ood_samples": 30
+  },
+  "C4-TDA": {
+    "Cohen's d (beta1)": 0.0,
+    "p-value": NaN,
+    "Correlation (NHR-beta1)": NaN,
+    "OOD in high-beta1": 0.018404907975460124,
+    "OOD in low-beta1": NaN,
+    "Passed": false
+  },
+  "C1-H-GODE": {
+    "AUROC_homo": 0.44044791666666666,
+    "AUROC_hetero": 0.37132291666666667,
+    "AUROC_baseline": 0.4556354166666667,
+    "Delta_AUROC": -0.06912499999999999,
+    "Passed": false
+  },
+  "CP-ABR++": {
+    "Cohen's d (NHR)": 1.3277578925974742,
+    "p-value (NHR)": 8.828892637420457e-13,
+    "Stage0_AUROC": 0.2345729166666667,
+    "Stage3_AUROC": 0.25440624999999994,
+    "Total improvement": 0.01983333333333326,
+    "Passed": true
+  }
+}
