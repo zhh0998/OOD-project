@@ -1,0 +1,62 @@
+{
+  "dataset": "Banking77",
+  "metadata": {
+    "dataset": "Banking77-OOS",
+    "source": "mteb/banking77",
+    "id_classes": 50,
+    "ood_classes": 27,
+    "ood_type": "near-OOD (held-out intents)"
+  },
+  "config": {
+    "k_neighbors": 20,
+    "n_id_samples": 2000,
+    "n_ood_samples": 200,
+    "description": "Fine-grained banking intents with held-out classes"
+  },
+  "clustering": {
+    "n_clusters": 30,
+    "n_noise": 1385,
+    "silhouette": 0.27293625473976135
+  },
+  "statistical_tests": [
+    {
+      "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+      "ID\u5747\u503c": "0.3095",
+      "ID\u6807\u51c6\u5dee": "0.4030",
+      "OOD\u5747\u503c": "0.1170",
+      "OOD\u6807\u51c6\u5dee": "0.2904",
+      "Cohen's d": "-0.4881",
+      "p-value": "5.80e-11",
+      "AUROC": "0.6235",
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+    },
+    {
+      "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+      "ID\u5747\u503c": "0.7175",
+      "ID\u6807\u51c6\u5dee": "0.0805",
+      "OOD\u5747\u503c": "0.6456",
+      "OOD\u6807\u51c6\u5dee": "0.0982",
+      "Cohen's d": "-0.8740",
+      "p-value": "3.97e-31",
+      "AUROC": "0.7159",
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+    },
+    {
+      "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+      "ID\u5747\u503c": "0.1713",
+      "ID\u6807\u51c6\u5dee": "0.2962",
+      "OOD\u5747\u503c": "0.2727",
+      "OOD\u6807\u51c6\u5dee": "0.3451",
+      "Cohen's d": "0.3369",
+      "p-value": "5.85e-06",
+      "AUROC": "0.5914",
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+    }
+  ],
+  "distance_baseline_auroc": 0.7219924999999999,
+  "best_cohens_d": 0.874,
+  "best_auroc": 0.7159
+}

@@ -1,0 +1,302 @@
+{
+  "experiment_config": {
+    "encoder": "all-mpnet-base-v2",
+    "random_seed": 42,
+    "n_runs": 1,
+    "hdbscan_min_cluster_size": 10,
+    "distance_metric": "cosine",
+    "output_dir": "rw3_multi_dataset_results_v2"
+  },
+  "datasets_tested": [
+    "CLINC150",
+    "Banking77",
+    "ROSTD",
+    "ToxiGen"
+  ],
+  "n_datasets": 4,
+  "results_summary": {
+    "CLINC150": {
+      "dataset": "CLINC150",
+      "metadata": {
+        "dataset": "CLINC150",
+        "id_classes": 150,
+        "ood_type": "out-of-scope"
+      },
+      "config": {
+        "k_neighbors": 15,
+        "n_id_samples": 1600,
+        "n_ood_samples": 150,
+        "description": "Intent classification with out-of-scope queries"
+      },
+      "clustering": {
+        "n_clusters": 27,
+        "n_noise": 1131,
+        "silhouette": 0.2246813327074051
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.2140",
+          "ID\u6807\u51c6\u5dee": "0.3461",
+          "OOD\u5747\u503c": "0.9133",
+          "OOD\u6807\u51c6\u5dee": "0.2483",
+          "Cohen's d": "2.0287",
+          "p-value": "3.07e-27",
+          "AUROC": "0.9404",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.5315",
+          "ID\u6807\u51c6\u5dee": "0.1218",
+          "OOD\u5747\u503c": "0.6632",
+          "OOD\u6807\u51c6\u5dee": "0.1068",
+          "Cohen's d": "1.0826",
+          "p-value": "5.13e-09",
+          "AUROC": "0.7878",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.1631",
+          "ID\u6807\u51c6\u5dee": "0.2940",
+          "OOD\u5747\u503c": "-0.0000",
+          "OOD\u6807\u51c6\u5dee": "0.0000",
+          "Cohen's d": "-0.5595",
+          "p-value": "2.44e-03",
+          "AUROC": "0.7197",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.45958333333333334,
+      "best_cohens_d": 2.0287,
+      "best_auroc": 0.9404
+    },
+    "Banking77": {
+      "dataset": "Banking77",
+      "metadata": {
+        "dataset": "Banking77-OOS",
+        "source": "mteb/banking77",
+        "id_classes": 50,
+        "ood_classes": 27,
+        "ood_type": "near-OOD (held-out intents)"
+      },
+      "config": {
+        "k_neighbors": 20,
+        "n_id_samples": 2000,
+        "n_ood_samples": 200,
+        "description": "Fine-grained banking intents with held-out classes"
+      },
+      "clustering": {
+        "n_clusters": 30,
+        "n_noise": 1385,
+        "silhouette": 0.27293625473976135
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.3095",
+          "ID\u6807\u51c6\u5dee": "0.4030",
+          "OOD\u5747\u503c": "0.1170",
+          "OOD\u6807\u51c6\u5dee": "0.2904",
+          "Cohen's d": "-0.4881",
+          "p-value": "5.80e-11",
+          "AUROC": "0.6235",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.7175",
+          "ID\u6807\u51c6\u5dee": "0.0805",
+          "OOD\u5747\u503c": "0.6456",
+          "OOD\u6807\u51c6\u5dee": "0.0982",
+          "Cohen's d": "-0.8740",
+          "p-value": "3.97e-31",
+          "AUROC": "0.7159",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.1713",
+          "ID\u6807\u51c6\u5dee": "0.2962",
+          "OOD\u5747\u503c": "0.2727",
+          "OOD\u6807\u51c6\u5dee": "0.3451",
+          "Cohen's d": "0.3369",
+          "p-value": "5.85e-06",
+          "AUROC": "0.5914",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.7219924999999999,
+      "best_cohens_d": 0.874,
+      "best_auroc": 0.7159
+    },
+    "ROSTD": {
+      "dataset": "ROSTD",
+      "metadata": {
+        "dataset": "ROSTD-simulated",
+        "source": "ATIS alternative",
+        "ood_type": "held-out intents (simulated)"
+      },
+      "config": {
+        "k_neighbors": 20,
+        "n_id_samples": 1000,
+        "n_ood_samples": 500,
+        "description": "Real-world dialog with human-authored OOD samples"
+      },
+      "clustering": {
+        "n_clusters": 2,
+        "n_noise": 594,
+        "silhouette": 0.18319934606552124
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.4258",
+          "ID\u6807\u51c6\u5dee": "0.4609",
+          "OOD\u5747\u503c": "0.0284",
+          "OOD\u6807\u51c6\u5dee": "0.1617",
+          "Cohen's d": "-0.8861",
+          "p-value": "3.90e-12",
+          "AUROC": "0.7210",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.7238",
+          "ID\u6807\u51c6\u5dee": "0.1076",
+          "OOD\u5747\u503c": "0.5911",
+          "OOD\u6807\u51c6\u5dee": "0.1029",
+          "Cohen's d": "-1.2352",
+          "p-value": "1.01e-21",
+          "AUROC": "0.8519",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.0147",
+          "ID\u6807\u51c6\u5dee": "0.0878",
+          "OOD\u5747\u503c": "0.0393",
+          "OOD\u6807\u51c6\u5dee": "0.1479",
+          "Cohen's d": "0.2646",
+          "p-value": "3.63e-02",
+          "AUROC": "0.5897",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.8383880597014925,
+      "best_cohens_d": 1.2352,
+      "best_auroc": 0.8519
+    },
+    "ToxiGen": {
+      "dataset": "ToxiGen",
+      "metadata": {
+        "dataset": "ToxiGen",
+        "source": "toxigen/toxigen-data (annotated)",
+        "toxicity_field": "toxicity_ai",
+        "threshold": 3.0,
+        "id_type": "non-toxic statements",
+        "ood_type": "toxic statements (domain shift)"
+      },
+      "config": {
+        "k_neighbors": 20,
+        "n_id_samples": 1000,
+        "n_ood_samples": 500,
+        "description": "Toxic content detection with domain shift"
+      },
+      "clustering": {
+        "n_clusters": 5,
+        "n_noise": 1316,
+        "silhouette": 0.19127129018306732
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.0881",
+          "ID\u6807\u51c6\u5dee": "0.2547",
+          "OOD\u5747\u503c": "0.0815",
+          "OOD\u6807\u51c6\u5dee": "0.2410",
+          "Cohen's d": "-0.0262",
+          "p-value": "6.33e-01",
+          "AUROC": "0.5014",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.4509",
+          "ID\u6807\u51c6\u5dee": "0.1152",
+          "OOD\u5747\u503c": "0.4722",
+          "OOD\u6807\u51c6\u5dee": "0.0905",
+          "Cohen's d": "0.1982",
+          "p-value": "3.05e-04",
+          "AUROC": "0.5582",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.0741",
+          "ID\u6807\u51c6\u5dee": "0.2086",
+          "OOD\u5747\u503c": "0.0966",
+          "OOD\u6807\u51c6\u5dee": "0.2350",
+          "Cohen's d": "0.1034",
+          "p-value": "5.93e-02",
+          "AUROC": "0.5204",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.466838,
+      "best_cohens_d": 0.1982,
+      "best_auroc": 0.5582
+    }
+  },
+  "cross_dataset_analysis": [
+    {
+      "\u6570\u636e\u96c6": "CLINC150",
+      "OOD\u7c7b\u578b": "out-of-scope",
+      "Cohen's d (NHR)": 2.0287,
+      "AUROC (NHR)": 0.9404,
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u6700\u4f73AUROC": 0.9404,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.45958333333333334
+    },
+    {
+      "\u6570\u636e\u96c6": "Banking77",
+      "OOD\u7c7b\u578b": "near-OOD (held-out intents)",
+      "Cohen's d (NHR)": -0.4881,
+      "AUROC (NHR)": 0.6235,
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u6700\u4f73AUROC": 0.7159,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.7219924999999999
+    },
+    {
+      "\u6570\u636e\u96c6": "ROSTD",
+      "OOD\u7c7b\u578b": "held-out intents (simulated)",
+      "Cohen's d (NHR)": -0.8861,
+      "AUROC (NHR)": 0.721,
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u6700\u4f73AUROC": 0.8519,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.8383880597014925
+    },
+    {
+      "\u6570\u636e\u96c6": "ToxiGen",
+      "OOD\u7c7b\u578b": "toxic statements (domain shift)",
+      "Cohen's d (NHR)": -0.0262,
+      "AUROC (NHR)": 0.5014,
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u6700\u4f73AUROC": 0.5582,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.466838
+    }
+  ]
+}

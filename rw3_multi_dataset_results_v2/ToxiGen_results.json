@@ -1,0 +1,63 @@
+{
+  "dataset": "ToxiGen",
+  "metadata": {
+    "dataset": "ToxiGen",
+    "source": "toxigen/toxigen-data (annotated)",
+    "toxicity_field": "toxicity_ai",
+    "threshold": 3.0,
+    "id_type": "non-toxic statements",
+    "ood_type": "toxic statements (domain shift)"
+  },
+  "config": {
+    "k_neighbors": 20,
+    "n_id_samples": 1000,
+    "n_ood_samples": 500,
+    "description": "Toxic content detection with domain shift"
+  },
+  "clustering": {
+    "n_clusters": 5,
+    "n_noise": 1316,
+    "silhouette": 0.19127129018306732
+  },
+  "statistical_tests": [
+    {
+      "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+      "ID\u5747\u503c": "0.0881",
+      "ID\u6807\u51c6\u5dee": "0.2547",
+      "OOD\u5747\u503c": "0.0815",
+      "OOD\u6807\u51c6\u5dee": "0.2410",
+      "Cohen's d": "-0.0262",
+      "p-value": "6.33e-01",
+      "AUROC": "0.5014",
+      "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+      "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+    },
+    {
+      "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+      "ID\u5747\u503c": "0.4509",
+      "ID\u6807\u51c6\u5dee": "0.1152",
+      "OOD\u5747\u503c": "0.4722",
+      "OOD\u6807\u51c6\u5dee": "0.0905",
+      "Cohen's d": "0.1982",
+      "p-value": "3.05e-04",
+      "AUROC": "0.5582",
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+    },
+    {
+      "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+      "ID\u5747\u503c": "0.0741",
+      "ID\u6807\u51c6\u5dee": "0.2086",
+      "OOD\u5747\u503c": "0.0966",
+      "OOD\u6807\u51c6\u5dee": "0.2350",
+      "Cohen's d": "0.1034",
+      "p-value": "5.93e-02",
+      "AUROC": "0.5204",
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+    }
+  ],
+  "distance_baseline_auroc": 0.466838,
+  "best_cohens_d": 0.1982,
+  "best_auroc": 0.5582
+}
