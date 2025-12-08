@@ -1,0 +1,68 @@
+{
+  "dataset": "CLINC150",
+  "config": {
+    "k_neighbors": 15,
+    "n_id_samples": 1600,
+    "n_ood_samples": 150,
+    "ood_type": "out-of-scope",
+    "description": "Out-of-scope queries (semantically unrelated)"
+  },
+  "data_info": {
+    "source": "clinc_oos (plus)",
+    "ood_type": "out-of-scope",
+    "n_id_actual": 1600,
+    "n_ood_actual": 150
+  },
+  "clustering": {
+    "n_clusters": 4,
+    "n_noise": "1093"
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.34645833333333337,
+      "id_std": 0.4366379900730123,
+      "ood_mean": 0.01955555555555556,
+      "ood_std": 0.13696101995697285,
+      "cohens_d": -1.0102615071098873,
+      "t_statistic": 9.12222149129444,
+      "p_value": 1.96722601034678e-19,
+      "auroc": 0.6927041666666667,
+      "dataset": "CLINC150"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.53097004",
+      "id_std": "0.1183822",
+      "ood_mean": "0.28560632",
+      "ood_std": "0.07136936",
+      "cohens_d": "-2.5102587",
+      "t_statistic": 24.94855803804154,
+      "p_value": 8.963670317965522e-118,
+      "auroc": 0.9558833333333333,
+      "dataset": "CLINC150"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.38534935677355137,
+      "id_std": 0.2694166860605071,
+      "ood_mean": 0.4844033496951016,
+      "ood_std": 0.2494834795165909,
+      "cohens_d": 0.38150301410693677,
+      "t_statistic": -4.329665999576537,
+      "p_value": 1.5780080268305093e-05,
+      "auroc": 0.6046020833333333,
+      "dataset": "CLINC150"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.9971875,
+    "method": "distance_to_nearest_class",
+    "n_classes": 150
+  },
+  "main_finding": {
+    "cohens_d": -1.0102615071098873,
+    "auroc": 0.6927041666666667,
+    "direction": "OOD MORE HETEROPHILIC"
+  }
+}

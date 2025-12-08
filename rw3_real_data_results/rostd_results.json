@@ -1,0 +1,68 @@
+{
+  "dataset": "ROSTD",
+  "config": {
+    "k_neighbors": 20,
+    "n_id_samples": 1000,
+    "n_ood_samples": 500,
+    "ood_type": "diverse-ood",
+    "description": "Real diverse human-authored OOD from ROSTD"
+  },
+  "data_info": {
+    "source": "OODrelease.tsv + mteb/banking77 (as ID)",
+    "ood_type": "diverse-ood",
+    "n_id_actual": 1000,
+    "n_ood_actual": 500
+  },
+  "clustering": {
+    "n_clusters": 2,
+    "n_noise": "535"
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.95425,
+      "id_std": 0.19725475279445104,
+      "ood_mean": 0.009399999999999999,
+      "ood_std": 0.09360363240814963,
+      "cohens_d": -6.11998532557418,
+      "t_statistic": 101.47593513483925,
+      "p_value": 0.0,
+      "auroc": 0.978542,
+      "dataset": "ROSTD"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.74743813",
+      "id_std": "0.09563625",
+      "ood_mean": "0.31360674",
+      "ood_std": "0.07442896",
+      "cohens_d": "-5.06273",
+      "t_statistic": 88.80730624551313,
+      "p_value": 0.0,
+      "auroc": 0.996902,
+      "dataset": "ROSTD"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.03248073260562704,
+      "id_std": 0.11354523393121362,
+      "ood_mean": 0.25505094464466727,
+      "ood_std": 0.27600038582005737,
+      "cohens_d": 1.0546768164718332,
+      "t_statistic": -22.02722227204177,
+      "p_value": 2.2388122630744647e-93,
+      "auroc": 0.737755,
+      "dataset": "ROSTD"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.998522,
+    "method": "distance_to_nearest_class",
+    "n_classes": 17
+  },
+  "main_finding": {
+    "cohens_d": -6.11998532557418,
+    "auroc": 0.978542,
+    "direction": "OOD MORE HETEROPHILIC"
+  }
+}

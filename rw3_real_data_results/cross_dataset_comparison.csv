@@ -1,0 +1,5 @@
+Dataset,OOD_Type,Source,Cohen_d,AUROC,Direction,Baseline_AUROC
+CLINC150,out-of-scope,clinc_oos (plus),-1.0102615071098873,0.6927041666666667,OOD MORE HETEROPHILIC,0.9971875
+Banking77,held-out-class,mteb/banking77,-0.5206870713914846,0.66346125,OOD MORE HETEROPHILIC,0.8573925
+ROSTD,diverse-ood,OODrelease.tsv + mteb/banking77 (as ID),-6.11998532557418,0.978542,OOD MORE HETEROPHILIC,0.998522
+ToxiGen,toxicity-based,toxigen/toxigen-data (annotated),-0.100053097745025,0.516159,WEAK/NO EFFECT,0.523806

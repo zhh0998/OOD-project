@@ -1,0 +1,69 @@
+{
+  "dataset": "Banking77",
+  "config": {
+    "k_neighbors": 20,
+    "n_id_samples": 2000,
+    "n_ood_samples": 200,
+    "n_id_classes": 50,
+    "ood_type": "held-out-class",
+    "description": "Held-out intent classes"
+  },
+  "data_info": {
+    "source": "mteb/banking77",
+    "ood_type": "held-out-class",
+    "n_id_actual": 2000,
+    "n_ood_actual": 200
+  },
+  "clustering": {
+    "n_clusters": 2,
+    "n_noise": "418"
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.7994249999999999,
+      "id_std": 0.37018362926391,
+      "ood_mean": 0.58225,
+      "ood_std": 0.4592357101750691,
+      "cohens_d": -0.5206870713914846,
+      "t_statistic": 7.720157343899134,
+      "p_value": 1.7509799673982052e-14,
+      "auroc": 0.66346125,
+      "dataset": "Banking77"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.7137424",
+      "id_std": "0.08046444",
+      "ood_mean": "0.6492339",
+      "ood_std": "0.07541258",
+      "cohens_d": "-0.8272502",
+      "t_statistic": 10.865467975355694,
+      "p_value": 7.9859336750643e-27,
+      "auroc": 0.73456,
+      "dataset": "Banking77"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.16323237285127024,
+      "id_std": 0.22921632975443362,
+      "ood_mean": 0.2838234843345668,
+      "ood_std": 0.24367083984209323,
+      "cohens_d": 0.5097825603915285,
+      "t_statistic": -7.049166293279779,
+      "p_value": 2.400093977857416e-12,
+      "auroc": 0.64987,
+      "dataset": "Banking77"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.8573925,
+    "method": "distance_to_nearest_class",
+    "n_classes": 50
+  },
+  "main_finding": {
+    "cohens_d": -0.5206870713914846,
+    "auroc": 0.66346125,
+    "direction": "OOD MORE HETEROPHILIC"
+  }
+}

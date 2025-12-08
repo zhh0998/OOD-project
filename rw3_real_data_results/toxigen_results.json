@@ -1,0 +1,69 @@
+{
+  "dataset": "ToxiGen",
+  "config": {
+    "k_neighbors": 20,
+    "n_id_samples": 1000,
+    "n_ood_samples": 500,
+    "toxicity_threshold": 2.5,
+    "ood_type": "toxicity-based",
+    "description": "Toxicity-based OOD (toxic vs non-toxic)"
+  },
+  "data_info": {
+    "source": "toxigen/toxigen-data (annotated)",
+    "ood_type": "toxicity-based",
+    "n_id_actual": 1000,
+    "n_ood_actual": 500
+  },
+  "clustering": {
+    "n_clusters": 2,
+    "n_noise": "1282"
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.12580000000000002,
+      "id_std": 0.3048431727954556,
+      "ood_mean": 0.09689999999999999,
+      "ood_std": 0.2719106286999462,
+      "cohens_d": -0.100053097745025,
+      "t_statistic": 1.7918162446821062,
+      "p_value": 0.07336417511567014,
+      "auroc": 0.516159,
+      "dataset": "ToxiGen"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.44947973",
+      "id_std": "0.11859588",
+      "ood_mean": "0.46557364",
+      "ood_std": "0.09108769",
+      "cohens_d": "0.15220247",
+      "t_statistic": -2.6647748852231037,
+      "p_value": 0.007786708606283522,
+      "auroc": 0.548324,
+      "dataset": "ToxiGen"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.30166813125657876,
+      "id_std": 0.2685469532010391,
+      "ood_mean": 0.32379831222047123,
+      "ood_std": 0.2687204965493491,
+      "cohens_d": 0.08238049713023535,
+      "t_statistic": -1.5032140421494546,
+      "p_value": 0.1329946358979156,
+      "auroc": 0.519506,
+      "dataset": "ToxiGen"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.523806,
+    "method": "distance_to_nearest_class",
+    "n_classes": 13
+  },
+  "main_finding": {
+    "cohens_d": -0.100053097745025,
+    "auroc": 0.516159,
+    "direction": "WEAK/NO EFFECT"
+  }
+}
