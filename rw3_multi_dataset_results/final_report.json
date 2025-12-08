@@ -1,0 +1,157 @@
+{
+  "experiment_config": {
+    "encoder": "all-mpnet-base-v2",
+    "random_seed": 42,
+    "n_runs": 1,
+    "hdbscan_min_cluster_size": 10,
+    "distance_metric": "cosine",
+    "output_dir": "rw3_multi_dataset_results"
+  },
+  "datasets_tested": [
+    "CLINC150",
+    "ROSTD"
+  ],
+  "n_datasets": 2,
+  "results_summary": {
+    "CLINC150": {
+      "dataset": "CLINC150",
+      "metadata": {
+        "dataset": "CLINC150",
+        "id_classes": 150,
+        "ood_type": "out-of-scope"
+      },
+      "config": {
+        "k_neighbors": 15,
+        "n_id_samples": 1600,
+        "n_ood_samples": 150,
+        "description": "Intent classification with out-of-scope queries"
+      },
+      "clustering": {
+        "n_clusters": 27,
+        "n_noise": 1131,
+        "silhouette": 0.2246813327074051
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.2140",
+          "ID\u6807\u51c6\u5dee": "0.3461",
+          "OOD\u5747\u503c": "0.9133",
+          "OOD\u6807\u51c6\u5dee": "0.2483",
+          "Cohen's d": "2.0287",
+          "p-value": "3.07e-27",
+          "AUROC": "0.9404",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.5315",
+          "ID\u6807\u51c6\u5dee": "0.1218",
+          "OOD\u5747\u503c": "0.6632",
+          "OOD\u6807\u51c6\u5dee": "0.1068",
+          "Cohen's d": "1.0826",
+          "p-value": "5.13e-09",
+          "AUROC": "0.7878",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.1631",
+          "ID\u6807\u51c6\u5dee": "0.2940",
+          "OOD\u5747\u503c": "-0.0000",
+          "OOD\u6807\u51c6\u5dee": "0.0000",
+          "Cohen's d": "-0.5595",
+          "p-value": "2.44e-03",
+          "AUROC": "0.7197",
+          "\u65b9\u5411": "OOD\u66f4\u5f02\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.45958333333333334,
+      "best_cohens_d": 2.0287,
+      "best_auroc": 0.9404
+    },
+    "ROSTD": {
+      "dataset": "ROSTD",
+      "metadata": {
+        "dataset": "ROSTD-simulated",
+        "source": "SNIPS alternative",
+        "ood_type": "held-out intents (simulated)"
+      },
+      "config": {
+        "k_neighbors": 20,
+        "n_id_samples": 1000,
+        "n_ood_samples": 500,
+        "description": "Real-world dialog with human-authored OOD samples"
+      },
+      "clustering": {
+        "n_clusters": 3,
+        "n_noise": 174,
+        "silhouette": 0.17100726068019867
+      },
+      "statistical_tests": [
+        {
+          "\u7279\u5f81": "\u4f2a\u6807\u7b7eNHR",
+          "ID\u5747\u503c": "0.2952",
+          "ID\u6807\u51c6\u5dee": "0.4197",
+          "OOD\u5747\u503c": "0.5064",
+          "OOD\u6807\u51c6\u5dee": "0.4455",
+          "Cohen's d": "0.4868",
+          "p-value": "1.42e-05",
+          "AUROC": "0.6391",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u5d4c\u5165\u540c\u914d\u6027",
+          "ID\u5747\u503c": "0.5060",
+          "ID\u6807\u51c6\u5dee": "0.1026",
+          "OOD\u5747\u503c": "0.5685",
+          "OOD\u6807\u51c6\u5dee": "0.0901",
+          "Cohen's d": "0.6453",
+          "p-value": "1.24e-08",
+          "AUROC": "0.6720",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u2705 \u663e\u8457"
+        },
+        {
+          "\u7279\u5f81": "\u90bb\u5c45\u71b5",
+          "ID\u5747\u503c": "0.1429",
+          "ID\u6807\u51c6\u5dee": "0.2673",
+          "OOD\u5747\u503c": "0.2043",
+          "OOD\u6807\u51c6\u5dee": "0.2727",
+          "Cohen's d": "0.2270",
+          "p-value": "4.06e-02",
+          "AUROC": "0.5735",
+          "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+          "\u663e\u8457\u6027": "\u26a0\ufe0f \u4e0d\u663e\u8457"
+        }
+      ],
+      "distance_baseline_auroc": 0.5671314370700874,
+      "best_cohens_d": 0.6453,
+      "best_auroc": 0.672
+    }
+  },
+  "cross_dataset_analysis": [
+    {
+      "\u6570\u636e\u96c6": "CLINC150",
+      "OOD\u7c7b\u578b": "out-of-scope",
+      "Cohen's d (NHR)": 2.0287,
+      "AUROC (NHR)": 0.9404,
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u6700\u4f73AUROC": 0.9404,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.45958333333333334
+    },
+    {
+      "\u6570\u636e\u96c6": "ROSTD",
+      "OOD\u7c7b\u578b": "held-out intents (simulated)",
+      "Cohen's d (NHR)": 0.4868,
+      "AUROC (NHR)": 0.6391,
+      "\u65b9\u5411": "OOD\u66f4\u540c\u914d",
+      "\u6700\u4f73AUROC": 0.672,
+      "\u8ddd\u79bb\u57fa\u7ebfAUROC": 0.5671314370700874
+    }
+  ]
+}

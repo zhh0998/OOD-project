@@ -1,0 +1,3 @@
+数据集,OOD类型,Cohen's d (NHR),AUROC (NHR),方向,最佳AUROC,距离基线AUROC
+CLINC150,out-of-scope,2.0287,0.9404,OOD更同配,0.9404,0.45958333333333334
+ROSTD,held-out intents (simulated),0.4868,0.6391,OOD更同配,0.672,0.5671314370700874
