@@ -1,0 +1,66 @@
+{
+  "download_date": "2025-12-08T15:12:46.864495",
+  "datasets": {
+    "Banking77": {
+      "success": true,
+      "info": {
+        "source": "mteb/banking77",
+        "train_size": 9993,
+        "test_size": 3076,
+        "num_classes": 77,
+        "columns": [
+          "text",
+          "label",
+          "label_text"
+        ],
+        "sample": "{'text': 'I am still waiting on my card?', 'label': 11, 'label_text': 'card_arrival'}"
+      }
+    },
+    "ToxiGen": {
+      "success": true,
+      "info": {
+        "source": "toxigen/toxigen-data (annotated)",
+        "splits": {
+          "test": 940,
+          "train": 8960
+        },
+        "columns": [
+          "text",
+          "target_group",
+          "factual?",
+          "ingroup_effect",
+          "lewd",
+          "framing",
+          "predicted_group",
+          "stereotyping",
+          "intent",
+          "toxicity_ai",
+          "toxicity_human",
+          "predicted_author",
+          "actual_method"
+        ],
+        "toxicity_ai_range": [
+          1.0,
+          5.0
+        ],
+        "toxicity_ai_mean": 2.4700892857125,
+        "valid_samples": 8960
+      }
+    },
+    "ROSTD": {
+      "success": true,
+      "info": {
+        "ood": {
+          "source": "GitHub LR_GC_OOD",
+          "file": "OODrelease.tsv",
+          "num_samples": 4590,
+          "sample": "send Ameena $25 from Venmo account"
+        },
+        "id": {
+          "note": "ID data can use ATIS/SNIPS/Banking77 as alternative",
+          "recommendation": "Use load_dataset('tuetschek/atis') or load_dataset('benayas/snips')"
+        }
+      }
+    }
+  }
+}
