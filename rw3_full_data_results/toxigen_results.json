@@ -1,0 +1,74 @@
+{
+  "dataset": "ToxiGen",
+  "config": {
+    "k_neighbors": 20,
+    "toxicity_threshold": 2.5,
+    "ood_type": "toxicity-based",
+    "description": "Toxicity-based OOD (all splits combined)"
+  },
+  "data_info": {
+    "source": "toxigen/toxigen-data (annotated, all splits)",
+    "ood_type": "toxicity-based",
+    "n_id": 5795,
+    "n_ood": 4105,
+    "n_total": 9900
+  },
+  "clustering": {
+    "n_clusters": 28,
+    "n_noise": "8691",
+    "noise_ratio": 0.8778787878787879,
+    "min_cluster_size": 15,
+    "quality_warnings": [
+      "噪声比例过高 (87.8% > 50%)"
+    ],
+    "quality_ok": false
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.10536669542709233,
+      "id_std": 0.28561819962537754,
+      "ood_mean": 0.0913154689403167,
+      "ood_std": 0.2633975966139459,
+      "cohens_d": -0.05114509272307603,
+      "t_statistic": 2.489720488101224,
+      "p_value": 0.012800645147870065,
+      "auroc": 0.5064931022270238,
+      "dataset": "ToxiGen"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.56290716",
+      "id_std": "0.14472729",
+      "ood_mean": "0.59020656",
+      "ood_std": "0.11384001",
+      "cohens_d": "0.20966834",
+      "t_statistic": -10.076139387790986,
+      "p_value": 9.169104593177395e-24,
+      "auroc": 0.5617923805540288,
+      "dataset": "ToxiGen"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.28747729861816856,
+      "id_std": 0.2871982288532449,
+      "ood_mean": 0.31141659270399696,
+      "ood_std": 0.2849706819120537,
+      "cohens_d": 0.08367848098184595,
+      "t_statistic": -4.098709959378174,
+      "p_value": 4.187758076522041e-05,
+      "auroc": 0.5257156879539356,
+      "dataset": "ToxiGen"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.49472786717097245,
+    "method": "distance_to_nearest_class",
+    "n_classes": 27
+  },
+  "main_finding": {
+    "cohens_d": -0.05114509272307603,
+    "auroc": 0.5064931022270238,
+    "direction": "WEAK/NO EFFECT"
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "experiment": "RW3 Full Data Verification (No Sampling)",
+  "timestamp": "2025-12-10T10:30:19.216057",
+  "embedding_model": "all-mpnet-base-v2",
+  "results": {
+    "CLINC150": {
+      "dataset": "CLINC150",
+      "config": {
+        "k_neighbors": 15,
+        "ood_type": "out-of-scope",
+        "description": "Out-of-scope queries (all splits combined)"
+      },
+      "data_info": {
+        "source": "clinc_oos (plus, all splits)",
+        "ood_type": "out-of-scope",
+        "n_id": 22500,
+        "n_ood": 1350,
+        "n_total": 23850
+      },
+      "clustering": {
+        "n_clusters": 105,
+        "n_noise": "14335",
+        "noise_ratio": 0.6010482180293502,
+        "min_cluster_size": 20,
+        "quality_warnings": [
+          "噪声比例过高 (60.1% > 50%)"
+        ],
+        "quality_ok": false
+      },
+      "statistical_results": [
+        {
+          "feature": "pseudo_label_nhr",
+          "id_mean": 0.39111111111111113,
+          "id_std": 0.46652061206497775,
+          "ood_mean": 0.0014320987654320987,
+          "ood_std": 0.037201576896399476,
+          "cohens_d": -1.1775374657586581,
+          "t_statistic": 30.683296734315046,
+          "p_value": 8.292899913127807e-203,
+          "auroc": 0.7104896790123456,
+          "dataset": "CLINC150"
+        },
+        {
+          "feature": "embedding_homophily",
+          "id_mean": "0.74680966",
+          "id_std": "0.1259851",
+          "ood_mean": "0.42534256",
+          "ood_std": "0.09363714",
+          "cohens_d": "-2.8962083",
+          "t_statistic": 92.23282260635015,
+          "p_value": 0.0,
+          "auroc": 0.9689854650205761,
+          "dataset": "CLINC150"
+        },
+        {
+          "feature": "neighbor_entropy",
+          "id_mean": 0.2852172697202461,
+          "id_std": 0.29531770301058,
+          "ood_mean": 0.401884211165164,
+          "ood_std": 0.33749722080073075,
+          "cohens_d": 0.36790738520858557,
+          "t_statistic": -13.97733764071875,
+          "p_value": 3.204289581923291e-44,
+          "auroc": 0.5926921152263375,
+          "dataset": "CLINC150"
+        }
+      ],
+      "baseline": {
+        "auroc": 0.9812807242798354,
+        "method": "distance_to_nearest_class",
+        "n_classes": 150
+      },
+      "main_finding": {
+        "cohens_d": -1.1775374657586581,
+        "auroc": 0.7104896790123456,
+        "direction": "OOD MORE HETEROPHILIC"
+      }
+    },
+    "Banking77": {
+      "dataset": "Banking77",
+      "config": {
+        "k_neighbors": 20,
+        "n_id_classes": 50,
+        "ood_type": "held-out-class",
+        "description": "Held-out intent classes (50 ID / 27 OOD)"
+      },
+      "data_info": {
+        "source": "mteb/banking77 (all data)",
+        "ood_type": "held-out-class",
+        "n_id": 8613,
+        "n_ood": 4456,
+        "n_total": 13069
+      },
+      "clustering": {
+        "n_clusters": 58,
+        "n_noise": "8623",
+        "noise_ratio": 0.6598056469507996,
+        "min_cluster_size": 20,
+        "quality_warnings": [
+          "噪声比例过高 (66.0% > 50%)"
+        ],
+        "quality_ok": false
+      },
+      "statistical_results": [
+        {
+          "feature": "pseudo_label_nhr",
+          "id_mean": 0.28179496110530594,
+          "id_std": 0.4232188346930355,
+          "ood_mean": 0.3382293536804309,
+          "ood_std": 0.4433708122998206,
+          "cohens_d": 0.13020958669285093,
+          "t_statistic": -7.108418247125749,
+          "p_value": 1.2347720962413381e-12,
+          "auroc": 0.5327194096811196,
+          "dataset": "Banking77"
+        },
+        {
+          "feature": "embedding_homophily",
+          "id_mean": "0.8099048",
+          "id_std": "0.078564346",
+          "ood_mean": "0.82277286",
+          "ood_std": "0.082829215",
+          "cohens_d": "0.15940605",
+          "t_statistic": -8.711222111296125,
+          "p_value": 3.364539335647871e-18,
+          "auroc": 0.5564223327603195,
+          "dataset": "Banking77"
+        },
+        {
+          "feature": "neighbor_entropy",
+          "id_mean": 0.3456647327205049,
+          "id_std": 0.2870986726376019,
+          "ood_mean": 0.37739221389047245,
+          "ood_std": 0.2846214477108923,
+          "cohens_d": 0.11098851414561739,
+          "t_statistic": -6.0058671251836575,
+          "p_value": 1.9536590574245814e-09,
+          "auroc": 0.5310152850238283,
+          "dataset": "Banking77"
+        }
+      ],
+      "baseline": {
+        "auroc": 0.8351695336117735,
+        "method": "distance_to_nearest_class",
+        "n_classes": 50
+      },
+      "main_finding": {
+        "cohens_d": 0.13020958669285093,
+        "auroc": 0.5327194096811196,
+        "direction": "WEAK/NO EFFECT"
+      }
+    },
+    "ROSTD": {
+      "dataset": "ROSTD",
+      "config": {
+        "k_neighbors": 20,
+        "ood_type": "diverse-ood",
+        "description": "Real diverse human-authored OOD"
+      },
+      "data_info": {
+        "source": "OODrelease.tsv (full) + mteb/banking77 (full, as ID proxy)",
+        "ood_type": "diverse-ood",
+        "n_id": 13069,
+        "n_ood": 4590,
+        "n_total": 17659
+      },
+      "clustering": {
+        "n_clusters": 4,
+        "n_noise": "4346",
+        "noise_ratio": 0.24610680106461294,
+        "min_cluster_size": 20,
+        "quality_warnings": [
+          "簇数过少 (4 < 5)"
+        ],
+        "quality_ok": false
+      },
+      "statistical_results": [
+        {
+          "feature": "pseudo_label_nhr",
+          "id_mean": 0.9873249674802967,
+          "id_std": 0.10781956147350423,
+          "ood_mean": 0.07288671023965142,
+          "ood_std": 0.24499044091854902,
+          "cohens_d": -4.83142573085843,
+          "t_statistic": 342.554217749599,
+          "p_value": 0.0,
+          "auroc": 0.9760333247147577,
+          "dataset": "ROSTD"
+        },
+        {
+          "feature": "embedding_homophily",
+          "id_mean": "0.8143877",
+          "id_std": "0.07989479",
+          "ood_mean": "0.45477846",
+          "ood_std": "0.10718337",
+          "cohens_d": "-3.8042226",
+          "t_statistic": 238.6823153648081,
+          "p_value": 0.0,
+          "auroc": 0.9880959132447837,
+          "dataset": "ROSTD"
+        },
+        {
+          "feature": "neighbor_entropy",
+          "id_mean": 0.005941904891447434,
+          "id_std": 0.04337131400862571,
+          "ood_mean": 0.26582427671921693,
+          "ood_std": 0.2736689766341598,
+          "cohens_d": 1.3264158463764435,
+          "t_statistic": -104.8694907232142,
+          "p_value": 0.0,
+          "auroc": 0.7791743454508506,
+          "dataset": "ROSTD"
+        }
+      ],
+      "baseline": {
+        "auroc": 0.9970238907918103,
+        "method": "distance_to_nearest_class",
+        "n_classes": 77
+      },
+      "main_finding": {
+        "cohens_d": -4.83142573085843,
+        "auroc": 0.9760333247147577,
+        "direction": "OOD MORE HETEROPHILIC"
+      }
+    },
+    "ToxiGen": {
+      "dataset": "ToxiGen",
+      "config": {
+        "k_neighbors": 20,
+        "toxicity_threshold": 2.5,
+        "ood_type": "toxicity-based",
+        "description": "Toxicity-based OOD (all splits combined)"
+      },
+      "data_info": {
+        "source": "toxigen/toxigen-data (annotated, all splits)",
+        "ood_type": "toxicity-based",
+        "n_id": 5795,
+        "n_ood": 4105,
+        "n_total": 9900
+      },
+      "clustering": {
+        "n_clusters": 28,
+        "n_noise": "8691",
+        "noise_ratio": 0.8778787878787879,
+        "min_cluster_size": 15,
+        "quality_warnings": [
+          "噪声比例过高 (87.8% > 50%)"
+        ],
+        "quality_ok": false
+      },
+      "statistical_results": [
+        {
+          "feature": "pseudo_label_nhr",
+          "id_mean": 0.10536669542709233,
+          "id_std": 0.28561819962537754,
+          "ood_mean": 0.0913154689403167,
+          "ood_std": 0.2633975966139459,
+          "cohens_d": -0.05114509272307603,
+          "t_statistic": 2.489720488101224,
+          "p_value": 0.012800645147870065,
+          "auroc": 0.5064931022270238,
+          "dataset": "ToxiGen"
+        },
+        {
+          "feature": "embedding_homophily",
+          "id_mean": "0.56290716",
+          "id_std": "0.14472729",
+          "ood_mean": "0.59020656",
+          "ood_std": "0.11384001",
+          "cohens_d": "0.20966834",
+          "t_statistic": -10.076139387790986,
+          "p_value": 9.169104593177395e-24,
+          "auroc": 0.5617923805540288,
+          "dataset": "ToxiGen"
+        },
+        {
+          "feature": "neighbor_entropy",
+          "id_mean": 0.28747729861816856,
+          "id_std": 0.2871982288532449,
+          "ood_mean": 0.31141659270399696,
+          "ood_std": 0.2849706819120537,
+          "cohens_d": 0.08367848098184595,
+          "t_statistic": -4.098709959378174,
+          "p_value": 4.187758076522041e-05,
+          "auroc": 0.5257156879539356,
+          "dataset": "ToxiGen"
+        }
+      ],
+      "baseline": {
+        "auroc": 0.49472786717097245,
+        "method": "distance_to_nearest_class",
+        "n_classes": 27
+      },
+      "main_finding": {
+        "cohens_d": -0.05114509272307603,
+        "auroc": 0.5064931022270238,
+        "direction": "WEAK/NO EFFECT"
+      }
+    }
+  },
+  "previous_results": {
+    "V2": {
+      "CLINC150": {
+        "d": 2.0287,
+        "direction": "HOMOPHILIC"
+      },
+      "Banking77": {
+        "d": -0.4881,
+        "direction": "HETEROPHILIC"
+      },
+      "ROSTD": {
+        "d": -0.8861,
+        "direction": "HETEROPHILIC"
+      },
+      "ToxiGen": {
+        "d": -0.0262,
+        "direction": "WEAK"
+      }
+    },
+    "Sampled": {
+      "CLINC150": {
+        "d": -1.0103,
+        "direction": "HETEROPHILIC"
+      },
+      "Banking77": {
+        "d": -0.5207,
+        "direction": "HETEROPHILIC"
+      },
+      "ROSTD": {
+        "d": -6.12,
+        "direction": "HETEROPHILIC"
+      },
+      "ToxiGen": {
+        "d": -0.1001,
+        "direction": "WEAK"
+      }
+    }
+  },
+  "summary": {
+    "total_datasets": 4,
+    "successful": 4,
+    "failed": 0
+  }
+}

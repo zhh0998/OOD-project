@@ -1,0 +1,73 @@
+{
+  "dataset": "ROSTD",
+  "config": {
+    "k_neighbors": 20,
+    "ood_type": "diverse-ood",
+    "description": "Real diverse human-authored OOD"
+  },
+  "data_info": {
+    "source": "OODrelease.tsv (full) + mteb/banking77 (full, as ID proxy)",
+    "ood_type": "diverse-ood",
+    "n_id": 13069,
+    "n_ood": 4590,
+    "n_total": 17659
+  },
+  "clustering": {
+    "n_clusters": 4,
+    "n_noise": "4346",
+    "noise_ratio": 0.24610680106461294,
+    "min_cluster_size": 20,
+    "quality_warnings": [
+      "簇数过少 (4 < 5)"
+    ],
+    "quality_ok": false
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.9873249674802967,
+      "id_std": 0.10781956147350423,
+      "ood_mean": 0.07288671023965142,
+      "ood_std": 0.24499044091854902,
+      "cohens_d": -4.83142573085843,
+      "t_statistic": 342.554217749599,
+      "p_value": 0.0,
+      "auroc": 0.9760333247147577,
+      "dataset": "ROSTD"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.8143877",
+      "id_std": "0.07989479",
+      "ood_mean": "0.45477846",
+      "ood_std": "0.10718337",
+      "cohens_d": "-3.8042226",
+      "t_statistic": 238.6823153648081,
+      "p_value": 0.0,
+      "auroc": 0.9880959132447837,
+      "dataset": "ROSTD"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.005941904891447434,
+      "id_std": 0.04337131400862571,
+      "ood_mean": 0.26582427671921693,
+      "ood_std": 0.2736689766341598,
+      "cohens_d": 1.3264158463764435,
+      "t_statistic": -104.8694907232142,
+      "p_value": 0.0,
+      "auroc": 0.7791743454508506,
+      "dataset": "ROSTD"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.9970238907918103,
+    "method": "distance_to_nearest_class",
+    "n_classes": 77
+  },
+  "main_finding": {
+    "cohens_d": -4.83142573085843,
+    "auroc": 0.9760333247147577,
+    "direction": "OOD MORE HETEROPHILIC"
+  }
+}

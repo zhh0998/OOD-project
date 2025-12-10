@@ -1,0 +1,74 @@
+{
+  "dataset": "Banking77",
+  "config": {
+    "k_neighbors": 20,
+    "n_id_classes": 50,
+    "ood_type": "held-out-class",
+    "description": "Held-out intent classes (50 ID / 27 OOD)"
+  },
+  "data_info": {
+    "source": "mteb/banking77 (all data)",
+    "ood_type": "held-out-class",
+    "n_id": 8613,
+    "n_ood": 4456,
+    "n_total": 13069
+  },
+  "clustering": {
+    "n_clusters": 58,
+    "n_noise": "8623",
+    "noise_ratio": 0.6598056469507996,
+    "min_cluster_size": 20,
+    "quality_warnings": [
+      "噪声比例过高 (66.0% > 50%)"
+    ],
+    "quality_ok": false
+  },
+  "statistical_results": [
+    {
+      "feature": "pseudo_label_nhr",
+      "id_mean": 0.28179496110530594,
+      "id_std": 0.4232188346930355,
+      "ood_mean": 0.3382293536804309,
+      "ood_std": 0.4433708122998206,
+      "cohens_d": 0.13020958669285093,
+      "t_statistic": -7.108418247125749,
+      "p_value": 1.2347720962413381e-12,
+      "auroc": 0.5327194096811196,
+      "dataset": "Banking77"
+    },
+    {
+      "feature": "embedding_homophily",
+      "id_mean": "0.8099048",
+      "id_std": "0.078564346",
+      "ood_mean": "0.82277286",
+      "ood_std": "0.082829215",
+      "cohens_d": "0.15940605",
+      "t_statistic": -8.711222111296125,
+      "p_value": 3.364539335647871e-18,
+      "auroc": 0.5564223327603195,
+      "dataset": "Banking77"
+    },
+    {
+      "feature": "neighbor_entropy",
+      "id_mean": 0.3456647327205049,
+      "id_std": 0.2870986726376019,
+      "ood_mean": 0.37739221389047245,
+      "ood_std": 0.2846214477108923,
+      "cohens_d": 0.11098851414561739,
+      "t_statistic": -6.0058671251836575,
+      "p_value": 1.9536590574245814e-09,
+      "auroc": 0.5310152850238283,
+      "dataset": "Banking77"
+    }
+  ],
+  "baseline": {
+    "auroc": 0.8351695336117735,
+    "method": "distance_to_nearest_class",
+    "n_classes": 50
+  },
+  "main_finding": {
+    "cohens_d": 0.13020958669285093,
+    "auroc": 0.5327194096811196,
+    "direction": "WEAK/NO EFFECT"
+  }
+}
