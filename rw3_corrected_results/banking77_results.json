@@ -1,0 +1,49 @@
+{
+  "dataset": "Banking77",
+  "config": {
+    "k_neighbors": 15,
+    "umap_dim": 5,
+    "ood_type": "held-out-class",
+    "description": "Fixed 50/27 split (Zhang et al., ACL 2022)"
+  },
+  "data_info": {
+    "n_id": 9403,
+    "n_ood": 3666,
+    "n_total": 13069
+  },
+  "clustering": {
+    "n_clusters": 262,
+    "n_noise": 1271,
+    "noise_ratio": 0.09725304154870304,
+    "min_cluster_size": 20,
+    "min_samples": 5
+  },
+  "nhr_stats": {
+    "id_mean": 0.8851501293913291,
+    "id_std": 0.3052227188043628,
+    "ood_mean": 0.9032369521731223,
+    "ood_std": 0.2811614765285844,
+    "cohens_d": 0.061637457107829426,
+    "t_statistic": 3.109905909873679,
+    "p_value": 0.0018754947543501688,
+    "auroc": 0.5115918275203113,
+    "direction": "HOMOPHILIC",
+    "effect_label": "Negligible effect (|d|<0.2)",
+    "embedding_homophily": {
+      "id_mean": 0.9838374021049545,
+      "ood_mean": 0.9865575552688592,
+      "cohens_d": 0.1753555603429469,
+      "auroc": 0.5645613502533318
+    }
+  },
+  "baselines": {
+    "knn_distance": 0.9812132655600448,
+    "mahalanobis": 0.6135987580196196
+  },
+  "main_finding": {
+    "cohens_d": 0.061637457107829426,
+    "auroc": 0.5115918275203113,
+    "direction": "HOMOPHILIC",
+    "noise_ratio": 0.09725304154870304
+  }
+}

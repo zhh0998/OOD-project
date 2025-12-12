@@ -1,0 +1,207 @@
+{
+  "experiment": "RW3 Corrected Verification",
+  "timestamp": "2025-12-12T04:11:04.505549",
+  "corrections": [
+    "CLINC150: Dynamic OOS label lookup",
+    "Banking77: Fixed 50/27 split",
+    "All: UMAP dimensionality reduction"
+  ],
+  "results": {
+    "CLINC150": {
+      "dataset": "CLINC150",
+      "config": {
+        "k_neighbors": 15,
+        "umap_dim": 5,
+        "ood_type": "out-of-scope",
+        "description": "Out-of-scope queries (OOS_LABEL=42)"
+      },
+      "data_info": {
+        "n_id": 15000,
+        "n_ood": 1200,
+        "n_total": 16200
+      },
+      "clustering": {
+        "n_clusters": 255,
+        "n_noise": 1305,
+        "noise_ratio": 0.08055555555555556,
+        "min_cluster_size": 20,
+        "min_samples": 5
+      },
+      "nhr_stats": {
+        "id_mean": 0.9251066666666669,
+        "id_std": 0.24772301533350896,
+        "ood_mean": 0.6909444444444446,
+        "ood_std": 0.45285047473656886,
+        "cohens_d": -0.641552078964292,
+        "t_statistic": -29.084888321190785,
+        "p_value": 2.4725987837983433e-181,
+        "auroc": 0.6330571944444444,
+        "direction": "HETEROPHILIC",
+        "effect_label": "Medium effect (0.5<|d|<0.8)",
+        "embedding_homophily": {
+          "id_mean": 0.9707661151308199,
+          "ood_mean": 0.8988589931401515,
+          "cohens_d": -1.0317683643145479,
+          "auroc": 0.8351761111111111
+        }
+      },
+      "baselines": {
+        "knn_distance": 0.8861537222222222,
+        "mahalanobis": 0.21735194444444444
+      },
+      "main_finding": {
+        "cohens_d": -0.641552078964292,
+        "auroc": 0.6330571944444444,
+        "direction": "HETEROPHILIC",
+        "noise_ratio": 0.08055555555555556
+      }
+    },
+    "Banking77": {
+      "dataset": "Banking77",
+      "config": {
+        "k_neighbors": 15,
+        "umap_dim": 5,
+        "ood_type": "held-out-class",
+        "description": "Fixed 50/27 split (Zhang et al., ACL 2022)"
+      },
+      "data_info": {
+        "n_id": 9403,
+        "n_ood": 3666,
+        "n_total": 13069
+      },
+      "clustering": {
+        "n_clusters": 262,
+        "n_noise": 1271,
+        "noise_ratio": 0.09725304154870304,
+        "min_cluster_size": 20,
+        "min_samples": 5
+      },
+      "nhr_stats": {
+        "id_mean": 0.8851501293913291,
+        "id_std": 0.3052227188043628,
+        "ood_mean": 0.9032369521731223,
+        "ood_std": 0.2811614765285844,
+        "cohens_d": 0.061637457107829426,
+        "t_statistic": 3.109905909873679,
+        "p_value": 0.0018754947543501688,
+        "auroc": 0.5115918275203113,
+        "direction": "HOMOPHILIC",
+        "effect_label": "Negligible effect (|d|<0.2)",
+        "embedding_homophily": {
+          "id_mean": 0.9838374021049545,
+          "ood_mean": 0.9865575552688592,
+          "cohens_d": 0.1753555603429469,
+          "auroc": 0.5645613502533318
+        }
+      },
+      "baselines": {
+        "knn_distance": 0.9812132655600448,
+        "mahalanobis": 0.6135987580196196
+      },
+      "main_finding": {
+        "cohens_d": 0.061637457107829426,
+        "auroc": 0.5115918275203113,
+        "direction": "HOMOPHILIC",
+        "noise_ratio": 0.09725304154870304
+      }
+    },
+    "ROSTD": {
+      "dataset": "ROSTD",
+      "config": {
+        "k_neighbors": 15,
+        "umap_dim": 5,
+        "ood_type": "diverse-ood",
+        "description": "Real diverse human-authored OOD"
+      },
+      "data_info": {
+        "n_id": 13069,
+        "n_ood": 4590,
+        "n_total": 17659
+      },
+      "clustering": {
+        "n_clusters": 301,
+        "n_noise": 2748,
+        "noise_ratio": 0.15561470071918002,
+        "min_cluster_size": 20,
+        "min_samples": 5
+      },
+      "nhr_stats": {
+        "id_mean": 0.8862805111332159,
+        "id_std": 0.3034245788349303,
+        "ood_mean": 0.6478721859114016,
+        "ood_std": 0.44979265685402936,
+        "cohens_d": -0.6214158569035505,
+        "t_statistic": -39.98964110951602,
+        "p_value": 0.0,
+        "auroc": 0.6682007314620187,
+        "direction": "HETEROPHILIC",
+        "effect_label": "Medium effect (0.5<|d|<0.8)",
+        "embedding_homophily": {
+          "id_mean": 0.9866068511191768,
+          "ood_mean": 0.9614733379115247,
+          "cohens_d": -1.2904427477606222,
+          "auroc": 0.8609852749050582
+        }
+      },
+      "baselines": {
+        "knn_distance": 0.9881346885001695,
+        "mahalanobis": 0.4976350594990123
+      },
+      "main_finding": {
+        "cohens_d": -0.6214158569035505,
+        "auroc": 0.6682007314620187,
+        "direction": "HETEROPHILIC",
+        "noise_ratio": 0.15561470071918002
+      }
+    },
+    "ToxiGen": {
+      "dataset": "ToxiGen",
+      "config": {
+        "k_neighbors": 15,
+        "umap_dim": 5,
+        "ood_type": "toxicity-based",
+        "description": "Toxicity-based OOD (threshold=2.5)"
+      },
+      "data_info": {
+        "n_id": 5312,
+        "n_ood": 3648,
+        "n_total": 8960
+      },
+      "clustering": {
+        "n_clusters": 173,
+        "n_noise": 2379,
+        "noise_ratio": 0.26551339285714287,
+        "min_cluster_size": 15,
+        "min_samples": 5
+      },
+      "nhr_stats": {
+        "id_mean": 0.6754267068273092,
+        "id_std": 0.4357941810717022,
+        "ood_mean": 0.7183114035087721,
+        "ood_std": 0.4193957113240162,
+        "cohens_d": 0.10027437202997437,
+        "t_statistic": 4.646258744419629,
+        "p_value": 3.4283212684551078e-06,
+        "auroc": 0.5290262612951807,
+        "direction": "HOMOPHILIC",
+        "effect_label": "Negligible effect (|d|<0.2)",
+        "embedding_homophily": {
+          "id_mean": 0.9777061739070669,
+          "ood_mean": 0.980525008802652,
+          "cohens_d": 0.13232913235111537,
+          "auroc": 0.5281527528700327
+        }
+      },
+      "baselines": {
+        "knn_distance": 0.7098394606386069,
+        "mahalanobis": 0.5443626376393733
+      },
+      "main_finding": {
+        "cohens_d": 0.10027437202997437,
+        "auroc": 0.5290262612951807,
+        "direction": "HOMOPHILIC",
+        "noise_ratio": 0.26551339285714287
+      }
+    }
+  }
+}

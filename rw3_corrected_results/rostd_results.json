@@ -1,0 +1,49 @@
+{
+  "dataset": "ROSTD",
+  "config": {
+    "k_neighbors": 15,
+    "umap_dim": 5,
+    "ood_type": "diverse-ood",
+    "description": "Real diverse human-authored OOD"
+  },
+  "data_info": {
+    "n_id": 13069,
+    "n_ood": 4590,
+    "n_total": 17659
+  },
+  "clustering": {
+    "n_clusters": 301,
+    "n_noise": 2748,
+    "noise_ratio": 0.15561470071918002,
+    "min_cluster_size": 20,
+    "min_samples": 5
+  },
+  "nhr_stats": {
+    "id_mean": 0.8862805111332159,
+    "id_std": 0.3034245788349303,
+    "ood_mean": 0.6478721859114016,
+    "ood_std": 0.44979265685402936,
+    "cohens_d": -0.6214158569035505,
+    "t_statistic": -39.98964110951602,
+    "p_value": 0.0,
+    "auroc": 0.6682007314620187,
+    "direction": "HETEROPHILIC",
+    "effect_label": "Medium effect (0.5<|d|<0.8)",
+    "embedding_homophily": {
+      "id_mean": 0.9866068511191768,
+      "ood_mean": 0.9614733379115247,
+      "cohens_d": -1.2904427477606222,
+      "auroc": 0.8609852749050582
+    }
+  },
+  "baselines": {
+    "knn_distance": 0.9881346885001695,
+    "mahalanobis": 0.4976350594990123
+  },
+  "main_finding": {
+    "cohens_d": -0.6214158569035505,
+    "auroc": 0.6682007314620187,
+    "direction": "HETEROPHILIC",
+    "noise_ratio": 0.15561470071918002
+  }
+}
