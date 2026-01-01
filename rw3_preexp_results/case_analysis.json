@@ -1,0 +1,302 @@
+[
+  {
+    "rank": 1,
+    "sample_id": 7500,
+    "text": "how much is an overdraft fee for bank",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.48798269033432007,
+    "top5_neighbors": [
+      {
+        "text": "how much over will overdraft protection cover",
+        "similarity": 0.6192087531089783
+      },
+      {
+        "text": "do i have overdraft protection",
+        "similarity": 0.5439127683639526
+      },
+      {
+        "text": "how much are the foreign transaction fees in brisbane",
+        "similarity": 0.4302557408809662
+      },
+      {
+        "text": "what is the fee for a cash advance",
+        "similarity": 0.4258304834365845
+      },
+      {
+        "text": "how much is the atm fee for my boa card in orlando, fl",
+        "similarity": 0.4207058250904083
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "sample_id": 16199,
+    "text": "let me know where jim is right now",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.604183554649353,
+    "top5_neighbors": [
+      {
+        "text": "tell jim i'm coming home soon",
+        "similarity": 0.6375488042831421
+      },
+      {
+        "text": "call jim",
+        "similarity": 0.6326674222946167
+      },
+      {
+        "text": "when is my meeting with jim scheduled for",
+        "similarity": 0.6312211751937866
+      },
+      {
+        "text": "schedule my meeting with jim at 3pm",
+        "similarity": 0.5672820806503296
+      },
+      {
+        "text": "can you schedule a meeting with james at the office, please",
+        "similarity": 0.5521983504295349
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "sample_id": 16198,
+    "text": "locate jenny at her present position",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.5208266973495483,
+    "top5_neighbors": [
+      {
+        "text": "would you give jenny a call",
+        "similarity": 0.5575845837593079
+      },
+      {
+        "text": "i would like brenda to have my location",
+        "similarity": 0.528109610080719
+      },
+      {
+        "text": "send sarah my current location",
+        "similarity": 0.520343542098999
+      },
+      {
+        "text": "let lisa know where i am now",
+        "similarity": 0.5034639239311218
+      },
+      {
+        "text": "will you let mary know my location",
+        "similarity": 0.4946317672729492
+      }
+    ]
+  },
+  {
+    "rank": 4,
+    "sample_id": 16197,
+    "text": "where's my buddy steve right this second",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.6190105676651001,
+    "top5_neighbors": [
+      {
+        "text": "send my current location to steve, please",
+        "similarity": 0.6595517992973328
+      },
+      {
+        "text": "steve needs to know my location",
+        "similarity": 0.6593416929244995
+      },
+      {
+        "text": "i'd like to send steve my location",
+        "similarity": 0.6065158247947693
+      },
+      {
+        "text": "can you schedule a meeting with steve at the office, please",
+        "similarity": 0.5888944268226624
+      },
+      {
+        "text": "share my location with steve",
+        "similarity": 0.5807492733001709
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "sample_id": 16196,
+    "text": "can you give me the gps location of harvey",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.6562527418136597,
+    "top5_neighbors": [
+      {
+        "text": "can you share my location with roger",
+        "similarity": 0.6811763048171997
+      },
+      {
+        "text": "can you give me my gps coordinates",
+        "similarity": 0.6574816107749939
+      },
+      {
+        "text": "please give me my gps coordinates",
+        "similarity": 0.6555758714675903
+      },
+      {
+        "text": "can you indicate my location to my friend",
+        "similarity": 0.6512285470962524
+      },
+      {
+        "text": "give me my gps coordinates",
+        "similarity": 0.6358016729354858
+      }
+    ]
+  },
+  {
+    "rank": 6,
+    "sample_id": 16195,
+    "text": "find my wallet",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.6493677496910095,
+    "top5_neighbors": [
+      {
+        "text": "give me my wallet location",
+        "similarity": 0.6739227771759033
+      },
+      {
+        "text": "can you detect where i placed my wallet",
+        "similarity": 0.6736486554145813
+      },
+      {
+        "text": "find my cellphone",
+        "similarity": 0.6406387686729431
+      },
+      {
+        "text": "how can i find my phone",
+        "similarity": 0.6364666819572449
+      },
+      {
+        "text": "help me find my phone",
+        "similarity": 0.622161865234375
+      }
+    ]
+  },
+  {
+    "rank": 7,
+    "sample_id": 16194,
+    "text": "give me my wallet location",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.711000919342041,
+    "top5_neighbors": [
+      {
+        "text": "show me my location",
+        "similarity": 0.7218038439750671
+      },
+      {
+        "text": "can you tell me my current location",
+        "similarity": 0.7133762836456299
+      },
+      {
+        "text": "please tell me the address of my current location",
+        "similarity": 0.7115849256515503
+      },
+      {
+        "text": "can you tell me my location",
+        "similarity": 0.7041570544242859
+      },
+      {
+        "text": "tell me my current location",
+        "similarity": 0.7040821313858032
+      }
+    ]
+  },
+  {
+    "rank": 8,
+    "sample_id": 16193,
+    "text": "can you detect where i placed my wallet",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.5966017842292786,
+    "top5_neighbors": [
+      {
+        "text": "find my wallet",
+        "similarity": 0.6736486554145813
+      },
+      {
+        "text": "give me my wallet location",
+        "similarity": 0.5971853137016296
+      },
+      {
+        "text": "can you track the location of my phone",
+        "similarity": 0.5930256843566895
+      },
+      {
+        "text": "is there a way to get my current location",
+        "similarity": 0.5630916953086853
+      },
+      {
+        "text": "where did i place my phone",
+        "similarity": 0.5560575723648071
+      }
+    ]
+  },
+  {
+    "rank": 9,
+    "sample_id": 16192,
+    "text": "please ping the rfid in my wallet and tell me where it's at right now",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.5363014936447144,
+    "top5_neighbors": [
+      {
+        "text": "give me my wallet location",
+        "similarity": 0.5704594850540161
+      },
+      {
+        "text": "do you know my phone's location",
+        "similarity": 0.5334891676902771
+      },
+      {
+        "text": "can you locate my phone",
+        "similarity": 0.5310773253440857
+      },
+      {
+        "text": "my card is lost please report it",
+        "similarity": 0.525639533996582
+      },
+      {
+        "text": "can you give me my gps coordinates",
+        "similarity": 0.5208418369293213
+      }
+    ]
+  },
+  {
+    "rank": 10,
+    "sample_id": 16191,
+    "text": "have you seen the remote",
+    "heterophily": 1.0,
+    "n_neighbors": 10,
+    "avg_neighbor_similarity": 0.5877913236618042,
+    "top5_neighbors": [
+      {
+        "text": "do you know where the remote is",
+        "similarity": 0.715194821357727
+      },
+      {
+        "text": "can you locate the television remote",
+        "similarity": 0.6065113544464111
+      },
+      {
+        "text": "where did i last place my remote",
+        "similarity": 0.5945138931274414
+      },
+      {
+        "text": "have you seen my cellphone",
+        "similarity": 0.5933042764663696
+      },
+      {
+        "text": "do you know where i left my phone",
+        "similarity": 0.42943212389945984
+      }
+    ]
+  }
+]
