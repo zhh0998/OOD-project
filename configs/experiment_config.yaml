@@ -1,0 +1,82 @@
+# RW1 Preliminary Experiments Configuration
+# ==========================================
+
+# General settings
+experiment:
+  name: "RW1_Preliminary_Experiments"
+  version: "0.1.0"
+  seed: 42
+  output_dir: "./results"
+
+# Data directories
+data:
+  nyt10: "./nyt10"
+  fewrel: "./fewrel"
+  docred: "./docred"
+  nyth: "./nyth"
+
+# Hypothesis 1: Distribution Shift vs F1 Drop
+h1:
+  enabled: true
+  n_scenarios: 10
+  shift_levels: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+  baseline_model: "bert-base"
+  threshold:
+    pearson_r: 0.8
+    p_value: 0.05
+
+# Hypothesis 2: ARS vs Forgetting Rate
+h2:
+  enabled: true
+  n_tasks: 10
+  relations_per_task: 8
+  n_runs: 5
+  llm_model: "gpt-4o-mini"  # For ARS computation (optional)
+  threshold:
+    spearman_rho: 0.5
+    cohens_d: 0.5
+    p_value: 0.05
+
+# Hypothesis 3: PDI vs Noise Rate
+h3:
+  enabled: true
+  noise_rates: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+  n_runs: 5
+  embedding_dim: 256
+  threshold:
+    pearson_r: 0.5
+    p_value: 0.05
+
+# Hypothesis 4: Path Length vs False Negative
+h4:
+  enabled: true
+  path_length_bins:
+    short: [0, 2]
+    medium: [3, 4]
+    long: [5, 100]
+  threshold:
+    cohens_d: 0.5
+
+# Hypothesis 5: Bag Size vs Reliability
+h5:
+  enabled: true
+  bag_size_groups:
+    single: [1, 1]
+    small: [2, 2]
+    multi: [3, 100]
+  threshold:
+    cohens_d_min: 0.5
+    cohens_d_max: 0.8
+
+# Visualization settings
+visualization:
+  style: "seaborn-v0_8-whitegrid"
+  figure_format: "png"
+  dpi: 300
+  figsize: [8, 6]
+
+# Statistical analysis settings
+statistics:
+  significance_level: 0.05
+  bootstrap_samples: 10000
+  confidence_level: 0.95
