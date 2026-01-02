@@ -27,43 +27,108 @@ print("="*60)
 # ============================================================
 
 class SimpleDataLoader:
-    """简化的数据加载器"""
+    """简化的数据加载器 - 支持OGB/TGB/模拟数据"""
     def __init__(self):
+        self.data = None
+
+        # 尝试1: TGB
         try:
             from tgb.linkproppred.dataset import LinkPropPredDataset
             print("Loading TGB dataset: tgbl-wiki-v2")
             self.dataset = LinkPropPredDataset(name='tgbl-wiki-v2', root='datasets')
             self.data = self.dataset.full_data
-
-            # 统计
             num_nodes = len(torch.unique(torch.cat([
                 self.data['sources'], self.data['destinations']
             ])))
-            print(f"Nodes: {num_nodes:,}, Edges: {len(self.data['sources']):,}")
-
+            print(f"[TGB] Nodes: {num_nodes:,}, Edges: {len(self.data['sources']):,}")
+            return
         except Exception as e:
             print(f"TGB加载失败: {e}")
-            print("使用模拟数据...")
-            self._create_dummy_data()
 
-    def _create_dummy_data(self):
-        """创建模拟数据用于快速测试"""
-        n_samples = 10000
-        n_nodes = 1000
+        # 尝试2: OGB (ogbl-collab - 时序协作网络)
+        try:
+            from ogb.linkproppred import LinkPropPredDataset
+            print("Loading OGB dataset: ogbl-collab")
+            dataset = LinkPropPredDataset(name='ogbl-collab', root='datasets')
+            edge_split = dataset.get_edge_split()
+
+            # 转换为时序格式
+            train_edge = edge_split['train']['edge']
+            train_year = edge_split['train']['year'].flatten()
+            valid_edge = edge_split['valid']['edge']
+            valid_year = edge_split['valid']['year'].flatten()
+            test_edge = edge_split['test']['edge']
+            test_year = edge_split['test']['year'].flatten()
+
+            # 合并数据
+            all_edges = np.vstack([train_edge, valid_edge, test_edge])
+            all_years = np.concatenate([train_year, valid_year, test_year])
+
+            n_train = len(train_edge)
+            n_valid = len(valid_edge)
+            n_test = len(test_edge)
+            n_total = n_train + n_valid + n_test
+
+            self.data = {
+                'sources': torch.from_numpy(all_edges[:, 0]),
+                'destinations': torch.from_numpy(all_edges[:, 1]),
+                'timestamps': torch.from_numpy(all_years.astype(np.float32)),
+                'train_mask': torch.zeros(n_total, dtype=torch.bool),
+                'val_mask': torch.zeros(n_total, dtype=torch.bool),
+                'test_mask': torch.zeros(n_total, dtype=torch.bool)
+            }
+            self.data['train_mask'][:n_train] = True
+            self.data['val_mask'][n_train:n_train+n_valid] = True
+            self.data['test_mask'][n_train+n_valid:] = True
+
+            num_nodes = int(all_edges.max()) + 1
+            print(f"[OGB] Nodes: {num_nodes:,}, Edges: {n_total:,}")
+            print(f"[OGB] Train: {n_train:,}, Valid: {n_valid:,}, Test: {n_test:,}")
+            return
+        except Exception as e:
+            print(f"OGB加载失败: {e}")
+
+        # 尝试3: 使用真实规模的模拟数据
+        print("使用大规模模拟数据 (模拟Wikipedia编辑网络)...")
+        self._create_realistic_data()
+
+    def _create_realistic_data(self):
+        """创建真实规模的模拟数据"""
+        # 模拟Wikipedia编辑网络规模
+        n_nodes = 9227  # 类似tgbl-wiki
+        n_edges = 157474
+
+        print(f"生成模拟网络: {n_nodes:,} nodes, {n_edges:,} edges")
+
+        # 生成幂律度分布的边
+        # 高度数节点更可能参与交互
+        degree_prob = np.random.power(0.5, n_nodes)
+        degree_prob = degree_prob / degree_prob.sum()
+
+        sources = np.random.choice(n_nodes, size=n_edges, p=degree_prob)
+        destinations = np.random.choice(n_nodes, size=n_edges, p=degree_prob)
+
+        # 时间戳 (模拟1年的数据，按秒)
+        timestamps = np.sort(np.random.uniform(0, 365*24*3600, n_edges))
 
         self.data = {
-            'sources': torch.randint(0, n_nodes, (n_samples,)),
-            'destinations': torch.randint(0, n_nodes, (n_samples,)),
-            'timestamps': torch.arange(n_samples).float(),
-            'train_mask': torch.zeros(n_samples, dtype=torch.bool),
-            'val_mask': torch.zeros(n_samples, dtype=torch.bool),
-            'test_mask': torch.zeros(n_samples, dtype=torch.bool)
+            'sources': torch.from_numpy(sources.astype(np.int64)),
+            'destinations': torch.from_numpy(destinations.astype(np.int64)),
+            'timestamps': torch.from_numpy(timestamps.astype(np.float32)),
+            'train_mask': torch.zeros(n_edges, dtype=torch.bool),
+            'val_mask': torch.zeros(n_edges, dtype=torch.bool),
+            'test_mask': torch.zeros(n_edges, dtype=torch.bool)
         }
 
-        # 70% train, 15% val, 15% test
-        self.data['train_mask'][:7000] = True
-        self.data['val_mask'][7000:8500] = True
-        self.data['test_mask'][8500:] = True
+        # 时序划分: 70% train, 15% val, 15% test
+        n_train = int(0.7 * n_edges)
+        n_val = int(0.15 * n_edges)
+
+        self.data['train_mask'][:n_train] = True
+        self.data['val_mask'][n_train:n_train+n_val] = True
+        self.data['test_mask'][n_train+n_val:] = True
+
+        print(f"Train: {n_train:,}, Val: {n_val:,}, Test: {n_edges-n_train-n_val:,}")
 
     def get_train_data(self):
         mask = self.data['train_mask']
@@ -250,10 +315,14 @@ def train_model(model, train_data, epochs=20, lr=0.001, batch_size=200):
             # 前向传播
             emb = model(batch_src, batch_dst, batch_time)
 
-            # 简单的链接预测损失（余弦相似度）
-            pos_score = F.cosine_similarity(emb[:len(emb)//2], emb[len(emb)//2:], dim=-1)
+            # 获取源节点和目标节点嵌入
+            src_emb = model.node_emb(batch_src)
+            dst_emb = model.node_emb(batch_dst)
 
-            # 负采样
+            # 正样本分数：源-目标对
+            pos_score = F.cosine_similarity(emb, dst_emb, dim=-1)
+
+            # 负采样：随机目标节点
             neg_dst = torch.randint(0, model.node_emb.num_embeddings, (len(batch_src),), device=device)
             neg_emb = model.node_emb(neg_dst)
             neg_score = F.cosine_similarity(emb, neg_emb, dim=-1)
