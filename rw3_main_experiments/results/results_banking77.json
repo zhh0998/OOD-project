@@ -1,0 +1,44 @@
+{
+  "Mahalanobis": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.00000000000003
+  },
+  "KNN": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.00000000000003
+  },
+  "KNN-10": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.0
+  },
+  "LOF": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.0
+  },
+  "CosineDistance": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.00000000000003
+  },
+  "Heterophily-Simple": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.00000000000003
+  },
+  "NegHetero-OOD": {
+    "auroc": 100.0,
+    "fpr95": 0.0,
+    "aupr_out": 100.0,
+    "aupr_in": 100.0
+  }
+}
