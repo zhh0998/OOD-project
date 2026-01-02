@@ -1,1 +1,2 @@
 rw3_preexp_results/clinc150_embeddings.pt
+rw3_generalization_results/*_embeddings.pt
