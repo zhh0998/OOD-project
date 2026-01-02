@@ -1,0 +1,38 @@
+H4 Case Analysis: Long Path False Negatives
+==================================================
+
+Case 1:
+  Document: Willi Schneider (skeleton racer)
+  Relation: P156
+  Path Length: 6
+  Sentence Distance: 2
+  Analysis: Cross-sentence relation with 6 hops
+
+Case 2:
+  Document: Willi Schneider (skeleton racer)
+  Relation: P155
+  Path Length: 6
+  Sentence Distance: 2
+  Analysis: Cross-sentence relation with 6 hops
+
+Case 3:
+  Document: Willi Schneider (skeleton racer)
+  Relation: P710
+  Path Length: 5
+  Sentence Distance: 1
+  Analysis: Cross-sentence relation with 5 hops
+
+Case 4:
+  Document: Willi Schneider (skeleton racer)
+  Relation: P710
+  Path Length: 5
+  Sentence Distance: 1
+  Analysis: Cross-sentence relation with 5 hops
+
+Case 5:
+  Document: Ross Alger
+  Relation: P19
+  Path Length: 5
+  Sentence Distance: 1
+  Analysis: Cross-sentence relation with 5 hops
+

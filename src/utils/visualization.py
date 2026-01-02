@@ -187,17 +187,20 @@ def plot_grouped_boxplot(
     if show_significance and len(groups) >= 2:
         from scipy import stats
 
-        # Compare first and last groups
-        t_stat, p_value = stats.ttest_ind(groups[0], groups[-1])
+        # Check that groups are not empty
+        non_empty_groups = [g for g in groups if len(g) > 0]
+        if len(non_empty_groups) >= 2:
+            # Compare first and last non-empty groups
+            t_stat, p_value = stats.ttest_ind(non_empty_groups[0], non_empty_groups[-1])
 
-        significance = "***" if p_value < 0.001 else "**" if p_value < 0.01 else "*" if p_value < 0.05 else "n.s."
+            significance = "***" if p_value < 0.001 else "**" if p_value < 0.01 else "*" if p_value < 0.05 else "n.s."
 
-        # Draw significance bar
-        y_max = max([max(g) for g in groups])
-        y_bar = y_max * 1.1
-        ax.plot([1, len(groups)], [y_bar, y_bar], 'k-', linewidth=1)
-        ax.text((1 + len(groups)) / 2, y_bar * 1.02, significance,
-                ha='center', fontsize=12, fontweight='bold')
+            # Draw significance bar
+            y_max = max([max(g) for g in non_empty_groups])
+            y_bar = y_max * 1.1
+            ax.plot([1, len(groups)], [y_bar, y_bar], 'k-', linewidth=1)
+            ax.text((1 + len(groups)) / 2, y_bar * 1.02, significance,
+                    ha='center', fontsize=12, fontweight='bold')
 
     ax.set_ylabel(ylabel)
     ax.set_title(title)

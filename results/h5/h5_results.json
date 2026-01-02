@@ -1,0 +1,105 @@
+{
+  "hypothesis": "H5",
+  "description": "Bag Size vs Label Reliability",
+  "passed": false,
+  "statistics": {
+    "cohens_d": 1.2740848318840925,
+    "t_statistic": 33.79762993932035,
+    "p_value": 7.964432361813141e-187,
+    "pearson_r": 0.7855357649877318
+  },
+  "group_analysis": {
+    "size_1": {
+      "count": 1374,
+      "reliability": 0.5218340611353712
+    },
+    "size_2": {
+      "count": 879,
+      "reliability": 0.8236632536973834
+    },
+    "size_3plus": {
+      "count": 1295,
+      "reliability": 0.9884169884169884
+    }
+  },
+  "relation_analysis": [
+    {
+      "relation": "/business/company/founders",
+      "cohens_d": 1.4112588730077043,
+      "reliability_diff": 0.5026390888198602
+    },
+    {
+      "relation": "/people/person/place_lived",
+      "cohens_d": 1.3602024093280407,
+      "reliability_diff": 0.5057936270102887
+    },
+    {
+      "relation": "/people/person/nationality",
+      "cohens_d": 1.2732289935992755,
+      "reliability_diff": 0.47800664451827246
+    },
+    {
+      "relation": "/people/person/place_of_birth",
+      "cohens_d": 1.259544664917982,
+      "reliability_diff": 0.4545454545454546
+    },
+    {
+      "relation": "/location/country/capital",
+      "cohens_d": 1.2106001364636272,
+      "reliability_diff": 0.43958847960042347
+    },
+    {
+      "relation": "/location/location/contains",
+      "cohens_d": 1.1937875487791445,
+      "reliability_diff": 0.45267759562841525
+    },
+    {
+      "relation": "/business/company/place_founded",
+      "cohens_d": 1.1855927659842351,
+      "reliability_diff": 0.4231746031746032
+    }
+  ],
+  "size_trend": [
+    {
+      "size": 1,
+      "mean_reliability": 0.5218340611353712,
+      "n_bags": 1374
+    },
+    {
+      "size": 2,
+      "mean_reliability": 0.8236632536973834,
+      "n_bags": 879
+    },
+    {
+      "size": 3,
+      "mean_reliability": 0.9711934156378601,
+      "n_bags": 243
+    },
+    {
+      "size": 4,
+      "mean_reliability": 0.9822064056939501,
+      "n_bags": 281
+    },
+    {
+      "size": 5,
+      "mean_reliability": 0.9890510948905109,
+      "n_bags": 274
+    },
+    {
+      "size": 6,
+      "mean_reliability": 1.0,
+      "n_bags": 236
+    },
+    {
+      "size": 7,
+      "mean_reliability": 1.0,
+      "n_bags": 261
+    }
+  ],
+  "threshold": {
+    "cohens_d": [
+      0.5,
+      0.8
+    ]
+  }
+}

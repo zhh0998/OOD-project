@@ -217,7 +217,10 @@ class DocREDDataset:
     def load_dev(self, path: Optional[str] = None) -> List[DocREDDocument]:
         """Load development documents"""
         if path is None:
-            path = os.path.join(self.data_dir, 'dev.json')
+            # Try revised version first, then original
+            path = os.path.join(self.data_dir, 'dev_revised.json')
+            if not os.path.exists(path):
+                path = os.path.join(self.data_dir, 'dev.json')
         self.dev_docs = self._load_data(path)
         return self.dev_docs
 

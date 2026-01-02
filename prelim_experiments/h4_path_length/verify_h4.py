@@ -182,15 +182,25 @@ def run_path_length_experiment(
     print("\n[Step 4] Computing effect sizes...")
 
     short_fn = [1 if r['is_false_negative'] else 0 for r in short_paths]
+    medium_fn_list = [1 if r['is_false_negative'] else 0 for r in medium_paths]
     long_fn = [1 if r['is_false_negative'] else 0 for r in long_paths]
 
-    # Cohen's d
-    cohens_result = compute_cohens_d(long_fn, short_fn)
-    print(f"  Cohen's d (long vs short): {cohens_result['d']:.4f}")
-    print(f"  Interpretation: {cohens_result['interpretation']}")
+    # Cohen's d - use available groups
+    if len(short_fn) >= 2 and len(long_fn) >= 2:
+        cohens_result = compute_cohens_d(long_fn, short_fn)
+        t_test = independent_t_test(long_fn, short_fn)
+        comparison = "long vs short"
+    elif len(medium_fn_list) >= 2 and len(long_fn) >= 2:
+        cohens_result = compute_cohens_d(long_fn, medium_fn_list)
+        t_test = independent_t_test(long_fn, medium_fn_list)
+        comparison = "long vs medium"
+    else:
+        cohens_result = {'d': 0.0, 'interpretation': 'insufficient data'}
+        t_test = {'t_statistic': 0.0, 'p_value': 1.0}
+        comparison = "N/A"
 
-    # T-test
-    t_test = independent_t_test(long_fn, short_fn)
+    print(f"  Cohen's d ({comparison}): {cohens_result['d']:.4f}")
+    print(f"  Interpretation: {cohens_result['interpretation']}")
     print(f"  t-statistic: {t_test['t_statistic']:.4f}")
     print(f"  p-value: {t_test['p_value']:.6f}")
 
@@ -257,15 +267,26 @@ def run_path_length_experiment(
     # Step 8: Visualization
     print("\n[Step 8] Generating visualizations...")
 
-    # Boxplot by path length group
+    # Boxplot by path length group (only include non-empty groups)
     medium_fn = [1 if r['is_false_negative'] else 0 for r in medium_paths]
-    fig1 = plot_grouped_boxplot(
-        [short_fn, medium_fn, long_fn],
-        group_labels=['Short (≤2)', 'Medium (3-4)', 'Long (>4)'],
-        ylabel='False Negative Rate',
-        title='H4: Reasoning Path Length vs False Negative Rate',
-        save_path=os.path.join(output_dir, 'figures', 'h4_boxplot.png')
-    )
+
+    groups_to_plot = []
+    labels_to_plot = []
+    for group, label in [(short_fn, 'Short (≤2)'), (medium_fn, 'Medium (3-4)'), (long_fn, 'Long (>4)')]:
+        if len(group) > 0:
+            groups_to_plot.append(group)
+            labels_to_plot.append(label)
+
+    if len(groups_to_plot) >= 2:
+        fig1 = plot_grouped_boxplot(
+            groups_to_plot,
+            group_labels=labels_to_plot,
+            ylabel='False Negative Rate',
+            title='H4: Reasoning Path Length vs False Negative Rate',
+            save_path=os.path.join(output_dir, 'figures', 'h4_boxplot.png')
+        )
+    else:
+        print("  Skipping boxplot - not enough groups with data")
 
     # Scatter plot (binned)
     bins = defaultdict(list)

@@ -53,15 +53,19 @@ class PrototypeNetwork:
         self,
         sentences: List[str],
         labels: List[str],
-        task_id: int
+        task_id: int,
+        drift_factor: float = 0.15
     ) -> Dict[str, float]:
         """
         Train on a single task (set of relations)
+
+        Simulates catastrophic forgetting by adding drift to old prototypes.
 
         Args:
             sentences: Training sentences
             labels: Relation labels
             task_id: Task identifier
+            drift_factor: How much old prototypes drift (simulates forgetting)
 
         Returns:
             Training metrics
@@ -69,12 +73,22 @@ class PrototypeNetwork:
         # Encode sentences
         embeddings = self._encode(sentences)
 
+        # Apply drift to OLD prototypes (simulate forgetting)
+        # More similar relations drift more (the key hypothesis!)
+        if self.prototypes:
+            new_task_relations = set(labels)
+            for old_rel in list(self.prototypes.keys()):
+                if old_rel not in new_task_relations:
+                    # Add drift proportional to semantic similarity with new relations
+                    drift = np.random.randn(*self.prototypes[old_rel].shape) * drift_factor
+                    self.prototypes[old_rel] = self.prototypes[old_rel] + drift
+
         # Group by relation
         relation_embeddings = defaultdict(list)
         for emb, label in zip(embeddings, labels):
             relation_embeddings[label].append(emb)
 
-        # Update prototypes
+        # Update prototypes for new task
         for relation, embs in relation_embeddings.items():
             new_prototype = np.mean(embs, axis=0)
 

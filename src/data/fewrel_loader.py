@@ -171,13 +171,29 @@ class FewRelDataset:
             data[relation] = []
             for sample in samples:
                 tokens = sample['tokens']
+
+                # Handle FewRel format: h/t = [name, wikidata_id, [[positions]]]
+                h_positions = sample['h'][2][0]  # List of token indices
+                t_positions = sample['t'][2][0]
+
+                # Get word span
+                if len(h_positions) == 1:
+                    h_start, h_end = h_positions[0], h_positions[0] + 1
+                else:
+                    h_start, h_end = h_positions[0], h_positions[-1] + 1
+
+                if len(t_positions) == 1:
+                    t_start, t_end = t_positions[0], t_positions[0] + 1
+                else:
+                    t_start, t_end = t_positions[0], t_positions[-1] + 1
+
                 head = {
-                    'word': ' '.join(tokens[sample['h'][2][0][0]:sample['h'][2][0][1]]),
-                    'pos': sample['h'][2][0]
+                    'word': ' '.join(tokens[h_start:h_end]),
+                    'pos': [h_start, h_end]
                 }
                 tail = {
-                    'word': ' '.join(tokens[sample['t'][2][0][0]:sample['t'][2][0][1]]),
-                    'pos': sample['t'][2][0]
+                    'word': ' '.join(tokens[t_start:t_end]),
+                    'pos': [t_start, t_end]
                 }
                 data[relation].append(FewRelSample(tokens, head, tail, relation))
 

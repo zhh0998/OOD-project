@@ -1,0 +1,70 @@
+{
+  "hypothesis": "H4",
+  "description": "Path Length vs False Negative Rate",
+  "passed": false,
+  "statistics": {
+    "cohens_d": 0.37483731584974117,
+    "t_statistic": 24.430429468293617,
+    "p_value": 1.6382912417905535e-129,
+    "pearson_r": 0.2556500105283927
+  },
+  "group_analysis": {
+    "short_paths": {
+      "count": 0,
+      "fn_rate": 0.0
+    },
+    "medium_paths": {
+      "count": 7982,
+      "fn_rate": 0.5045101478326234
+    },
+    "long_paths": {
+      "count": 9302,
+      "fn_rate": 0.6849064717265104
+    }
+  },
+  "case_analysis": [
+    {
+      "case_id": 1,
+      "doc_title": "Willi Schneider (skeleton racer)",
+      "relation": "P156",
+      "path_length": 6,
+      "sent_distance": 2,
+      "analysis": "Cross-sentence relation with 6 hops"
+    },
+    {
+      "case_id": 2,
+      "doc_title": "Willi Schneider (skeleton racer)",
+      "relation": "P155",
+      "path_length": 6,
+      "sent_distance": 2,
+      "analysis": "Cross-sentence relation with 6 hops"
+    },
+    {
+      "case_id": 3,
+      "doc_title": "Willi Schneider (skeleton racer)",
+      "relation": "P710",
+      "path_length": 5,
+      "sent_distance": 1,
+      "analysis": "Cross-sentence relation with 5 hops"
+    },
+    {
+      "case_id": 4,
+      "doc_title": "Willi Schneider (skeleton racer)",
+      "relation": "P710",
+      "path_length": 5,
+      "sent_distance": 1,
+      "analysis": "Cross-sentence relation with 5 hops"
+    },
+    {
+      "case_id": 5,
+      "doc_title": "Ross Alger",
+      "relation": "P19",
+      "path_length": 5,
+      "sent_distance": 1,
+      "analysis": "Cross-sentence relation with 5 hops"
+    }
+  ],
+  "threshold": {
+    "cohens_d": 0.5
+  }
+}
