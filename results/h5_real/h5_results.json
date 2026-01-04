@@ -1,0 +1,17 @@
+{
+  "hypothesis": "H5",
+  "description": "Bag Size \u2192 Label Reliability",
+  "data_source": "REAL NYT-H (Google Drive)",
+  "total_instances": 9955,
+  "total_bags": 3548,
+  "size_1_count": 2116,
+  "size_3plus_count": 825,
+  "mean_reliability_size_1": 1.0,
+  "mean_reliability_size_3plus": 0.824704769685425,
+  "cohens_d": -1.9402844961859285,
+  "t_statistic": -47.27186178529438,
+  "p_value": 0.0,
+  "threshold": "0.5-0.8",
+  "passed": false,
+  "verdict": "FAILED (effect too large)"
+}

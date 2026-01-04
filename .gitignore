@@ -5,3 +5,11 @@ __pycache__/
 venv/
 *.egg-info/
 
+# Large real data files - download separately
+# NYT10: wget from https://thunlp.oss-cn-qingdao.aliyuncs.com/opennre/benchmark/nyt10/
+data/nyt10_real/
+# NYT-H: gdown 1my4W7O-ioCYWRiP6VCbgGfXTzgdrDep0
+data/nyth/data/
+data/nyth/test_nyt_human_real.json
+data/nyth/test_nyt_human_real_decompressed.json
+

@@ -1,0 +1,11 @@
+{
+  "hypothesis": "H3",
+  "description": "Prototype Dispersion Index \u2192 Noise Rate",
+  "data_source": "REAL NYT10 (Aliyun OSS)",
+  "relations_analyzed": 33,
+  "pearson_r": 0.030500121072606044,
+  "p_value": 0.8661954209550543,
+  "threshold": 0.5,
+  "passed": false,
+  "verdict": "FAILED"
+}

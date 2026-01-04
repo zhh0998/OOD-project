@@ -1,0 +1,13 @@
+{
+  "hypothesis": "H1",
+  "description": "Distribution Shift \u2192 F1 Drop",
+  "data_source": "REAL NYT10 (Aliyun OSS)",
+  "train_samples": 522611,
+  "test_samples": 172448,
+  "relations_analyzed": 55,
+  "pearson_r": 0.1106568226257798,
+  "p_value": 0.4212365079576431,
+  "threshold": 0.8,
+  "passed": false,
+  "verdict": "FAILED"
+}
