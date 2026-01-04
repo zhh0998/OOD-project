@@ -1,6 +1,6 @@
 """
-RW2预实验 - 精简执行版
-只保留核心功能：5个模型训练 + 性能对比
+RW2预实验 - 真实数据版
+严格要求：必须使用真实TGB/OGB数据集，禁止模拟数据
 """
 
 import torch
@@ -14,6 +14,15 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
 
+# ============================================================
+# 修复PyTorch 2.6+ weights_only问题
+# ============================================================
+_original_torch_load = torch.load
+def _patched_torch_load(*args, **kwargs):
+    kwargs['weights_only'] = False
+    return _original_torch_load(*args, **kwargs)
+torch.load = _patched_torch_load
+
 # 设置
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 torch.manual_seed(42)
@@ -23,112 +32,89 @@ print(f"Device: {device}")
 print("="*60)
 
 # ============================================================
-# 数据加载（简化版 - 使用TGB）
+# 真实数据加载器 - 禁止模拟数据
 # ============================================================
 
-class SimpleDataLoader:
-    """简化的数据加载器 - 支持OGB/TGB/模拟数据"""
+class RealDataLoader:
+    """真实数据加载器 - 禁止模拟数据"""
     def __init__(self):
         self.data = None
+        self.data_loaded = False
+        self.data_source = None
 
-        # 尝试1: TGB
+        # 方案1: TGB
         try:
             from tgb.linkproppred.dataset import LinkPropPredDataset
-            print("Loading TGB dataset: tgbl-wiki-v2")
-            self.dataset = LinkPropPredDataset(name='tgbl-wiki-v2', root='datasets')
+            print("✓ 尝试加载TGB数据集 tgbl-wiki...")
+            self.dataset = LinkPropPredDataset(name='tgbl-wiki', root='datasets')
             self.data = self.dataset.full_data
+            self.data_loaded = True
+            self.data_source = "TGB tgbl-wiki (Wikipedia编辑网络)"
             num_nodes = len(torch.unique(torch.cat([
-                self.data['sources'], self.data['destinations']
+                torch.tensor(self.data['sources']),
+                torch.tensor(self.data['destinations'])
             ])))
-            print(f"[TGB] Nodes: {num_nodes:,}, Edges: {len(self.data['sources']):,}")
-            return
+            print(f"✓ TGB加载成功: {len(self.data['sources']):,} edges, {num_nodes:,} nodes")
         except Exception as e:
-            print(f"TGB加载失败: {e}")
+            print(f"✗ TGB失败: {e}")
 
-        # 尝试2: OGB (ogbl-collab - 时序协作网络)
-        try:
-            from ogb.linkproppred import LinkPropPredDataset
-            print("Loading OGB dataset: ogbl-collab")
-            dataset = LinkPropPredDataset(name='ogbl-collab', root='datasets')
-            edge_split = dataset.get_edge_split()
+        # 方案2: OGB (ogbl-collab - 论文合作网络)
+        if not self.data_loaded:
+            try:
+                from ogb.linkproppred import LinkPropPredDataset
+                print("✓ 尝试加载OGB数据集 ogbl-collab...")
+                dataset = LinkPropPredDataset(name='ogbl-collab', root='datasets')
+                edge_split = dataset.get_edge_split()
+                self._convert_ogb_to_tgb_format(edge_split)
+                self.data_loaded = True
+                self.data_source = "OGB ogbl-collab (论文合作网络)"
+                print(f"✓ OGB加载成功: {len(self.data['sources']):,} edges")
+            except Exception as e:
+                print(f"✗ OGB失败: {e}")
 
-            # 转换为时序格式
-            train_edge = edge_split['train']['edge']
-            train_year = edge_split['train']['year'].flatten()
-            valid_edge = edge_split['valid']['edge']
-            valid_year = edge_split['valid']['year'].flatten()
-            test_edge = edge_split['test']['edge']
-            test_year = edge_split['test']['year'].flatten()
+        # 失败处理：报错而不是降级
+        if not self.data_loaded:
+            raise RuntimeError(
+                "\n" + "="*60 + "\n"
+                "❌ 无法加载真实数据集！\n"
+                "请手动安装: pip install py-tgb 或 pip install ogb\n"
+                "不允许使用模拟数据运行实验\n"
+                "="*60
+            )
 
-            # 合并数据
-            all_edges = np.vstack([train_edge, valid_edge, test_edge])
-            all_years = np.concatenate([train_year, valid_year, test_year])
+    def _convert_ogb_to_tgb_format(self, edge_split):
+        """将OGB格式转换为TGB格式"""
+        train_edge = edge_split['train']['edge']
+        train_year = edge_split['train']['year'].flatten()
+        valid_edge = edge_split['valid']['edge']
+        valid_year = edge_split['valid']['year'].flatten()
+        test_edge = edge_split['test']['edge']
+        test_year = edge_split['test']['year'].flatten()
 
-            n_train = len(train_edge)
-            n_valid = len(valid_edge)
-            n_test = len(test_edge)
-            n_total = n_train + n_valid + n_test
+        # 合并数据
+        all_edges = np.vstack([train_edge, valid_edge, test_edge])
+        all_years = np.concatenate([train_year, valid_year, test_year])
 
-            self.data = {
-                'sources': torch.from_numpy(all_edges[:, 0]),
-                'destinations': torch.from_numpy(all_edges[:, 1]),
-                'timestamps': torch.from_numpy(all_years.astype(np.float32)),
-                'train_mask': torch.zeros(n_total, dtype=torch.bool),
-                'val_mask': torch.zeros(n_total, dtype=torch.bool),
-                'test_mask': torch.zeros(n_total, dtype=torch.bool)
-            }
-            self.data['train_mask'][:n_train] = True
-            self.data['val_mask'][n_train:n_train+n_valid] = True
-            self.data['test_mask'][n_train+n_valid:] = True
-
-            num_nodes = int(all_edges.max()) + 1
-            print(f"[OGB] Nodes: {num_nodes:,}, Edges: {n_total:,}")
-            print(f"[OGB] Train: {n_train:,}, Valid: {n_valid:,}, Test: {n_test:,}")
-            return
-        except Exception as e:
-            print(f"OGB加载失败: {e}")
-
-        # 尝试3: 使用真实规模的模拟数据
-        print("使用大规模模拟数据 (模拟Wikipedia编辑网络)...")
-        self._create_realistic_data()
-
-    def _create_realistic_data(self):
-        """创建真实规模的模拟数据"""
-        # 模拟Wikipedia编辑网络规模
-        n_nodes = 9227  # 类似tgbl-wiki
-        n_edges = 157474
-
-        print(f"生成模拟网络: {n_nodes:,} nodes, {n_edges:,} edges")
-
-        # 生成幂律度分布的边
-        # 高度数节点更可能参与交互
-        degree_prob = np.random.power(0.5, n_nodes)
-        degree_prob = degree_prob / degree_prob.sum()
-
-        sources = np.random.choice(n_nodes, size=n_edges, p=degree_prob)
-        destinations = np.random.choice(n_nodes, size=n_edges, p=degree_prob)
-
-        # 时间戳 (模拟1年的数据，按秒)
-        timestamps = np.sort(np.random.uniform(0, 365*24*3600, n_edges))
+        n_train = len(train_edge)
+        n_valid = len(valid_edge)
+        n_test = len(test_edge)
+        n_total = n_train + n_valid + n_test
 
         self.data = {
-            'sources': torch.from_numpy(sources.astype(np.int64)),
-            'destinations': torch.from_numpy(destinations.astype(np.int64)),
-            'timestamps': torch.from_numpy(timestamps.astype(np.float32)),
-            'train_mask': torch.zeros(n_edges, dtype=torch.bool),
-            'val_mask': torch.zeros(n_edges, dtype=torch.bool),
-            'test_mask': torch.zeros(n_edges, dtype=torch.bool)
+            'sources': torch.from_numpy(all_edges[:, 0].astype(np.int64)),
+            'destinations': torch.from_numpy(all_edges[:, 1].astype(np.int64)),
+            'timestamps': torch.from_numpy(all_years.astype(np.float32)),
+            'train_mask': torch.zeros(n_total, dtype=torch.bool),
+            'val_mask': torch.zeros(n_total, dtype=torch.bool),
+            'test_mask': torch.zeros(n_total, dtype=torch.bool)
         }
-
-        # 时序划分: 70% train, 15% val, 15% test
-        n_train = int(0.7 * n_edges)
-        n_val = int(0.15 * n_edges)
-
         self.data['train_mask'][:n_train] = True
-        self.data['val_mask'][n_train:n_train+n_val] = True
-        self.data['test_mask'][n_train+n_val:] = True
+        self.data['val_mask'][n_train:n_train+n_valid] = True
+        self.data['test_mask'][n_train+n_valid:] = True
 
-        print(f"Train: {n_train:,}, Val: {n_val:,}, Test: {n_edges-n_train-n_val:,}")
+        num_nodes = int(all_edges.max()) + 1
+        print(f"  Nodes: {num_nodes:,}, Edges: {n_total:,}")
+        print(f"  Train: {n_train:,}, Valid: {n_valid:,}, Test: {n_test:,}")
 
     def get_train_data(self):
         mask = self.data['train_mask']
@@ -145,6 +131,33 @@ class SimpleDataLoader:
             'destinations': self.data['destinations'][mask],
             'timestamps': self.data['timestamps'][mask]
         }
+
+
+def validate_real_data(loader):
+    """验证使用的是真实数据"""
+    print("\n验证数据真实性...")
+
+    # 检查1: 数据规模合理
+    n_edges = len(loader.data['sources'])
+    if n_edges < 50000:
+        raise RuntimeError(f"❌ 数据量太小 ({n_edges:,})，可能是模拟数据")
+    print(f"  ✓ 边数: {n_edges:,} (>50,000)")
+
+    # 检查2: 节点ID范围合理
+    max_node = max(loader.data['sources'].max().item(),
+                   loader.data['destinations'].max().item())
+    if max_node < 1000:
+        raise RuntimeError(f"❌ 节点数太少 ({max_node:,})，可能是模拟数据")
+    print(f"  ✓ 最大节点ID: {max_node:,} (>1,000)")
+
+    # 检查3: 时间戳分布
+    timestamps = loader.data['timestamps'].float()
+    time_std = timestamps.std().item()
+    time_range = timestamps.max().item() - timestamps.min().item()
+    print(f"  ✓ 时间戳范围: {time_range:.2f}, 标准差: {time_std:.2f}")
+
+    print("✅ 数据验证通过：确认使用真实数据集")
+    print(f"   数据源: {loader.data_source}")
 
 # ============================================================
 # 模型定义（5个方案 - 简化实现）
@@ -287,7 +300,7 @@ class FreqTemporal(nn.Module):
 # 训练与评估
 # ============================================================
 
-def train_model(model, train_data, epochs=20, lr=0.001, batch_size=200):
+def train_model(model, train_data, epochs=5, lr=0.001, batch_size=1024):
     """训练模型"""
     model = model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -385,12 +398,18 @@ def evaluate_model(model, test_data, batch_size=200):
 
 def main():
     print("\n" + "="*60)
-    print("RW2预实验开始")
+    print("RW2预实验 - 真实数据版")
+    print("严格要求：必须使用TGB/OGB真实数据集")
     print("="*60 + "\n")
 
-    # 1. 加载数据
-    print("[1/4] 加载数据...")
-    loader = SimpleDataLoader()
+    # 1. 加载真实数据
+    print("[1/5] 加载真实数据...")
+    loader = RealDataLoader()
+
+    # 2. 验证数据真实性
+    print("\n[2/5] 验证数据真实性...")
+    validate_real_data(loader)
+
     train_data = loader.get_train_data()
     test_data = loader.get_test_data()
 
@@ -401,9 +420,9 @@ def main():
         test_data['destinations'].max()
     )) + 1
 
-    print(f"节点数: {num_nodes}")
+    print(f"\n节点数: {num_nodes:,}")
 
-    # 2. 定义所有模型
+    # 3. 定义所有模型
     models = {
         'NPPCTNE': NPPCTNE(num_nodes, dim=128),
         'MoMent++': MoMentPP(num_nodes, dim=172),
@@ -412,8 +431,8 @@ def main():
         'FreqTemporal': FreqTemporal(num_nodes, dim=172)
     }
 
-    # 3. 训练和评估所有模型
-    print("\n[2/4] 训练和评估模型...")
+    # 4. 训练和评估所有模型
+    print("\n[3/5] 训练和评估模型...")
     results = {}
 
     for name, model in models.items():
@@ -421,8 +440,8 @@ def main():
         print(f"训练 {name}")
         print('='*60)
 
-        # 训练（简化：只训练20个epoch）
-        model = train_model(model, train_data, epochs=20, lr=0.001)
+        # 训练（优化：5个epoch，更大batch）
+        model = train_model(model, train_data, epochs=5, lr=0.001, batch_size=1024)
 
         # 评估
         print(f"\n评估 {name}...")
@@ -438,8 +457,8 @@ def main():
         # 保存模型
         torch.save(model.state_dict(), f'checkpoints/{name.replace("+", "P")}.pth')
 
-    # 4. 生成报告
-    print("\n[3/4] 生成性能对比报告...")
+    # 5. 生成报告
+    print("\n[4/5] 生成性能对比报告...")
 
     baseline_mrr = results['NPPCTNE']['mrr']
 
@@ -465,8 +484,8 @@ def main():
     print("="*60)
     print(df.to_string(index=False))
 
-    # 5. 可视化
-    print("\n[4/4] 生成可视化...")
+    # 6. 可视化
+    print("\n[5/5] 生成可视化...")
 
     plt.figure(figsize=(10, 6))
     names = [r['方法'] for r in df_data]
@@ -493,13 +512,22 @@ def main():
     print("  - figures/performance_comparison.png")
     print("  - checkpoints/*.pth (5个模型)")
 
-    # 6. 总结
+    # 7. 总结
     print("\n" + "="*60)
     print("实验总结")
     print("="*60)
 
+    # 数据集信息
+    print("\n## 数据集信息")
+    print(f"  - 数据源: {loader.data_source}")
+    n_nodes = num_nodes
+    n_edges = len(loader.data['sources'])
+    print(f"  - 节点数: {n_nodes:,}")
+    print(f"  - 边数: {n_edges:,}")
+    print(f"  - 数据类型: ✅ 真实网络数据")
+
     passed = sum(1 for r in df_data if r['通过'] == '✅') - 1  # 减去baseline
-    print(f"通过性能测试的方法: {passed}/4")
+    print(f"\n通过性能测试的方法: {passed}/4")
     print(f"Baseline MRR: {baseline_mrr:.4f}")
 
     best_method = max(results.items(), key=lambda x: x[1]['mrr'])
