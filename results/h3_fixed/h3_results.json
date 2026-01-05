@@ -1,0 +1,17 @@
+{
+  "hypothesis": "H3",
+  "description": "Prototype Dispersion Index \u2192 Noise Rate (FIXED)",
+  "fix_applied": "Use natural noise indicators from distant supervision",
+  "data_source": "REAL NYT10",
+  "total_samples": 522611,
+  "relations_analyzed": 23,
+  "pearson_r": 0.048260772978496465,
+  "pearson_p": 0.8269068669969836,
+  "spearman_r": -0.04793674473004788,
+  "spearman_p": 0.8280521380170127,
+  "entity_dist_noise_r": 0.641935578660441,
+  "lexical_div_noise_r": 0.024543290322544892,
+  "threshold": 0.5,
+  "passed": false,
+  "verdict": "FAILED"
+}

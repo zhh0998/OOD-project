@@ -1,0 +1,17 @@
+{
+  "hypothesis": "H5",
+  "description": "Bag Size \u2192 Label Reliability (FIXED)",
+  "fix_applied": "Use yes/(yes+no) as reliability instead of label consistency",
+  "data_source": "REAL NYT-H",
+  "total_bags": 3548,
+  "size_1_count": 2116,
+  "size_3plus_count": 825,
+  "mean_reliability_size_1": 0.5515122873345936,
+  "mean_reliability_size_3plus": 0.58758390622711,
+  "cohens_d": 0.07803258236482383,
+  "t_statistic": 1.9011363826029748,
+  "p_value": 0.05738187508440784,
+  "threshold": "0.5-0.8",
+  "passed": false,
+  "verdict": "FAILED (effect too small)"
+}

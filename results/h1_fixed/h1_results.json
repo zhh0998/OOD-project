@@ -1,0 +1,74 @@
+{
+  "hypothesis": "H1",
+  "description": "Distribution Shift \u2192 F1 Drop (FIXED)",
+  "fix_applied": "Use natural + artificial shifts via Dirichlet resampling",
+  "data_source": "REAL NYT10",
+  "train_samples": 522611,
+  "test_samples": 172448,
+  "num_relations": 58,
+  "natural_js_divergence": 0.05691648606128886,
+  "data_points": 9,
+  "pearson_r": 0.968464748761689,
+  "pearson_p": 1.7780056254956377e-05,
+  "spearman_r": 0.9500000000000001,
+  "spearman_p": 8.762523965086177e-05,
+  "threshold": 0.8,
+  "passed": true,
+  "verdict": "PASSED",
+  "details": [
+    {
+      "shift_type": "natural",
+      "alpha": 1.0,
+      "js_divergence": 0.05691648606128886,
+      "f1_drop": 0.07157152887507712
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 0.1,
+      "js_divergence": 0.4015249865356779,
+      "f1_drop": 0.18345838906880754
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 0.3,
+      "js_divergence": 0.2614453365670613,
+      "f1_drop": 0.13951893788599437
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 0.5,
+      "js_divergence": 0.16258936769143834,
+      "f1_drop": 0.11541228355502572
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 0.7,
+      "js_divergence": 0.08558085135820412,
+      "f1_drop": 0.09264485377726941
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 0.9,
+      "js_divergence": 0.023804274072103115,
+      "f1_drop": 0.03742026443907674
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 1.5,
+      "js_divergence": 0.10957977491171272,
+      "f1_drop": 0.08589470909582243
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 2.0,
+      "js_divergence": 0.08667417325372109,
+      "f1_drop": 0.09372703129419199
+    },
+    {
+      "shift_type": "artificial",
+      "alpha": 3.0,
+      "js_divergence": 0.060795474115897384,
+      "f1_drop": 0.07235596662384285
+    }
+  ]
+}
