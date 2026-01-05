@@ -1,0 +1,66 @@
+{
+  "hypothesis": "H1",
+  "description": "Distribution Shift \u2192 F1 Drop (REAL MODEL)",
+  "method": "TF-IDF + Logistic Regression (no simulation)",
+  "data_source": "REAL NYT10",
+  "train_samples": 50000,
+  "test_samples": 20000,
+  "baseline_f1": 0.046964925880469466,
+  "pearson_r": -0.9286122139181462,
+  "pearson_p": 0.0008615178022554483,
+  "spearman_rho": -0.9761904761904763,
+  "spearman_p": 3.3143960262001043e-05,
+  "threshold": 0.5,
+  "passed": false,
+  "verdict": "FAILED (no significant correlation)",
+  "details": [
+    {
+      "shift_strength": 0.0,
+      "js_divergence": 0.0,
+      "f1": 0.046964925880469466,
+      "f1_drop": 0.0
+    },
+    {
+      "shift_strength": 0.1,
+      "js_divergence": 0.0058113318305982615,
+      "f1": 0.05308730501314437,
+      "f1_drop": -0.006122379132674903
+    },
+    {
+      "shift_strength": 0.2,
+      "js_divergence": 0.007376910119647823,
+      "f1": 0.05565820204242035,
+      "f1_drop": -0.008693276161950883
+    },
+    {
+      "shift_strength": 0.3,
+      "js_divergence": 0.009352090583948005,
+      "f1": 0.05612057851839927,
+      "f1_drop": -0.009155652637929806
+    },
+    {
+      "shift_strength": 0.4,
+      "js_divergence": 0.012219225153572086,
+      "f1": 0.05736594179264065,
+      "f1_drop": -0.010401015912171185
+    },
+    {
+      "shift_strength": 0.5,
+      "js_divergence": 0.014809836286850283,
+      "f1": 0.06419325373994118,
+      "f1_drop": -0.017228327859471718
+    },
+    {
+      "shift_strength": 0.6,
+      "js_divergence": 0.01589064777665541,
+      "f1": 0.05762598596241837,
+      "f1_drop": -0.010661060081948906
+    },
+    {
+      "shift_strength": 0.7,
+      "js_divergence": 0.019130248554896728,
+      "f1": 0.06529192586768792,
+      "f1_drop": -0.018326999987218456
+    }
+  ]
+}

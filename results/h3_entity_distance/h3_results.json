@@ -1,0 +1,16 @@
+{
+  "hypothesis": "H3 (REVISED)",
+  "description": "Entity Distance \u2192 Noise Rate",
+  "original_hypothesis": "PDI \u2192 Noise Rate (r=0.05, FAILED)",
+  "revision_reason": "Entity distance showed r=0.64 correlation with noise in exploratory analysis",
+  "data_source": "REAL NYT10",
+  "total_samples": 522611,
+  "relations_analyzed": 23,
+  "pearson_r": 0.7543799930008651,
+  "pearson_p": 3.204669597887213e-05,
+  "spearman_rho": 0.6490360850222442,
+  "spearman_p": 0.0008062504629196866,
+  "threshold": 0.5,
+  "passed": true,
+  "verdict": "PASSED (moderate-strong correlation)"
+}

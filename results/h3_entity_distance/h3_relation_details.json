@@ -1,0 +1,186 @@
+[
+  {
+    "relation": "/location/location/contains",
+    "n_samples": 66721,
+    "avg_entity_distance": 61.8186927653962,
+    "entity_distance_std": 59.499166153953254,
+    "estimated_noise_rate": 0.36883814691026806,
+    "noise_rate_std": 0.2081840229664159
+  },
+  {
+    "relation": "/people/person/nationality",
+    "n_samples": 9733,
+    "avg_entity_distance": 61.20425357032775,
+    "entity_distance_std": 55.45969584609561,
+    "estimated_noise_rate": 0.42000410972978525,
+    "noise_rate_std": 0.1855457543112682
+  },
+  {
+    "relation": "/people/person/place_of_birth",
+    "n_samples": 4053,
+    "avg_entity_distance": 71.05477424130274,
+    "entity_distance_std": 55.59549511656467,
+    "estimated_noise_rate": 0.447026893659018,
+    "noise_rate_std": 0.1756919800814407
+  },
+  {
+    "relation": "/people/deceased_person/place_of_death",
+    "n_samples": 2422,
+    "avg_entity_distance": 92.54252683732453,
+    "entity_distance_std": 69.53168553283501,
+    "estimated_noise_rate": 0.45798926507018994,
+    "noise_rate_std": 0.1727132147530319
+  },
+  {
+    "relation": "/people/person/place_lived",
+    "n_samples": 8907,
+    "avg_entity_distance": 57.06466823846413,
+    "entity_distance_std": 86.45328903926831,
+    "estimated_noise_rate": 0.42116874368474233,
+    "noise_rate_std": 0.187670399612093
+  },
+  {
+    "relation": "/business/company/founders",
+    "n_samples": 901,
+    "avg_entity_distance": 47.132075471698116,
+    "entity_distance_std": 42.33434495190716,
+    "estimated_noise_rate": 0.4193118756936736,
+    "noise_rate_std": 0.17924794601884747
+  },
+  {
+    "relation": "/people/person/ethnicity",
+    "n_samples": 148,
+    "avg_entity_distance": 67.45945945945945,
+    "entity_distance_std": 64.17042115382418,
+    "estimated_noise_rate": 0.4236486486486486,
+    "noise_rate_std": 0.16960267020721426
+  },
+  {
+    "relation": "/location/neighborhood/neighborhood_of",
+    "n_samples": 9275,
+    "avg_entity_distance": 40.00722371967655,
+    "entity_distance_std": 49.381909578710875,
+    "estimated_noise_rate": 0.27500808625336925,
+    "noise_rate_std": 0.20012580258886215
+  },
+  {
+    "relation": "/business/person/company",
+    "n_samples": 7336,
+    "avg_entity_distance": 52.896673936750275,
+    "entity_distance_std": 43.29154744913095,
+    "estimated_noise_rate": 0.4491275899672846,
+    "noise_rate_std": 0.16976891752193346
+  },
+  {
+    "relation": "/location/administrative_division/country",
+    "n_samples": 7286,
+    "avg_entity_distance": 73.480510568213,
+    "entity_distance_std": 61.72524050999812,
+    "estimated_noise_rate": 0.4173963766126818,
+    "noise_rate_std": 0.20194718779224857
+  },
+  {
+    "relation": "/business/company/place_founded",
+    "n_samples": 648,
+    "avg_entity_distance": 62.59104938271605,
+    "entity_distance_std": 63.04139131278657,
+    "estimated_noise_rate": 0.3984567901234567,
+    "noise_rate_std": 0.180698476725542
+  },
+  {
+    "relation": "/location/country/administrative_divisions",
+    "n_samples": 7286,
+    "avg_entity_distance": 73.480510568213,
+    "entity_distance_std": 61.72524050999812,
+    "estimated_noise_rate": 0.4173963766126818,
+    "noise_rate_std": 0.20194718779224857
+  },
+  {
+    "relation": "/location/country/capital",
+    "n_samples": 8883,
+    "avg_entity_distance": 81.19655521783181,
+    "entity_distance_std": 62.703985538284705,
+    "estimated_noise_rate": 0.4315490262298773,
+    "noise_rate_std": 0.19783554819946586
+  },
+  {
+    "relation": "/people/person/children",
+    "n_samples": 622,
+    "avg_entity_distance": 56.369774919614144,
+    "entity_distance_std": 48.83736629768928,
+    "estimated_noise_rate": 0.41286173633440515,
+    "noise_rate_std": 0.19102493107319496
+  },
+  {
+    "relation": "/sports/sports_team_location/teams",
+    "n_samples": 230,
+    "avg_entity_distance": 41.60434782608696,
+    "entity_distance_std": 56.778172308217414,
+    "estimated_noise_rate": 0.3095652173913044,
+    "noise_rate_std": 0.20593325767407522
+  },
+  {
+    "relation": "/people/person/religion",
+    "n_samples": 202,
+    "avg_entity_distance": 83.66336633663366,
+    "entity_distance_std": 58.31457491977214,
+    "estimated_noise_rate": 0.4695544554455445,
+    "noise_rate_std": 0.18185321984847533
+  },
+  {
+    "relation": "/people/ethnicity/people",
+    "n_samples": 127,
+    "avg_entity_distance": 70.8740157480315,
+    "entity_distance_std": 67.70919663583831,
+    "estimated_noise_rate": 0.4259842519685039,
+    "noise_rate_std": 0.17193324030587634
+  },
+  {
+    "relation": "/business/company/major_shareholders",
+    "n_samples": 328,
+    "avg_entity_distance": 59.84756097560975,
+    "entity_distance_std": 40.208161790101336,
+    "estimated_noise_rate": 0.4260670731707316,
+    "noise_rate_std": 0.16314016983375026
+  },
+  {
+    "relation": "/business/company_shareholder/major_shareholder_of",
+    "n_samples": 198,
+    "avg_entity_distance": 57.57070707070707,
+    "entity_distance_std": 40.04646985671645,
+    "estimated_noise_rate": 0.4227272727272727,
+    "noise_rate_std": 0.15927118213355027
+  },
+  {
+    "relation": "/sports/sports_team/location",
+    "n_samples": 294,
+    "avg_entity_distance": 38.94897959183673,
+    "entity_distance_std": 56.768303251557626,
+    "estimated_noise_rate": 0.29744897959183675,
+    "noise_rate_std": 0.20144534491706348
+  },
+  {
+    "relation": "NA",
+    "n_samples": 385664,
+    "avg_entity_distance": 72.91660875788251,
+    "entity_distance_std": 63.282105350008024,
+    "estimated_noise_rate": 0.42703532090109514,
+    "noise_rate_std": 0.19128754449151045
+  },
+  {
+    "relation": "/location/us_county/county_seat",
+    "n_samples": 110,
+    "avg_entity_distance": 65.68181818181819,
+    "entity_distance_std": 57.06996213869777,
+    "estimated_noise_rate": 0.4218181818181817,
+    "noise_rate_std": 0.1793330158629815
+  },
+  {
+    "relation": "/location/us_state/capital",
+    "n_samples": 798,
+    "avg_entity_distance": 50.55764411027569,
+    "entity_distance_std": 54.8960609171935,
+    "estimated_noise_rate": 0.32218045112781957,
+    "noise_rate_std": 0.22092141861259512
+  }
+]
