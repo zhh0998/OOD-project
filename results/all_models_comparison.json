@@ -1,0 +1,31 @@
+{
+  "experiment": "RW2 Temporal Network Embedding Pre-experiment",
+  "timestamp": "2026-01-09 12:40:32",
+  "data_source": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "baseline_mrr": 0.7620000123977662,
+  "models": [
+    {
+      "name": "NPPCTNE",
+      "status": "SUCCESS",
+      "mrr": 0.7620000123977662,
+      "improvement_pct": 0.0,
+      "passed_3pct_threshold": true,
+      "train_time_seconds": 173.45249891281128,
+      "total_time_seconds": 195.5802083015442
+    },
+    {
+      "name": "MoMent++",
+      "status": "SUCCESS",
+      "mrr": 0.7774999856948852,
+      "improvement_pct": 2.0341171974978947,
+      "passed_3pct_threshold": false,
+      "train_time_seconds": 229.11842322349548,
+      "total_time_seconds": 234.81080746650696
+    },
+    {
+      "name": "THG-Mamba",
+      "status": "SUCCESS",
+      "mrr": 0.7865000009536743,
+      "improvement_pct": 3.215221542951776,
+      "passed_3pct_threshold": 

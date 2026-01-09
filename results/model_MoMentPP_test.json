@@ -1,0 +1,11 @@
+{
+  "model": "MoMent++",
+  "epochs": 1,
+  "mrr": 0.7774999856948852,
+  "train_time_seconds": 229.11842322349548,
+  "eval_time_seconds": 5.692384243011475,
+  "total_time_seconds": 234.81080746650696,
+  "data_source": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "device": "cpu"
+}

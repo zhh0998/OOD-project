@@ -1,0 +1,11 @@
+{
+  "model": "THG-Mamba",
+  "epochs": 1,
+  "mrr": 0.7865000009536743,
+  "train_time_seconds": 337.7195951938629,
+  "eval_time_seconds": 5.621180295944214,
+  "total_time_seconds": 343.34077548980713,
+  "data_source": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "device": "cpu"
+}

@@ -1,0 +1,11 @@
+{
+  "model": "FreqTemporal",
+  "epochs": 1,
+  "mrr": 0.7965000033378601,
+  "train_time_seconds": 226.90436100959778,
+  "eval_time_seconds": 5.730192184448242,
+  "total_time_seconds": 232.63455319404602,
+  "data_source": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "device": "cpu"
+}
