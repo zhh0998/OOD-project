@@ -1,0 +1,10 @@
+# Ignore data files (too large for git)
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Keep results
+!results/
