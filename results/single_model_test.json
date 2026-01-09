@@ -1,0 +1,13 @@
+{
+  "model": "NPPCTNE",
+  "epochs": 1,
+  "mrr": 0.7620000123977662,
+  "train_time_seconds": 173.45249891281128,
+  "eval_time_seconds": 5.765277147293091,
+  "total_time_seconds": 195.5802083015442,
+  "data_source": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "train_edges": 1179052,
+  "test_edges": 46329,
+  "device": "cpu"
+}
