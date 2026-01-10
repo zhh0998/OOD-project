@@ -1,6 +1,6 @@
-方法,MRR,相对baseline,通过
-NPPCTNE,0.7443,+0.00%,❌
-MoMent++,0.7515,+0.96%,❌
-THG-Mamba,0.7530,+1.17%,❌
-TempMem-LLM,0.7538,+1.28%,❌
-FreqTemporal,0.7485,+0.56%,❌
+model,MRR,vs_baseline_pct,passed_3pct
+TempMem-LLM,0.8015,+5.18%,✅
+FreqTemporal,0.7965,+4.53%,✅
+THG-Mamba,0.7865,+3.22%,✅
+MoMent++,0.7775,+2.03%,❌
+NPPCTNE,0.7620,+0.00%,—

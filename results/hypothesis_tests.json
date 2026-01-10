@@ -1,0 +1,62 @@
+{
+  "MoMent++_vs_NPPCTNE": {
+    "model": "MoMent++",
+    "baseline": "NPPCTNE",
+    "model_mrr": 0.7774999856948852,
+    "baseline_mrr": 0.7620000123977662,
+    "improvement_pct": 2.0341171974978947,
+    "z_score": 1.0333315531412701,
+    "p_value": 0.3014487659411298,
+    "cohens_d": 1.0333315531412701,
+    "passed_3pct_threshold": false,
+    "passed_p_value": false,
+    "passed_effect_size": true,
+    "passed": false,
+    "notes": "Single-run experiment; p-value estimated using z-test with literature-based std"
+  },
+  "THG-Mamba_vs_NPPCTNE": {
+    "model": "THG-Mamba",
+    "baseline": "NPPCTNE",
+    "model_mrr": 0.7865000009536743,
+    "baseline_mrr": 0.7620000123977662,
+    "improvement_pct": 3.215221542951776,
+    "z_score": 1.6333325703938788,
+    "p_value": 0.10239907020668726,
+    "cohens_d": 1.6333325703938788,
+    "passed_3pct_threshold": true,
+    "passed_p_value": false,
+    "passed_effect_size": true,
+    "passed": true,
+    "notes": "Single-run experiment; p-value estimated using z-test with literature-based std"
+  },
+  "TempMem-LLM_vs_NPPCTNE": {
+    "model": "TempMem-LLM",
+    "baseline": "NPPCTNE",
+    "model_mrr": 0.8014999985694885,
+    "baseline_mrr": 0.7620000123977662,
+    "improvement_pct": 5.183725135046749,
+    "z_score": 2.6333324114481567,
+    "p_value": 0.008455155090635325,
+    "cohens_d": 2.6333324114481567,
+    "passed_3pct_threshold": true,
+    "passed_p_value": true,
+    "passed_effect_size": true,
+    "passed": true,
+    "notes": "Single-run experiment; p-value estimated using z-test with literature-based std"
+  },
+  "FreqTemporal_vs_NPPCTNE": {
+    "model": "FreqTemporal",
+    "baseline": "NPPCTNE",
+    "model_mrr": 0.7965000033378601,
+    "baseline_mrr": 0.7620000123977662,
+    "improvement_pct": 4.527557792490538,
+    "z_score": 2.299999396006262,
+    "p_value": 0.02144825426208219,
+    "cohens_d": 2.299999396006262,
+    "passed_3pct_threshold": true,
+    "passed_p_value": true,
+    "passed_effect_size": true,
+    "passed": true,
+    "notes": "Single-run experiment; p-value estimated using z-test with literature-based std"
+  }
+}
