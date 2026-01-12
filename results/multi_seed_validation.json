@@ -1,0 +1,15 @@
+{
+  "experiment": "RW2 Multi-Seed Validation",
+  "dataset": "OGB ogbl-collab",
+  "num_nodes": 235868,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2024
+  ],
+  "results": {
+    "NPPCTNE": {
+      "mrrs": [
+        
