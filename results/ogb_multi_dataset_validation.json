@@ -1,0 +1,50 @@
+{
+  "experiment": "RW2 \u4e3b\u7ebfA - OGB Multi-Dataset Validation",
+  "timestamp": "2026-01-14 04:26:05",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "datasets": {
+    "ogbl-ddi": {
+      "num_nodes": 4267,
+      "num_train_edges": 1067911,
+      "num_test_edges": 133489,
+      "embedding_dim": 128,
+      "results": {
+        "NPPCTNE": {
+          "mrrs": [
+            0.7985833333333334,
+            0.804202380952381,
+            0.7963333333333333
+          ],
+          "times": [
+            6.918564319610596,
+            6.124128103256226,
+            6.512776851654053
+          ]
+        },
+        "TempMem-LLM": {
+          "mrrs": [
+            0.801,
+            0.7968333333333334,
+            0.795
+          ],
+          "times": [
+            6.9220476150512695,
+            7.0073394775390625,
+            7.154074192047119
+          ]
+        }
+      },
+      "statistics": {
+        "baseline_mean": 0.7997063492063493,
+        "baseline_std": 0.004052943510091624,
+        "tempmem_mean": 0.7976111111111112,
+        "tempmem_std": 0.0030746875782270474,
+        "improvement_pct": -0.2620009328821163,
+        "cohens_d": -0.5824595680250373,
+        "t_statistic": -0.7133643687316248,
+        "p_value": 0.5177073302325148,
+        "passed_3pct": 
