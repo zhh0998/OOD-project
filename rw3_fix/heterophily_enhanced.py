@@ -232,29 +232,33 @@ class HeterophilyEnhancedDetector:
         计算能量分数（基于到训练集的距离）
 
         能量高 → 远离训练分布 → OOD
+
+        Bug Fix 3: 使用第k近邻距离而非平均距离
+        (ICML 2022 KNN-OOD论文：第k个距离优于平均距离)
         """
         # 确保维度匹配
         if test_emb.shape[1] != train_emb.shape[1]:
-            # 如果维度不匹配，使用原始embeddings计算能量
-            # 这种情况发生在GNN输出维度与原始不同时
-            centroid = train_emb.mean(axis=0)
-            # 使用余弦距离而非欧氏距离
-            test_norm = test_emb / (np.linalg.norm(test_emb, axis=1, keepdims=True) + 1e-10)
-            energy = np.linalg.norm(test_norm, axis=1)  # 简化：使用范数作为能量
-            return energy
+            # 如果维度不匹配，使用原始embeddings的k-NN距离
+            train_emb = self.train_embeddings
 
-        # 计算到最近训练样本的距离
+        # Bug Fix 3: 使用第k近邻距离
+        k = min(self.k, len(train_emb))
+
         if FAISS_AVAILABLE:
             index = faiss.IndexFlatIP(train_emb.shape[1])
             index.add(train_emb.astype('float32'))
-            k = min(10, len(train_emb))
             sims, _ = index.search(test_emb.astype('float32'), k)
-            # 平均相似度的负值作为能量
-            energy = -sims.mean(axis=1)
+            # 余弦距离 = 1 - 余弦相似度
+            distances = 1 - sims
+            # Bug Fix 3: 使用第k近邻距离（最后一列）而非平均
+            energy = distances[:, -1]
         else:
-            # 简化版：到质心的距离
-            centroid = train_emb.mean(axis=0)
-            energy = np.linalg.norm(test_emb - centroid, axis=1)
+            from sklearn.neighbors import NearestNeighbors
+            nn = NearestNeighbors(n_neighbors=k, metric='cosine')
+            nn.fit(train_emb)
+            distances, _ = nn.kneighbors(test_emb)
+            # Bug Fix 3: 使用第k近邻距离
+            energy = distances[:, -1]
 
         return energy
 
