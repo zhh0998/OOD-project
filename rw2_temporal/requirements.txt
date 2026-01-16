@@ -1,0 +1,28 @@
+# RW2 Temporal Network Embedding Requirements
+# Core dependencies
+torch>=2.0.0
+torch-geometric>=2.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+networkx>=3.0
+
+# TGB and OGB
+py-tgb>=0.9.0
+ogb>=1.3.6
+
+# SSM implementation (pure PyTorch, no CUDA compilation needed)
+mambapy>=0.1.0
+
+# LLM and Transformers
+transformers>=4.30.0
+
+# Visualization and logging
+matplotlib>=3.7.0
+seaborn>=0.12.0
+wandb>=0.15.0
+tqdm>=4.65.0
+
+# Optional: torch-scatter and torch-sparse for PyG
+# Install separately with: pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-{TORCH}+{CUDA}.html

@@ -1,0 +1,79 @@
+{
+    "experiment_name": "RW2_Temporal_Network_Embedding",
+    "version": "v3.0",
+
+    "datasets": ["tgbl-wiki", "tgbl-review", "tgbl-coin"],
+
+    "models": {
+        "baseline": {
+            "class": "TempMemLLM",
+            "description": "TempMem-LLM baseline (pre-experiment result)",
+            "config": {
+                "d_model": 128,
+                "memory_dim": 128,
+                "llm_dim": 768,
+                "max_seq_len": 64,
+                "dropout": 0.1
+            }
+        },
+        "ssm_memory_llm": {
+            "class": "SSMMemoryLLM",
+            "description": "Scheme 0: SSM-Enhanced Memory Network (P0, Innovation 9/10)",
+            "config": {
+                "d_model": 128,
+                "d_state": 16,
+                "d_conv": 4,
+                "expand": 2,
+                "num_ssm_layers": 2,
+                "llm_dim": 768,
+                "max_seq_len": 64,
+                "dropout": 0.1
+            }
+        },
+        "tpnet": {
+            "class": "TPNetLLM",
+            "description": "Scheme 3: TPNet Walk Matrix Network (P1, Innovation 8/10)",
+            "config": {
+                "d_model": 128,
+                "num_random_features": 64,
+                "num_neighbors": 20,
+                "llm_dim": 768,
+                "num_walk_layers": 2,
+                "dropout": 0.1
+            }
+        },
+        "dygprompt": {
+            "class": "StandaloneDyGPrompt",
+            "description": "Scheme 4: DyGPrompt Fast Adaptation (P1, Innovation 8/10)",
+            "config": {
+                "d_model": 128,
+                "alpha": 2,
+                "llm_dim": 768,
+                "prompt_scale": 0.1,
+                "dropout": 0.1
+            }
+        }
+    },
+
+    "training": {
+        "epochs": 100,
+        "batch_size": 200,
+        "learning_rate": 1e-4,
+        "weight_decay": 1e-5,
+        "patience": 20,
+        "num_negatives": 100,
+        "accumulation_steps": 1
+    },
+
+    "evaluation": {
+        "num_runs": 5,
+        "eval_samples": 1000,
+        "metrics": ["mrr", "hits@1", "hits@3", "hits@10", "hits@50"]
+    },
+
+    "success_criteria": {
+        "mrr_improvement": 3.0,
+        "cohen_d_threshold": 0.45,
+        "p_value_threshold": 0.05
+    }
+}
