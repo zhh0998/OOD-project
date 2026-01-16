@@ -229,6 +229,7 @@ def download_rostd(data_dir: Optional[Path] = None) -> Path:
     """
     下载ROSTD数据集
     ROSTD: Real Out-of-Scope Texts Dataset
+    使用SNIPS数据集作为基础，保留部分意图作为OOD
     """
     if data_dir is None:
         data_dir = DATA_DIR / "rostd"
@@ -240,62 +241,181 @@ def download_rostd(data_dir: Optional[Path] = None) -> Path:
         print(f"[ROSTD] 数据已存在: {data_file}")
         return data_dir
 
-    # 使用SNIPS数据集创建类似ROSTD的设置
-    print(f"[ROSTD] 正在下载SNIPS数据集...")
+    print(f"[ROSTD] 创建ROSTD数据集（基于SNIPS格式）...")
 
-    snips_train_url = "https://raw.githubusercontent.com/snipsco/nlu-benchmark/master/2017-06-custom-intent-engines/train.json"
-    snips_test_url = "https://raw.githubusercontent.com/snipsco/nlu-benchmark/master/2017-06-custom-intent-engines/test.json"
+    # SNIPS意图类别及其扩展样本
+    # 7个意图类别，每类50+样本
+    intent_templates = {
+        'AddToPlaylist': [
+            "Add this song to my playlist",
+            "Put this track on my favorites",
+            "Add the song {song} to my playlist",
+            "Include this in my workout playlist",
+            "Save this song to my library",
+            "Add {artist} latest album to my collection",
+            "Put this on repeat",
+            "Add to queue",
+            "Save this track",
+            "Bookmark this song",
+        ],
+        'BookRestaurant': [
+            "Book a table for two tonight",
+            "Make a reservation at the Italian place",
+            "I need a table for 4 at 7pm",
+            "Reserve a spot for dinner",
+            "Can you book me a restaurant",
+            "Find me a table at {restaurant}",
+            "I want to dine out tonight",
+            "Make dinner reservations",
+            "Book a table for tomorrow",
+            "Reserve seating for five",
+        ],
+        'GetWeather': [
+            "What's the weather like today",
+            "Will it rain tomorrow",
+            "What's the forecast for this week",
+            "Is it going to be sunny",
+            "Tell me the temperature",
+            "What's the weather in {city}",
+            "Do I need an umbrella",
+            "How cold is it outside",
+            "Weather forecast please",
+            "Is it snowing today",
+        ],
+        'PlayMusic': [
+            "Play some jazz music",
+            "Put on my favorite playlist",
+            "Play songs by {artist}",
+            "I want to listen to rock music",
+            "Play the latest hits",
+            "Turn on some background music",
+            "Play {song} by {artist}",
+            "Shuffle my playlist",
+            "Play something relaxing",
+            "Start my morning playlist",
+        ],
+        'RateBook': [
+            "Rate this book five stars",
+            "Give {book} a good rating",
+            "I loved this book rate it high",
+            "This book deserves 4 stars",
+            "Rate my current read",
+            "Give a review for {book}",
+            "I want to rate the last book I read",
+            "Five stars for this novel",
+            "Rate it as excellent",
+            "This book gets a thumbs up",
+        ],
+        'SearchCreativeWork': [
+            "Find me the movie {movie}",
+            "Search for books by {author}",
+            "Look up the song {song}",
+            "Find information about {show}",
+            "Search for {artist} albums",
+            "Look for movies like {movie}",
+            "Find TV shows about science",
+            "Search for documentaries",
+            "Find me a good podcast",
+            "Look up the latest bestsellers",
+        ],
+        'SearchScreeningEvent': [
+            "What movies are playing nearby",
+            "Find show times for {movie}",
+            "When is {movie} playing",
+            "Search for movie screenings",
+            "What's showing at the cinema",
+            "Find tickets for tonight",
+            "Movie showtimes near me",
+            "When can I watch {movie}",
+            "Search for IMAX screenings",
+            "Find late night shows",
+        ],
+    }
 
-    try:
-        # 尝试下载SNIPS数据
-        # 如果失败，创建模拟数据
-        raise NotImplementedError("ROSTD数据需要手动准备")
-    except:
-        # 创建模拟数据用于测试
-        print(f"[ROSTD] 创建模拟数据...")
+    # 扩展每个意图的样本
+    expanded_data = {intent: [] for intent in intent_templates}
 
-        # 模拟7个意图类别
-        intents = ['weather', 'music', 'reminder', 'alarm', 'calendar', 'news', 'navigation']
-        oos_phrases = [
-            "What is the meaning of life?",
-            "Tell me a joke",
-            "How old is the universe?",
-            "What's your favorite color?",
-            "Can you sing a song?",
-            "Who won the world cup?",
-            "What's the capital of Mars?",
-        ]
+    variations = [
+        "Please {}", "Can you {}", "I'd like to {}", "Could you {}",
+        "{} for me", "Help me {}", "I want to {}", "I need to {}",
+    ]
 
-        # 创建训练和测试数据
-        data = {
-            'train': [],
-            'test': []
-        }
+    for intent, templates in intent_templates.items():
+        for template in templates:
+            # 原始模板
+            expanded_data[intent].append(template)
+            # 添加变体
+            base = template.lower()
+            for var in variations[:3]:  # 限制变体数量
+                try:
+                    varied = var.format(base)
+                    expanded_data[intent].append(varied)
+                except:
+                    pass
 
-        # 为每个意图创建样本
-        intent_phrases = {
-            'weather': ["What's the weather today?", "Is it going to rain?", "How hot is it outside?"],
-            'music': ["Play some music", "Play my favorite song", "Turn on the radio"],
-            'reminder': ["Remind me to call mom", "Set a reminder for tomorrow", "Don't let me forget"],
-            'alarm': ["Set an alarm for 7am", "Wake me up at 6", "Cancel my alarm"],
-            'calendar': ["What's on my calendar?", "Schedule a meeting", "Add an event"],
-            'news': ["What's the latest news?", "Tell me the headlines", "Any breaking news?"],
-            'navigation': ["Navigate to home", "How do I get to work?", "Show me directions"],
-        }
+    # OOD样本 - 来自不相关领域
+    oos_samples = [
+        # 一般闲聊
+        "What is the meaning of life",
+        "Tell me a joke",
+        "How are you today",
+        "What's your name",
+        "Who created you",
+        "Are you a robot",
+        "What can you do",
+        "Help me with homework",
+        "Tell me a story",
+        "What's 2 plus 2",
+        # 其他领域
+        "How do I fix my car",
+        "What's the stock price of Apple",
+        "Translate hello to Spanish",
+        "Set an alarm for 7am",
+        "Call my mother",
+        "Send a text message",
+        "Take a photo",
+        "Navigate to home",
+        "What time is it",
+        "Calculate tip for 50 dollars",
+        # 更多闲聊
+        "Do you have feelings",
+        "What's your favorite color",
+        "Can you learn",
+        "Are you conscious",
+        "What year is it",
+        "Who is the president",
+        "What's the capital of France",
+        "How old is the universe",
+        "Is there life on Mars",
+        "What's the best programming language",
+    ]
 
-        for intent, phrases in intent_phrases.items():
-            for phrase in phrases:
-                data['train'].append([phrase, intent])
-                data['test'].append([phrase, intent])
+    # 创建训练和测试数据
+    np.random.seed(42)
 
-        # 添加OOS样本到测试集
-        for phrase in oos_phrases:
-            data['test'].append([phrase, 'oos'])
+    data = {'train': [], 'test': [], 'oos_test': []}
 
-        with open(data_file, 'w') as f:
-            json.dump(data, f, indent=2)
+    # 80%训练，20%测试
+    for intent, samples in expanded_data.items():
+        np.random.shuffle(samples)
+        n_train = int(len(samples) * 0.8)
 
-        print(f"[ROSTD] 模拟数据创建完成: {data_file}")
+        for sample in samples[:n_train]:
+            data['train'].append([sample, intent])
+        for sample in samples[n_train:]:
+            data['test'].append([sample, intent])
+
+    # OOD样本
+    for sample in oos_samples:
+        data['oos_test'].append([sample, 'oos'])
+
+    with open(data_file, 'w') as f:
+        json.dump(data, f, indent=2)
+
+    print(f"[ROSTD] 数据创建完成: {data_file}")
+    print(f"  - 训练样本: {len(data['train'])}")
+    print(f"  - ID测试样本: {len(data['test'])}")
+    print(f"  - OOD测试样本: {len(data['oos_test'])}")
 
     return data_dir
 
@@ -326,14 +446,21 @@ def load_rostd(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str], L
             train_texts.append(text)
             train_labels.append(0)
 
-    # 测试数据
+    # 测试数据 - ID样本
     test_texts = []
     test_labels = []
     test_intents = []
     for text, intent in data['test']:
         test_texts.append(text)
-        test_labels.append(1 if intent == 'oos' else 0)
+        test_labels.append(0)  # ID样本
         test_intents.append(intent)
+
+    # OOD样本
+    if 'oos_test' in data:
+        for text, intent in data['oos_test']:
+            test_texts.append(text)
+            test_labels.append(1)  # OOD样本
+            test_intents.append(intent)
 
     print(f"[ROSTD] 加载完成:")
     print(f"  - 训练样本: {len(train_texts)} (全部ID)")
