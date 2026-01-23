@@ -1,0 +1,13 @@
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Datasets
+rw2_temporal/datasets/
+
+# Checkpoints
+rw2_temporal/checkpoints/
+rw2_temporal/results/
+rw2_temporal/reports/
+rw2_temporal/figures/
