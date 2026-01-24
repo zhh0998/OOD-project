@@ -1,0 +1,39 @@
+{
+  "model": "tpnet",
+  "dataset": "tgbl-wiki",
+  "epochs": 10,
+  "batch_size": 500,
+  "lr": 0.001,
+  "num_runs": 3,
+  "param_count": 15228993,
+  "test_mrr_mean": 0.7729111115137736,
+  "test_mrr_std": 0.0021370334754311966,
+  "test_hits10_mean": 1.0,
+  "test_hits10_std": 0.0,
+  "individual_runs": [
+    {
+      "run_idx": 0,
+      "seed": 42,
+      "test_mrr": 0.7759333332379659,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7841999967892964,
+      "train_time": 117.0850625038147
+    },
+    {
+      "run_idx": 1,
+      "seed": 142,
+      "test_mrr": 0.7714000066121419,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7821333328882853,
+      "train_time": 116.5800633430481
+    },
+    {
+      "run_idx": 2,
+      "seed": 242,
+      "test_mrr": 0.771399994691213,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7890666683514913,
+      "train_time": 121.20743417739868
+    }
+  ]
+}

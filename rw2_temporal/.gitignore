@@ -1,0 +1,13 @@
+# Model checkpoints (too large)
+checkpoints/**/*.pt
+
+# Data files (too large)
+data/ogbl_collab/
+data/*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/*.log

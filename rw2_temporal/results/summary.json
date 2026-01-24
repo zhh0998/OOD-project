@@ -1,0 +1,19 @@
+{
+  "baseline": "baseline",
+  "models": {
+    "baseline": {
+      "mrr_mean": 0.770977775255839,
+      "mrr_std": 0.001007129379442024
+    },
+    "dygprompt": {
+      "mrr_mean": 0.7742222256130642,
+      "mrr_std": 0.0008849925007898142,
+      "mrr_improvement": 0.004208228124537799
+    },
+    "tpnet": {
+      "mrr_mean": 0.7729111115137736,
+      "mrr_std": 0.0021370334754311966,
+      "mrr_improvement": 0.002507642009904913
+    }
+  }
+}

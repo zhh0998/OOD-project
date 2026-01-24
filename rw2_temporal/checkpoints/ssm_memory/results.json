@@ -1,0 +1,39 @@
+{
+  "model": "ssm_memory_llm",
+  "dataset": "tgbl-wiki",
+  "epochs": 10,
+  "batch_size": 500,
+  "lr": 0.001,
+  "num_runs": 3,
+  "param_count": 15258209,
+  "test_mrr_mean": 0.7702666733000013,
+  "test_mrr_std": 0.0009301527294569175,
+  "test_hits10_mean": 1.0,
+  "test_hits10_std": 0.0,
+  "individual_runs": [
+    {
+      "run_idx": 0,
+      "seed": 42,
+      "test_mrr": 0.7701333403587342,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7862666606903076,
+      "train_time": 176.1792345046997
+    },
+    {
+      "run_idx": 1,
+      "seed": 142,
+      "test_mrr": 0.7692000071207682,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7833999951680501,
+      "train_time": 179.94100999832153
+    },
+    {
+      "run_idx": 2,
+      "seed": 242,
+      "test_mrr": 0.7714666724205017,
+      "test_hits10": 1.0,
+      "best_val_mrr": 0.7867999990781148,
+      "train_time": 177.4700963497162
+    }
+  ]
+}

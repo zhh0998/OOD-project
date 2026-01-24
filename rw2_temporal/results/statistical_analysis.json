@@ -1,0 +1,16 @@
+{
+  "dygprompt": {
+    "baseline_mrr_mean": 0.770977775255839,
+    "model_mrr_mean": 0.7742222256130642,
+    "improvement_relative": 0.004208228124537799,
+    "cohen_d": 2.7943028744710587,
+    "p_value": 0.02672349844368403
+  },
+  "tpnet": {
+    "baseline_mrr_mean": 0.770977775255839,
+    "model_mrr_mean": 0.7729111115137736,
+    "improvement_relative": 0.002507642009904913,
+    "cohen_d": 0.9449571784667775,
+    "p_value": 0.31154014977961925
+  }
+}
