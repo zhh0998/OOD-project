@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-01-24T09:02:59.235385",
-  "total_score": 83.0952380952381,
-  "grade": "A (Minor Revisions Needed)",
+  "timestamp": "2026-01-24T09:26:59.160090",
+  "total_score": 93.33333333333333,
+  "grade": "A+ (Ready for Top-Tier Submission)",
   "component_scores": {
     "datasets": 100.0,
-    "baselines": 57.14285714285714,
+    "baselines": 66.66666666666666,
     "ablation": 100.0,
     "statistics": 100,
-    "visualization": 66.66666666666666
+    "visualization": 100.0
   },
   "dataset_status": {
     "tier1_datasets": {
@@ -72,8 +72,8 @@
         "Energy Score"
       ],
       "missing": [
-        "MaxLogits",
-        "ODIN"
+        "ODIN",
+        "MaxLogits"
       ],
       "percentage": 50.0
     },
@@ -90,17 +90,17 @@
       "percentage": 66.66666666666666
     },
     "sota_2022_2024": {
-      "required": 4,
-      "implemented": 3,
+      "required": 5,
+      "implemented": 5,
       "methods": [
         "DA-ADB",
         "FLatS",
-        "RMD"
+        "RMD",
+        "KNN-Contrastive",
+        "VI-OOD"
       ],
-      "missing": [
-        "KNN-Contrastive"
-      ],
-      "percentage": 75.0
+      "missing": [],
+      "percentage": 100.0
     }
   },
   "implemented_baselines": [
@@ -115,7 +115,9 @@
     "Energy Score",
     "Ablation Detector",
     "Adaptive K Selector",
-    "NHR Analyzer"
+    "NHR Analyzer",
+    "KNN-Contrastive",
+    "VI-OOD"
   ],
   "ablation_status": {
     "completeness": 100.0,
@@ -182,7 +184,7 @@
     }
   },
   "viz_status": {
-    "completeness": 66.66666666666666,
+    "completeness": 100.0,
     "critical_missing": [],
     "figures_dir_exists": true
   }

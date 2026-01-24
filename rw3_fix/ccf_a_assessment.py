@@ -170,7 +170,8 @@ def assess_baseline_completeness() -> Tuple[Dict, List[str], float]:
         'heterophily_enhanced_fixed.py': ['HeterophilyEnhancedFixed'],
         'classifier_baselines.py': ['MSP', 'Energy', 'MaxLogits'],
         'priority1_experiments.py': ['AblationDetector'],
-        'priority2_experiments.py': ['AdaptiveKSelector', 'HeterophilyAnalyzer']
+        'priority2_experiments.py': ['AdaptiveKSelector', 'HeterophilyAnalyzer'],
+        'ccfa_supplement_experiments.py': ['KNNContrastiveDetector', 'VIOODDetector']
     }
 
     for file_name, expected_classes in files_to_check.items():
@@ -193,7 +194,9 @@ def assess_baseline_completeness() -> Tuple[Dict, List[str], float]:
                         'HeterophilyAnalyzer': 'NHR Analyzer',
                         'MSP': 'MSP',
                         'Energy': 'Energy Score',
-                        'MaxLogits': 'MaxLogits'
+                        'MaxLogits': 'MaxLogits',
+                        'KNNContrastiveDetector': 'KNN-Contrastive',
+                        'VIOODDetector': 'VI-OOD'
                     }
                     readable_name = name_map.get(class_name, class_name)
                     if readable_name not in implemented_baselines:
@@ -214,7 +217,7 @@ def assess_baseline_completeness() -> Tuple[Dict, List[str], float]:
             'implemented': []
         },
         'sota_2022_2024': {
-            'required': ['DA-ADB', 'FLatS', 'RMD', 'KNN-Contrastive'],
+            'required': ['DA-ADB', 'FLatS', 'RMD', 'KNN-Contrastive', 'VI-OOD'],
             'implemented': []
         }
     }
