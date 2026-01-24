@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 模型权重
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+models/checkpoints/
+models/pretrained/
+
+# 大型数据文件
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+
+# 日志和输出
+*.log
+*.out
+*.err
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 临时文件
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Git
+*.orig
+
+# 图表PNG (保留PDF版本)
+rw3_fix/figures/*.png
+
+# 分析输出
+repo_analysis*.txt
+analysis_*.txt
