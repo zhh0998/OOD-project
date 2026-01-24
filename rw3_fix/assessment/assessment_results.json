@@ -1,0 +1,189 @@
+{
+  "timestamp": "2026-01-24T09:02:59.235385",
+  "total_score": 83.0952380952381,
+  "grade": "A (Minor Revisions Needed)",
+  "component_scores": {
+    "datasets": 100.0,
+    "baselines": 57.14285714285714,
+    "ablation": 100.0,
+    "statistics": 100,
+    "visualization": 66.66666666666666
+  },
+  "dataset_status": {
+    "tier1_datasets": {
+      "clinc150": {
+        "required": true,
+        "description": "\u8fdcOOD\u68c0\u6d4b\u57fa\u51c6",
+        "min_auroc": 0.9,
+        "status": "found",
+        "auroc": 0.9623255555555555,
+        "fpr95": 0.16844444444444445,
+        "meets_threshold": true
+      },
+      "banking77": {
+        "required": true,
+        "description": "\u8fd1OOD\u68c0\u6d4b\u57fa\u51c6",
+        "min_auroc": 0.85,
+        "status": "found",
+        "auroc": 0.8899166288566243,
+        "fpr95": 0.3745689655172414,
+        "meets_threshold": true
+      }
+    },
+    "tier2_datasets": {
+      "rostd": {
+        "required": true,
+        "description": "\u771f\u5b9e\u4e16\u754cOOD\u6cdb\u5316",
+        "zero_shot": true,
+        "min_auroc": 0.95,
+        "status": "found",
+        "auroc": 0.9922619047619048,
+        "fpr95": 0.017857142857142856,
+        "meets_threshold": true
+      }
+    },
+    "tier3_datasets": {
+      "hwu64": {
+        "required": false,
+        "description": "\u989d\u5916\u8bc4\u4f30\u6570\u636e\u96c6",
+        "status": "missing",
+        "auroc": null
+      }
+    }
+  },
+  "baseline_coverage": {
+    "traditional": {
+      "required": 3,
+      "implemented": 1,
+      "methods": [
+        "LOF"
+      ],
+      "missing": [
+        "Isolation Forest",
+        "One-Class SVM"
+      ],
+      "percentage": 33.33333333333333
+    },
+    "output_based": {
+      "required": 4,
+      "implemented": 2,
+      "methods": [
+        "MSP",
+        "Energy Score"
+      ],
+      "missing": [
+        "MaxLogits",
+        "ODIN"
+      ],
+      "percentage": 50.0
+    },
+    "distance_based": {
+      "required": 3,
+      "implemented": 2,
+      "methods": [
+        "Mahalanobis",
+        "KNN Distance"
+      ],
+      "missing": [
+        "Cosine Distance"
+      ],
+      "percentage": 66.66666666666666
+    },
+    "sota_2022_2024": {
+      "required": 4,
+      "implemented": 3,
+      "methods": [
+        "DA-ADB",
+        "FLatS",
+        "RMD"
+      ],
+      "missing": [
+        "KNN-Contrastive"
+      ],
+      "percentage": 75.0
+    }
+  },
+  "implemented_baselines": [
+    "DA-ADB",
+    "FLatS",
+    "RMD",
+    "KNN Distance",
+    "LOF",
+    "Mahalanobis",
+    "Heterophily-Enhanced (Ours)",
+    "MSP",
+    "Energy Score",
+    "Ablation Detector",
+    "Adaptive K Selector",
+    "NHR Analyzer"
+  ],
+  "ablation_status": {
+    "completeness": 100.0,
+    "details": {
+      "full_model": {
+        "name": "Full Model",
+        "required": true,
+        "found": true,
+        "critical": false
+      },
+      "knn_only": {
+        "name": "KNN Only (w/o Heterophily)",
+        "required": true,
+        "found": true,
+        "critical": true
+      },
+      "heterophily_only": {
+        "name": "Heterophily Only",
+        "required": true,
+        "found": true,
+        "critical": true
+      },
+      "different_k_values": {
+        "name": "Different k Values",
+        "required": true,
+        "found": true,
+        "critical": false
+      },
+      "distance_methods": {
+        "name": "Distance Methods (kth vs mean)",
+        "required": true,
+        "found": true,
+        "critical": false
+      },
+      "adaptive_k": {
+        "name": "Adaptive k Selection",
+        "required": false,
+        "found": true,
+        "critical": false
+      }
+    },
+    "critical_missing": [],
+    "total_required": 5,
+    "completed": 5
+  },
+  "stat_checks": {
+    "multi_seed": {
+      "required_seeds": 5,
+      "found_seeds": 5,
+      "status": "pass"
+    },
+    "significance_tests": {
+      "paired_ttest": true,
+      "bootstrap_ci": true,
+      "cohens_d": false,
+      "wilcoxon": false
+    },
+    "multiple_comparison": {
+      "correction_applied": false,
+      "method": null
+    },
+    "error_bars": {
+      "reported_std": true
+    }
+  },
+  "viz_status": {
+    "completeness": 66.66666666666666,
+    "critical_missing": [],
+    "figures_dir_exists": true
+  }
+}
