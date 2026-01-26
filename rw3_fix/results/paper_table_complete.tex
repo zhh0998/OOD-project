@@ -1,0 +1,26 @@
+% RW3 OOD Detection Results
+% Generated: 2026-01-10T12:18:07.859111
+
+\begin{table}[t]
+\centering
+\caption{OOD Detection Performance Comparison. Best results are in \textbf{bold}, second best are \underline{underlined}.}
+\label{tab:ood_results}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\multirow{2}{*}{Method} & \multicolumn{2}{c}{CLINC150} & \multicolumn{2}{c}{Banking77-OOS} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & AUROC$\uparrow$ & FPR95$\downarrow$ & AUROC$\uparrow$ & FPR95$\downarrow$ \\
+\midrule
+KNN ($k$=10) & \textbf{95.82} & 20.09 & \underline{84.31} & 50.34 \\
+KNN ($k$=50) & 93.92 & 28.69 & 73.03 & 67.59 \\
+KNN ($k$=100) & 92.07 & 36.73 & 68.32 & 73.66 \\
+Mahalanobis & 89.42 & 39.73 & 72.11 & 79.22 \\
+LOF & 93.43 & 22.82 & \textbf{87.80} & 41.29 \\
+MSP & 91.76 & 28.96 & 80.65 & 68.10 \\
+Energy & 94.47 & 21.87 & 79.03 & 67.76 \\
+MaxLogit & \underline{94.70} & 21.42 & 79.89 & 66.98 \\
+\textbf{HeterophilyEnhanced (Ours)} & 82.18 & 75.80 & 67.75 & 90.39 \\
+\bottomrule
+\end{tabular}
+\end{table}

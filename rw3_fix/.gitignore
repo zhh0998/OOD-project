@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Keep results
+!results/
+
+# Data directory - keep small files, ignore large additions
+data/*.pkl
+data/*.h5
+data/raw/

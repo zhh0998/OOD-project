@@ -1,0 +1,47 @@
+% RW3 OOD Detection Results - Generated Tables
+% Use in paper with \input{paper_tables.tex}
+
+% Table 1: Main Results
+\begin{table}[h]
+\centering
+\caption{OOD Detection Results (AUROC \%)}
+\label{tab:main_results}
+\begin{tabular}{lcccc}
+\toprule
+Dataset & KNN (k=10) & Mahalanobis & LOF & Best \\
+\midrule
+CLINC150 & 95.82 & 89.42 & 93.43 & \textbf{95.82} \\
+Banking77-OOS & 84.31 & 72.11 & 87.80 & \textbf{87.80} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Table 2: Bug Fix Comparison
+\begin{table}[h]
+\centering
+\caption{Bug Fix Impact on Performance}
+\label{tab:bug_fix}
+\begin{tabular}{lccc}
+\toprule
+Dataset & Before Fix & After Fix & Improvement \\
+\midrule
+CLINC150 & 72.86\% & 95.82\% & +22.96\% \\
+Banking77-OOS & 86.95\% & 87.80\% & +0.85\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Table 3: K-sensitivity Analysis
+\begin{table}[h]
+\centering
+\caption{Effect of k on KNN Performance (AUROC \%)}
+\label{tab:k_sensitivity}
+\begin{tabular}{lcccc}
+\toprule
+Dataset & k=10 & k=30 & k=50 & k=100 \\
+\midrule
+CLINC150 & 95.82 & 94.75 & 93.92 & 92.07 \\
+Banking77-OOS & 84.31 & 75.76 & 73.03 & 68.32 \\
+\bottomrule
+\end{tabular}
+\end{table}

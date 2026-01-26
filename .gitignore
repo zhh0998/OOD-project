@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data (downloaded automatically)
+data/clinc150/
+data/banking77_oos/
+data/rostd/
+data/hwu64/
+
+# Models
+*.pt
+*.pth
+*.bin
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+*.log
+*.tmp

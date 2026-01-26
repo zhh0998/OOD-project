@@ -1,0 +1,230 @@
+{
+  "adaptive_k": {
+    "clinc150": {
+      "k_mean": 14.946,
+      "k_std": 9.563790252823408,
+      "k_min": 2,
+      "k_max": 50,
+      "k_25": 7,
+      "k_50": 13,
+      "k_75": 20,
+      "density_mean": 3.3773858547210693,
+      "density_std": 1.6251437664031982,
+      "recommended_far_ood": 20,
+      "recommended_near_ood": 7
+    },
+    "banking77": {
+      "k_mean": 16.8775,
+      "k_std": 7.587126844201301,
+      "k_min": 2,
+      "k_max": 50,
+      "k_25": 11,
+      "k_50": 15,
+      "k_75": 21,
+      "density_mean": 4.127237319946289,
+      "density_std": 1.5283277034759521,
+      "recommended_far_ood": 21,
+      "recommended_near_ood": 11
+    },
+    "rostd": {
+      "k_mean": 25.026785714285715,
+      "k_std": 10.20763004310691,
+      "k_min": 2,
+      "k_max": 50,
+      "k_25": 17,
+      "k_50": 25,
+      "k_75": 31,
+      "density_mean": 1.8423644304275513,
+      "density_std": 0.2782954275608063,
+      "recommended_far_ood": 31,
+      "recommended_near_ood": 17
+    }
+  },
+  "nhr_analysis": {
+    "clinc150": {
+      "nhr_analysis": {
+        "id_nhr_mean": 0.12008546764715598,
+        "id_nhr_std": 0.1286274953293602,
+        "ood_nhr_mean": 0.39330757493825624,
+        "ood_nhr_std": 0.18049523287846173,
+        "nhr_difference": 0.27322210729110025,
+        "t_statistic": -38.21660772099159,
+        "p_value": 1.1724454974349161e-197,
+        "significant": true
+      },
+      "correlation": {
+        "global_pearson_r": 0.7274153160235964,
+        "global_pearson_p": 0.0,
+        "global_spearman_r": 0.7104335257863933,
+        "global_spearman_p": 0.0,
+        "id_pearson_r": 0.5640076830629804,
+        "id_pearson_p": 0.0,
+        "ood_pearson_r": 0.5419663715861989,
+        "ood_pearson_p": 2.0156580012679772e-77,
+        "significant": true
+      }
+    },
+    "banking77": {
+      "nhr_analysis": {
+        "id_nhr_mean": 0.10780801610992048,
+        "id_nhr_std": 0.1083440147573449,
+        "ood_nhr_mean": 0.24617451413118602,
+        "ood_nhr_std": 0.15524798734956866,
+        "nhr_difference": 0.13836649802126555,
+        "t_statistic": -21.30782054434196,
+        "p_value": 2.4977464422645668e-79,
+        "significant": true
+      },
+      "correlation": {
+        "global_pearson_r": 0.597104695140378,
+        "global_pearson_p": 5.039102285335857e-297,
+        "global_spearman_r": 0.5546963209432916,
+        "global_spearman_p": 4.3446214977302755e-248,
+        "id_pearson_r": 0.46390828050186894,
+        "id_pearson_p": 3.723167505139123e-124,
+        "ood_pearson_r": 0.47047094242063664,
+        "ood_pearson_p": 4.051988447539459e-43,
+        "significant": true
+      }
+    },
+    "rostd": {
+      "nhr_analysis": {
+        "id_nhr_mean": 0.2391414036755309,
+        "id_nhr_std": 0.14780127637998242,
+        "ood_nhr_mean": 0.6492351574753819,
+        "ood_nhr_std": 0.16315376910541646,
+        "nhr_difference": 0.4100937537998509,
+        "t_statistic": -10.59214807473057,
+        "p_value": 1.7612500158962836e-11,
+        "significant": true
+      },
+      "correlation": {
+        "global_pearson_r": 0.7438252104532633,
+        "global_pearson_p": 2.3158003934364677e-16,
+        "global_spearman_r": 0.6961021164835577,
+        "global_spearman_p": 1.0049912103273542e-13,
+        "id_pearson_r": 0.24881953376259494,
+        "id_pearson_p": 0.0644290512847651,
+        "ood_pearson_r": 0.0909183171510758,
+        "ood_pearson_p": 0.6327841246703456,
+        "significant": true
+      }
+    }
+  },
+  "significance": {
+    "clinc150": {
+      "auroc_mean": 0.9623255555555555,
+      "auroc_std": 0.0,
+      "auroc_ci_lower": 0.9623255555555555,
+      "auroc_ci_upper": 0.9623255555555555,
+      "fpr95_mean": 0.16844444444444445,
+      "fpr95_std": 0.0,
+      "fpr95_ci_lower": 0.16844444444444445,
+      "fpr95_ci_upper": 0.16844444444444445,
+      "n_runs": 5,
+      "individual_aurocs": [
+        0.9623255555555555,
+        0.9623255555555555,
+        0.9623255555555555,
+        0.9623255555555555,
+        0.9623255555555555
+      ],
+      "individual_fpr95s": [
+        0.16844444444444445,
+        0.16844444444444445,
+        0.16844444444444445,
+        0.16844444444444445,
+        0.16844444444444445
+      ]
+    },
+    "banking77": {
+      "auroc_mean": 0.8899166288566243,
+      "auroc_std": 0.0,
+      "auroc_ci_lower": 0.8899166288566243,
+      "auroc_ci_upper": 0.8899166288566243,
+      "fpr95_mean": 0.3745689655172414,
+      "fpr95_std": 0.0,
+      "fpr95_ci_lower": 0.3745689655172414,
+      "fpr95_ci_upper": 0.3745689655172414,
+      "n_runs": 5,
+      "individual_aurocs": [
+        0.8899166288566243,
+        0.8899166288566243,
+        0.8899166288566243,
+        0.8899166288566243,
+        0.8899166288566243
+      ],
+      "individual_fpr95s": [
+        0.3745689655172414,
+        0.3745689655172414,
+        0.3745689655172414,
+        0.3745689655172414,
+        0.3745689655172414
+      ]
+    }
+  },
+  "few_shot": {
+    "clinc150": {
+      "5_shot": {
+        "n_shot": 5,
+        "n_train_samples": 750,
+        "auroc": 0.9086112222222222,
+        "fpr95": 0.4042222222222222,
+        "aupr": 0.7099103569688501
+      },
+      "10_shot": {
+        "n_shot": 10,
+        "n_train_samples": 1500,
+        "auroc": 0.9338263333333333,
+        "fpr95": 0.302,
+        "aupr": 0.7629630392003859
+      },
+      "20_shot": {
+        "n_shot": 20,
+        "n_train_samples": 3000,
+        "auroc": 0.9448781111111112,
+        "fpr95": 0.25622222222222224,
+        "aupr": 0.791728457615657
+      },
+      "50_shot": {
+        "n_shot": 50,
+        "n_train_samples": 7500,
+        "auroc": 0.9554526666666666,
+        "fpr95": 0.2117777777777778,
+        "aupr": 0.8174878355276423
+      }
+    }
+  },
+  "final_evaluation": {
+    "clinc150": {
+      "config": {
+        "k": 5,
+        "alpha": 0.0,
+        "distance_method": "mean"
+      },
+      "auroc": 0.9623255555555555,
+      "fpr95": 0.16844444444444445,
+      "aupr": 0.8408001844774158
+    },
+    "banking77": {
+      "config": {
+        "k": 2,
+        "alpha": 0.0,
+        "distance_method": "mean"
+      },
+      "auroc": 0.8899166288566243,
+      "fpr95": 0.3745689655172414,
+      "aupr": 0.6944168609409588
+    },
+    "rostd": {
+      "config": {
+        "k": 5,
+        "alpha": 0.0,
+        "distance_method": "kth"
+      },
+      "auroc": 0.9922619047619048,
+      "fpr95": 0.017857142857142856,
+      "aupr": 0.9866866353981667
+    }
+  }
+}
