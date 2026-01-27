@@ -1,0 +1,1248 @@
+{
+  "train": [
+    [
+      "I'd like to save this song to my library",
+      "AddToPlaylist"
+    ],
+    [
+      "Save this song to my library",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to include this in my workout playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you put this on repeat",
+      "AddToPlaylist"
+    ],
+    [
+      "Put this track on my favorites",
+      "AddToPlaylist"
+    ],
+    [
+      "Include this in my workout playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please bookmark this song",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to put this on repeat",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to bookmark this song",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you put this track on my favorites",
+      "AddToPlaylist"
+    ],
+    [
+      "Please put this on repeat",
+      "AddToPlaylist"
+    ],
+    [
+      "Please add the song {song} to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please include this in my workout playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to add to queue",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you save this track",
+      "AddToPlaylist"
+    ],
+    [
+      "Add the song {song} to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please save this song to my library",
+      "AddToPlaylist"
+    ],
+    [
+      "Put this on repeat",
+      "AddToPlaylist"
+    ],
+    [
+      "Add this song to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please save this track",
+      "AddToPlaylist"
+    ],
+    [
+      "Please put this track on my favorites",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to add the song {song} to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please add this song to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Please add to queue",
+      "AddToPlaylist"
+    ],
+    [
+      "Please add {artist} latest album to my collection",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you add this song to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you add to queue",
+      "AddToPlaylist"
+    ],
+    [
+      "Bookmark this song",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to add this song to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to save this track",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to add {artist} latest album to my collection",
+      "AddToPlaylist"
+    ],
+    [
+      "Save this track",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you find me a table at {restaurant}",
+      "BookRestaurant"
+    ],
+    [
+      "Book a table for two tonight",
+      "BookRestaurant"
+    ],
+    [
+      "Can you i want to dine out tonight",
+      "BookRestaurant"
+    ],
+    [
+      "Make a reservation at the Italian place",
+      "BookRestaurant"
+    ],
+    [
+      "Book a table for tomorrow",
+      "BookRestaurant"
+    ],
+    [
+      "Can you can you book me a restaurant",
+      "BookRestaurant"
+    ],
+    [
+      "Can you i need a table for 4 at 7pm",
+      "BookRestaurant"
+    ],
+    [
+      "Please book a table for tomorrow",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to reserve a spot for dinner",
+      "BookRestaurant"
+    ],
+    [
+      "Reserve a spot for dinner",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to make dinner reservations",
+      "BookRestaurant"
+    ],
+    [
+      "Please i need a table for 4 at 7pm",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to find me a table at {restaurant}",
+      "BookRestaurant"
+    ],
+    [
+      "Please make a reservation at the italian place",
+      "BookRestaurant"
+    ],
+    [
+      "Please find me a table at {restaurant}",
+      "BookRestaurant"
+    ],
+    [
+      "Can you make dinner reservations",
+      "BookRestaurant"
+    ],
+    [
+      "Please make dinner reservations",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to book a table for tomorrow",
+      "BookRestaurant"
+    ],
+    [
+      "Please reserve seating for five",
+      "BookRestaurant"
+    ],
+    [
+      "Reserve seating for five",
+      "BookRestaurant"
+    ],
+    [
+      "Can you book me a restaurant",
+      "BookRestaurant"
+    ],
+    [
+      "Can you book a table for tomorrow",
+      "BookRestaurant"
+    ],
+    [
+      "Can you book a table for two tonight",
+      "BookRestaurant"
+    ],
+    [
+      "Make dinner reservations",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to make a reservation at the italian place",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to i need a table for 4 at 7pm",
+      "BookRestaurant"
+    ],
+    [
+      "Can you make a reservation at the italian place",
+      "BookRestaurant"
+    ],
+    [
+      "Can you reserve a spot for dinner",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to i want to dine out tonight",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to can you book me a restaurant",
+      "BookRestaurant"
+    ],
+    [
+      "Please book a table for two tonight",
+      "BookRestaurant"
+    ],
+    [
+      "Find me a table at {restaurant}",
+      "BookRestaurant"
+    ],
+    [
+      "Can you tell me the temperature",
+      "GetWeather"
+    ],
+    [
+      "Please what's the forecast for this week",
+      "GetWeather"
+    ],
+    [
+      "Please is it snowing today",
+      "GetWeather"
+    ],
+    [
+      "Please will it rain tomorrow",
+      "GetWeather"
+    ],
+    [
+      "I'd like to weather forecast please",
+      "GetWeather"
+    ],
+    [
+      "I'd like to what's the weather like today",
+      "GetWeather"
+    ],
+    [
+      "Tell me the temperature",
+      "GetWeather"
+    ],
+    [
+      "Please what's the weather like today",
+      "GetWeather"
+    ],
+    [
+      "Please what's the weather in {city}",
+      "GetWeather"
+    ],
+    [
+      "Will it rain tomorrow",
+      "GetWeather"
+    ],
+    [
+      "Can you how cold is it outside",
+      "GetWeather"
+    ],
+    [
+      "Weather forecast please",
+      "GetWeather"
+    ],
+    [
+      "Can you weather forecast please",
+      "GetWeather"
+    ],
+    [
+      "Please weather forecast please",
+      "GetWeather"
+    ],
+    [
+      "I'd like to tell me the temperature",
+      "GetWeather"
+    ],
+    [
+      "Can you what's the weather like today",
+      "GetWeather"
+    ],
+    [
+      "Can you what's the forecast for this week",
+      "GetWeather"
+    ],
+    [
+      "Can you is it snowing today",
+      "GetWeather"
+    ],
+    [
+      "I'd like to what's the forecast for this week",
+      "GetWeather"
+    ],
+    [
+      "Is it snowing today",
+      "GetWeather"
+    ],
+    [
+      "I'd like to how cold is it outside",
+      "GetWeather"
+    ],
+    [
+      "Can you will it rain tomorrow",
+      "GetWeather"
+    ],
+    [
+      "What's the weather like today",
+      "GetWeather"
+    ],
+    [
+      "Can you do i need an umbrella",
+      "GetWeather"
+    ],
+    [
+      "I'd like to is it snowing today",
+      "GetWeather"
+    ],
+    [
+      "What's the forecast for this week",
+      "GetWeather"
+    ],
+    [
+      "Is it going to be sunny",
+      "GetWeather"
+    ],
+    [
+      "How cold is it outside",
+      "GetWeather"
+    ],
+    [
+      "Please how cold is it outside",
+      "GetWeather"
+    ],
+    [
+      "I'd like to do i need an umbrella",
+      "GetWeather"
+    ],
+    [
+      "Do I need an umbrella",
+      "GetWeather"
+    ],
+    [
+      "Please do i need an umbrella",
+      "GetWeather"
+    ],
+    [
+      "Play {song} by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to play something relaxing",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to play {song} by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Can you shuffle my playlist",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to put on my favorite playlist",
+      "PlayMusic"
+    ],
+    [
+      "Please play some jazz music",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to play songs by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Please put on my favorite playlist",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to shuffle my playlist",
+      "PlayMusic"
+    ],
+    [
+      "Turn on some background music",
+      "PlayMusic"
+    ],
+    [
+      "Please play the latest hits",
+      "PlayMusic"
+    ],
+    [
+      "Can you play songs by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to i want to listen to rock music",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to play the latest hits",
+      "PlayMusic"
+    ],
+    [
+      "Please shuffle my playlist",
+      "PlayMusic"
+    ],
+    [
+      "Please start my morning playlist",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to play some jazz music",
+      "PlayMusic"
+    ],
+    [
+      "Play the latest hits",
+      "PlayMusic"
+    ],
+    [
+      "Shuffle my playlist",
+      "PlayMusic"
+    ],
+    [
+      "Can you play the latest hits",
+      "PlayMusic"
+    ],
+    [
+      "I want to listen to rock music",
+      "PlayMusic"
+    ],
+    [
+      "Please play songs by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Can you start my morning playlist",
+      "PlayMusic"
+    ],
+    [
+      "Can you i want to listen to rock music",
+      "PlayMusic"
+    ],
+    [
+      "Play songs by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Can you put on my favorite playlist",
+      "PlayMusic"
+    ],
+    [
+      "Play something relaxing",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to start my morning playlist",
+      "PlayMusic"
+    ],
+    [
+      "Please play {song} by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Put on my favorite playlist",
+      "PlayMusic"
+    ],
+    [
+      "Please play something relaxing",
+      "PlayMusic"
+    ],
+    [
+      "Can you play some jazz music",
+      "PlayMusic"
+    ],
+    [
+      "Can you this book deserves 4 stars",
+      "RateBook"
+    ],
+    [
+      "Rate my current read",
+      "RateBook"
+    ],
+    [
+      "Give a review for {book}",
+      "RateBook"
+    ],
+    [
+      "Please rate this book five stars",
+      "RateBook"
+    ],
+    [
+      "Please this book deserves 4 stars",
+      "RateBook"
+    ],
+    [
+      "Please rate my current read",
+      "RateBook"
+    ],
+    [
+      "I'd like to rate this book five stars",
+      "RateBook"
+    ],
+    [
+      "I'd like to this book deserves 4 stars",
+      "RateBook"
+    ],
+    [
+      "I'd like to give a review for {book}",
+      "RateBook"
+    ],
+    [
+      "Please i want to rate the last book i read",
+      "RateBook"
+    ],
+    [
+      "Can you rate it as excellent",
+      "RateBook"
+    ],
+    [
+      "Can you rate my current read",
+      "RateBook"
+    ],
+    [
+      "I'd like to i loved this book rate it high",
+      "RateBook"
+    ],
+    [
+      "Please i loved this book rate it high",
+      "RateBook"
+    ],
+    [
+      "Please give a review for {book}",
+      "RateBook"
+    ],
+    [
+      "Five stars for this novel",
+      "RateBook"
+    ],
+    [
+      "Give {book} a good rating",
+      "RateBook"
+    ],
+    [
+      "Can you give a review for {book}",
+      "RateBook"
+    ],
+    [
+      "I'd like to give {book} a good rating",
+      "RateBook"
+    ],
+    [
+      "I'd like to this book gets a thumbs up",
+      "RateBook"
+    ],
+    [
+      "I'd like to five stars for this novel",
+      "RateBook"
+    ],
+    [
+      "Can you rate this book five stars",
+      "RateBook"
+    ],
+    [
+      "I loved this book rate it high",
+      "RateBook"
+    ],
+    [
+      "This book deserves 4 stars",
+      "RateBook"
+    ],
+    [
+      "This book gets a thumbs up",
+      "RateBook"
+    ],
+    [
+      "Please rate it as excellent",
+      "RateBook"
+    ],
+    [
+      "Can you i want to rate the last book i read",
+      "RateBook"
+    ],
+    [
+      "Rate it as excellent",
+      "RateBook"
+    ],
+    [
+      "Can you five stars for this novel",
+      "RateBook"
+    ],
+    [
+      "Rate this book five stars",
+      "RateBook"
+    ],
+    [
+      "I'd like to rate it as excellent",
+      "RateBook"
+    ],
+    [
+      "Can you give {book} a good rating",
+      "RateBook"
+    ],
+    [
+      "Search for documentaries",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please find information about {show}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please search for {artist} albums",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please look up the song {song}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you search for books by {author}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Find information about {show}",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to search for books by {author}",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to look for movies like {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you look up the latest bestsellers",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to find information about {show}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you find information about {show}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please find tv shows about science",
+      "SearchCreativeWork"
+    ],
+    [
+      "Look up the song {song}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please search for documentaries",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please look for movies like {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you find tv shows about science",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to search for {artist} albums",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please find me a good podcast",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to search for documentaries",
+      "SearchCreativeWork"
+    ],
+    [
+      "Find TV shows about science",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please look up the latest bestsellers",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you look up the song {song}",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to find me the movie {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Find me a good podcast",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please search for books by {author}",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to look up the song {song}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Look for movies like {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you find me a good podcast",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you search for {artist} albums",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you search for documentaries",
+      "SearchCreativeWork"
+    ],
+    [
+      "Find me the movie {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Search for books by {author}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please find tickets for tonight",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you search for movie screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Search for movie screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please find show times for {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to find late night shows",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to what movies are playing nearby",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please search for movie screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to find show times for {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you movie showtimes near me",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please movie showtimes near me",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Find tickets for tonight",
+      "SearchScreeningEvent"
+    ],
+    [
+      "When is {movie} playing",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please when can i watch {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to search for imax screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "When can I watch {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Find show times for {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to when is {movie} playing",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please find late night shows",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please search for imax screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please what movies are playing nearby",
+      "SearchScreeningEvent"
+    ],
+    [
+      "What's showing at the cinema",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you find late night shows",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to find tickets for tonight",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to search for movie screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Find late night shows",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you what movies are playing nearby",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please when is {movie} playing",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you find tickets for tonight",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you search for imax screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you when can i watch {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Movie showtimes near me",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to movie showtimes near me",
+      "SearchScreeningEvent"
+    ]
+  ],
+  "test": [
+    [
+      "Can you add the song {song} to my playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you add {artist} latest album to my collection",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you save this song to my library",
+      "AddToPlaylist"
+    ],
+    [
+      "Add {artist} latest album to my collection",
+      "AddToPlaylist"
+    ],
+    [
+      "I'd like to put this track on my favorites",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you include this in my workout playlist",
+      "AddToPlaylist"
+    ],
+    [
+      "Add to queue",
+      "AddToPlaylist"
+    ],
+    [
+      "Can you bookmark this song",
+      "AddToPlaylist"
+    ],
+    [
+      "Please i want to dine out tonight",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to reserve seating for five",
+      "BookRestaurant"
+    ],
+    [
+      "Please reserve a spot for dinner",
+      "BookRestaurant"
+    ],
+    [
+      "I want to dine out tonight",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to book a table for two tonight",
+      "BookRestaurant"
+    ],
+    [
+      "Please can you book me a restaurant",
+      "BookRestaurant"
+    ],
+    [
+      "Can you reserve seating for five",
+      "BookRestaurant"
+    ],
+    [
+      "I need a table for 4 at 7pm",
+      "BookRestaurant"
+    ],
+    [
+      "I'd like to what's the weather in {city}",
+      "GetWeather"
+    ],
+    [
+      "Please tell me the temperature",
+      "GetWeather"
+    ],
+    [
+      "I'd like to is it going to be sunny",
+      "GetWeather"
+    ],
+    [
+      "What's the weather in {city}",
+      "GetWeather"
+    ],
+    [
+      "Can you what's the weather in {city}",
+      "GetWeather"
+    ],
+    [
+      "Please is it going to be sunny",
+      "GetWeather"
+    ],
+    [
+      "I'd like to will it rain tomorrow",
+      "GetWeather"
+    ],
+    [
+      "Can you is it going to be sunny",
+      "GetWeather"
+    ],
+    [
+      "Please i want to listen to rock music",
+      "PlayMusic"
+    ],
+    [
+      "Play some jazz music",
+      "PlayMusic"
+    ],
+    [
+      "Can you play {song} by {artist}",
+      "PlayMusic"
+    ],
+    [
+      "Please turn on some background music",
+      "PlayMusic"
+    ],
+    [
+      "Can you play something relaxing",
+      "PlayMusic"
+    ],
+    [
+      "Start my morning playlist",
+      "PlayMusic"
+    ],
+    [
+      "I'd like to turn on some background music",
+      "PlayMusic"
+    ],
+    [
+      "Can you turn on some background music",
+      "PlayMusic"
+    ],
+    [
+      "I want to rate the last book I read",
+      "RateBook"
+    ],
+    [
+      "Please this book gets a thumbs up",
+      "RateBook"
+    ],
+    [
+      "Can you i loved this book rate it high",
+      "RateBook"
+    ],
+    [
+      "Please five stars for this novel",
+      "RateBook"
+    ],
+    [
+      "I'd like to rate my current read",
+      "RateBook"
+    ],
+    [
+      "Can you this book gets a thumbs up",
+      "RateBook"
+    ],
+    [
+      "I'd like to i want to rate the last book i read",
+      "RateBook"
+    ],
+    [
+      "Please give {book} a good rating",
+      "RateBook"
+    ],
+    [
+      "Can you look for movies like {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to find tv shows about science",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to find me a good podcast",
+      "SearchCreativeWork"
+    ],
+    [
+      "I'd like to look up the latest bestsellers",
+      "SearchCreativeWork"
+    ],
+    [
+      "Search for {artist} albums",
+      "SearchCreativeWork"
+    ],
+    [
+      "Look up the latest bestsellers",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you find me the movie {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Please find me the movie {movie}",
+      "SearchCreativeWork"
+    ],
+    [
+      "Can you when is {movie} playing",
+      "SearchScreeningEvent"
+    ],
+    [
+      "What movies are playing nearby",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Please what's showing at the cinema",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Search for IMAX screenings",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you find show times for {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to when can i watch {movie}",
+      "SearchScreeningEvent"
+    ],
+    [
+      "I'd like to what's showing at the cinema",
+      "SearchScreeningEvent"
+    ],
+    [
+      "Can you what's showing at the cinema",
+      "SearchScreeningEvent"
+    ]
+  ],
+  "oos_test": [
+    [
+      "What is the meaning of life",
+      "oos"
+    ],
+    [
+      "Tell me a joke",
+      "oos"
+    ],
+    [
+      "How are you today",
+      "oos"
+    ],
+    [
+      "What's your name",
+      "oos"
+    ],
+    [
+      "Who created you",
+      "oos"
+    ],
+    [
+      "Are you a robot",
+      "oos"
+    ],
+    [
+      "What can you do",
+      "oos"
+    ],
+    [
+      "Help me with homework",
+      "oos"
+    ],
+    [
+      "Tell me a story",
+      "oos"
+    ],
+    [
+      "What's 2 plus 2",
+      "oos"
+    ],
+    [
+      "How do I fix my car",
+      "oos"
+    ],
+    [
+      "What's the stock price of Apple",
+      "oos"
+    ],
+    [
+      "Translate hello to Spanish",
+      "oos"
+    ],
+    [
+      "Set an alarm for 7am",
+      "oos"
+    ],
+    [
+      "Call my mother",
+      "oos"
+    ],
+    [
+      "Send a text message",
+      "oos"
+    ],
+    [
+      "Take a photo",
+      "oos"
+    ],
+    [
+      "Navigate to home",
+      "oos"
+    ],
+    [
+      "What time is it",
+      "oos"
+    ],
+    [
+      "Calculate tip for 50 dollars",
+      "oos"
+    ],
+    [
+      "Do you have feelings",
+      "oos"
+    ],
+    [
+      "What's your favorite color",
+      "oos"
+    ],
+    [
+      "Can you learn",
+      "oos"
+    ],
+    [
+      "Are you conscious",
+      "oos"
+    ],
+    [
+      "What year is it",
+      "oos"
+    ],
+    [
+      "Who is the president",
+      "oos"
+    ],
+    [
+      "What's the capital of France",
+      "oos"
+    ],
+    [
+      "How old is the universe",
+      "oos"
+    ],
+    [
+      "Is there life on Mars",
+      "oos"
+    ],
+    [
+      "What's the best programming language",
+      "oos"
+    ]
+  ]
+}

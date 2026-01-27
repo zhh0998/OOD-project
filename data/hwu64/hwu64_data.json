@@ -1,0 +1,1088 @@
+{
+  "train": [
+    [
+      "Please set alarm for 8:30",
+      "alarm_set"
+    ],
+    [
+      "Please i need an alarm for monday morning",
+      "alarm_set"
+    ],
+    [
+      "Set an alarm for 7am",
+      "alarm_set"
+    ],
+    [
+      "Please create alarm for 5am",
+      "alarm_set"
+    ],
+    [
+      "Please set an alarm for 7am",
+      "alarm_set"
+    ],
+    [
+      "Can you wake me up at 6 tomorrow",
+      "alarm_set"
+    ],
+    [
+      "Set alarm for 8:30",
+      "alarm_set"
+    ],
+    [
+      "Wake me up at 6 tomorrow",
+      "alarm_set"
+    ],
+    [
+      "Can you create alarm for 5am",
+      "alarm_set"
+    ],
+    [
+      "Create alarm for 5am",
+      "alarm_set"
+    ],
+    [
+      "Please wake me up at 6 tomorrow",
+      "alarm_set"
+    ],
+    [
+      "Can you set alarm for 8:30",
+      "alarm_set"
+    ],
+    [
+      "Please turn off my morning alarm",
+      "alarm_remove"
+    ],
+    [
+      "Can you remove all alarms",
+      "alarm_remove"
+    ],
+    [
+      "Cancel my alarm",
+      "alarm_remove"
+    ],
+    [
+      "Please remove all alarms",
+      "alarm_remove"
+    ],
+    [
+      "Please delete the 7am alarm",
+      "alarm_remove"
+    ],
+    [
+      "Turn off my morning alarm",
+      "alarm_remove"
+    ],
+    [
+      "Delete the 7am alarm",
+      "alarm_remove"
+    ],
+    [
+      "Please cancel my alarm",
+      "alarm_remove"
+    ],
+    [
+      "Can you cancel my alarm",
+      "alarm_remove"
+    ],
+    [
+      "Can you set a reminder for the meeting",
+      "reminder_set"
+    ],
+    [
+      "Please remind me to call mom",
+      "reminder_set"
+    ],
+    [
+      "Please remind me at 3pm",
+      "reminder_set"
+    ],
+    [
+      "Remind me at 3pm",
+      "reminder_set"
+    ],
+    [
+      "Set a reminder for the meeting",
+      "reminder_set"
+    ],
+    [
+      "Please set a reminder for the meeting",
+      "reminder_set"
+    ],
+    [
+      "Don't let me forget to buy milk",
+      "reminder_set"
+    ],
+    [
+      "Remind me to call mom",
+      "reminder_set"
+    ],
+    [
+      "Please don't let me forget to buy milk",
+      "reminder_set"
+    ],
+    [
+      "Can you create calendar event",
+      "calendar_set"
+    ],
+    [
+      "Schedule lunch for tomorrow",
+      "calendar_set"
+    ],
+    [
+      "Can you add meeting to calendar",
+      "calendar_set"
+    ],
+    [
+      "Add meeting to calendar",
+      "calendar_set"
+    ],
+    [
+      "Please add dentist appointment",
+      "calendar_set"
+    ],
+    [
+      "Can you schedule lunch for tomorrow",
+      "calendar_set"
+    ],
+    [
+      "Please add meeting to calendar",
+      "calendar_set"
+    ],
+    [
+      "Can you add dentist appointment",
+      "calendar_set"
+    ],
+    [
+      "Please create calendar event",
+      "calendar_set"
+    ],
+    [
+      "What's on my calendar",
+      "calendar_query"
+    ],
+    [
+      "Can you what's on my calendar",
+      "calendar_query"
+    ],
+    [
+      "Show my schedule",
+      "calendar_query"
+    ],
+    [
+      "Please do i have any meetings today",
+      "calendar_query"
+    ],
+    [
+      "Can you what are my plans for tomorrow",
+      "calendar_query"
+    ],
+    [
+      "Can you do i have any meetings today",
+      "calendar_query"
+    ],
+    [
+      "Please what's on my calendar",
+      "calendar_query"
+    ],
+    [
+      "Can you show my schedule",
+      "calendar_query"
+    ],
+    [
+      "Please what are my plans for tomorrow",
+      "calendar_query"
+    ],
+    [
+      "Please temperature forecast",
+      "weather_query"
+    ],
+    [
+      "Can you temperature forecast",
+      "weather_query"
+    ],
+    [
+      "Can you what's the weather",
+      "weather_query"
+    ],
+    [
+      "Please what's the weather",
+      "weather_query"
+    ],
+    [
+      "Can you is it going to snow",
+      "weather_query"
+    ],
+    [
+      "Please is it going to snow",
+      "weather_query"
+    ],
+    [
+      "Will it rain today",
+      "weather_query"
+    ],
+    [
+      "Is it going to snow",
+      "weather_query"
+    ],
+    [
+      "What's the weather",
+      "weather_query"
+    ],
+    [
+      "Start my playlist",
+      "music_play"
+    ],
+    [
+      "Play music",
+      "music_play"
+    ],
+    [
+      "Please put on some songs",
+      "music_play"
+    ],
+    [
+      "Please play music",
+      "music_play"
+    ],
+    [
+      "Can you play jazz music",
+      "music_play"
+    ],
+    [
+      "Can you put on some songs",
+      "music_play"
+    ],
+    [
+      "Please play jazz music",
+      "music_play"
+    ],
+    [
+      "Please start my playlist",
+      "music_play"
+    ],
+    [
+      "Put on some songs",
+      "music_play"
+    ],
+    [
+      "Love this track",
+      "music_likeness"
+    ],
+    [
+      "I like this song",
+      "music_likeness"
+    ],
+    [
+      "Can you i like this song",
+      "music_likeness"
+    ],
+    [
+      "Save this song",
+      "music_likeness"
+    ],
+    [
+      "Please save this song",
+      "music_likeness"
+    ],
+    [
+      "Add to favorites",
+      "music_likeness"
+    ],
+    [
+      "Can you love this track",
+      "music_likeness"
+    ],
+    [
+      "Please i like this song",
+      "music_likeness"
+    ],
+    [
+      "Can you save this song",
+      "music_likeness"
+    ],
+    [
+      "Tell me headlines",
+      "news_query"
+    ],
+    [
+      "Can you what's the news",
+      "news_query"
+    ],
+    [
+      "Any breaking news",
+      "news_query"
+    ],
+    [
+      "Please what's the news",
+      "news_query"
+    ],
+    [
+      "Latest news please",
+      "news_query"
+    ],
+    [
+      "Can you tell me headlines",
+      "news_query"
+    ],
+    [
+      "Can you any breaking news",
+      "news_query"
+    ],
+    [
+      "Please tell me headlines",
+      "news_query"
+    ],
+    [
+      "Please latest news please",
+      "news_query"
+    ],
+    [
+      "Please what's today's date",
+      "datetime_query"
+    ],
+    [
+      "Current time please",
+      "datetime_query"
+    ],
+    [
+      "Can you what time is it",
+      "datetime_query"
+    ],
+    [
+      "What's today's date",
+      "datetime_query"
+    ],
+    [
+      "Please what time is it",
+      "datetime_query"
+    ],
+    [
+      "Can you what day is it",
+      "datetime_query"
+    ],
+    [
+      "Please current time please",
+      "datetime_query"
+    ],
+    [
+      "Please what day is it",
+      "datetime_query"
+    ],
+    [
+      "Can you current time please",
+      "datetime_query"
+    ],
+    [
+      "Can you email my boss",
+      "email_send"
+    ],
+    [
+      "Can you send email to john",
+      "email_send"
+    ],
+    [
+      "Please send message via email",
+      "email_send"
+    ],
+    [
+      "Email my boss",
+      "email_send"
+    ],
+    [
+      "Please send email to john",
+      "email_send"
+    ],
+    [
+      "Send email to John",
+      "email_send"
+    ],
+    [
+      "Compose new email",
+      "email_send"
+    ],
+    [
+      "Send message via email",
+      "email_send"
+    ],
+    [
+      "Can you compose new email",
+      "email_send"
+    ],
+    [
+      "Can you any new emails",
+      "email_query"
+    ],
+    [
+      "Show unread messages",
+      "email_query"
+    ],
+    [
+      "Any new emails",
+      "email_query"
+    ],
+    [
+      "Please read my inbox",
+      "email_query"
+    ],
+    [
+      "Please show unread messages",
+      "email_query"
+    ],
+    [
+      "Can you read my inbox",
+      "email_query"
+    ],
+    [
+      "Can you check my email",
+      "email_query"
+    ],
+    [
+      "Please any new emails",
+      "email_query"
+    ],
+    [
+      "Please check my email",
+      "email_query"
+    ],
+    [
+      "Can you navigate home",
+      "transport_query"
+    ],
+    [
+      "Please how do i get to work",
+      "transport_query"
+    ],
+    [
+      "Directions to airport",
+      "transport_query"
+    ],
+    [
+      "Can you how do i get to work",
+      "transport_query"
+    ],
+    [
+      "Best route to downtown",
+      "transport_query"
+    ],
+    [
+      "How do I get to work",
+      "transport_query"
+    ],
+    [
+      "Can you directions to airport",
+      "transport_query"
+    ],
+    [
+      "Can you best route to downtown",
+      "transport_query"
+    ],
+    [
+      "Navigate home",
+      "transport_query"
+    ],
+    [
+      "Please traffic conditions",
+      "transport_traffic"
+    ],
+    [
+      "How's the traffic",
+      "transport_traffic"
+    ],
+    [
+      "Please how's the traffic",
+      "transport_traffic"
+    ],
+    [
+      "Is there congestion",
+      "transport_traffic"
+    ],
+    [
+      "Can you traffic conditions",
+      "transport_traffic"
+    ],
+    [
+      "Can you how's the traffic",
+      "transport_traffic"
+    ],
+    [
+      "Can you is there congestion",
+      "transport_traffic"
+    ],
+    [
+      "Traffic conditions",
+      "transport_traffic"
+    ],
+    [
+      "Please any accidents ahead",
+      "transport_traffic"
+    ],
+    [
+      "Please brighten living room",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Can you brighten living room",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Turn on the lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Please dim the bedroom lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Dim the bedroom lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Set lights to blue",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Can you dim the bedroom lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Can you set lights to blue",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Brighten living room",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Can you turn off lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Can you lights off please",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Lights off please",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Please lights off please",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Switch off all lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Please kill the lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Please turn off lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Kill the lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Can you switch off all lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Can you make me laugh",
+      "general_quirky"
+    ],
+    [
+      "Can you tell me a joke",
+      "general_quirky"
+    ],
+    [
+      "Can you got any jokes",
+      "general_quirky"
+    ],
+    [
+      "Please say something funny",
+      "general_quirky"
+    ],
+    [
+      "Can you say something funny",
+      "general_quirky"
+    ],
+    [
+      "Got any jokes",
+      "general_quirky"
+    ],
+    [
+      "Say something funny",
+      "general_quirky"
+    ],
+    [
+      "Make me laugh",
+      "general_quirky"
+    ],
+    [
+      "Tell me a joke",
+      "general_quirky"
+    ],
+    [
+      "Please hi there",
+      "general_greet"
+    ],
+    [
+      "Please hello",
+      "general_greet"
+    ],
+    [
+      "Can you hi there",
+      "general_greet"
+    ],
+    [
+      "Please hey",
+      "general_greet"
+    ],
+    [
+      "Good morning",
+      "general_greet"
+    ],
+    [
+      "Hi there",
+      "general_greet"
+    ],
+    [
+      "Can you hello",
+      "general_greet"
+    ],
+    [
+      "Please good morning",
+      "general_greet"
+    ],
+    [
+      "Hey",
+      "general_greet"
+    ],
+    [
+      "Can you when did ww2 end",
+      "qa_factoid"
+    ],
+    [
+      "How tall is Mount Everest",
+      "qa_factoid"
+    ],
+    [
+      "Can you how tall is mount everest",
+      "qa_factoid"
+    ],
+    [
+      "Please what's the capital of france",
+      "qa_factoid"
+    ],
+    [
+      "Please who is the president",
+      "qa_factoid"
+    ],
+    [
+      "Can you who is the president",
+      "qa_factoid"
+    ],
+    [
+      "When did WW2 end",
+      "qa_factoid"
+    ],
+    [
+      "Please how tall is mount everest",
+      "qa_factoid"
+    ],
+    [
+      "What's the capital of France",
+      "qa_factoid"
+    ],
+    [
+      "Please explain deep learning",
+      "qa_definition"
+    ],
+    [
+      "What is AI",
+      "qa_definition"
+    ],
+    [
+      "Can you what does nlp mean",
+      "qa_definition"
+    ],
+    [
+      "Please what does nlp mean",
+      "qa_definition"
+    ],
+    [
+      "Can you explain deep learning",
+      "qa_definition"
+    ],
+    [
+      "Explain deep learning",
+      "qa_definition"
+    ],
+    [
+      "Please define machine learning",
+      "qa_definition"
+    ],
+    [
+      "Can you define machine learning",
+      "qa_definition"
+    ],
+    [
+      "Can you what is ai",
+      "qa_definition"
+    ],
+    [
+      "Please order from the chinese place",
+      "takeaway_order"
+    ],
+    [
+      "Please i want to order takeout",
+      "takeaway_order"
+    ],
+    [
+      "Order pizza",
+      "takeaway_order"
+    ],
+    [
+      "Can you i want to order takeout",
+      "takeaway_order"
+    ],
+    [
+      "I want to order takeout",
+      "takeaway_order"
+    ],
+    [
+      "Please get food delivered",
+      "takeaway_order"
+    ],
+    [
+      "Can you order from the chinese place",
+      "takeaway_order"
+    ],
+    [
+      "Get food delivered",
+      "takeaway_order"
+    ],
+    [
+      "Order from the Chinese place",
+      "takeaway_order"
+    ]
+  ],
+  "test": [
+    [
+      "Can you i need an alarm for monday morning",
+      "alarm_set"
+    ],
+    [
+      "I need an alarm for Monday morning",
+      "alarm_set"
+    ],
+    [
+      "Can you set an alarm for 7am",
+      "alarm_set"
+    ],
+    [
+      "Remove all alarms",
+      "alarm_remove"
+    ],
+    [
+      "Can you turn off my morning alarm",
+      "alarm_remove"
+    ],
+    [
+      "Can you delete the 7am alarm",
+      "alarm_remove"
+    ],
+    [
+      "Can you remind me to call mom",
+      "reminder_set"
+    ],
+    [
+      "Can you don't let me forget to buy milk",
+      "reminder_set"
+    ],
+    [
+      "Can you remind me at 3pm",
+      "reminder_set"
+    ],
+    [
+      "Add dentist appointment",
+      "calendar_set"
+    ],
+    [
+      "Please schedule lunch for tomorrow",
+      "calendar_set"
+    ],
+    [
+      "Create calendar event",
+      "calendar_set"
+    ],
+    [
+      "Do I have any meetings today",
+      "calendar_query"
+    ],
+    [
+      "Please show my schedule",
+      "calendar_query"
+    ],
+    [
+      "What are my plans for tomorrow",
+      "calendar_query"
+    ],
+    [
+      "Temperature forecast",
+      "weather_query"
+    ],
+    [
+      "Can you will it rain today",
+      "weather_query"
+    ],
+    [
+      "Please will it rain today",
+      "weather_query"
+    ],
+    [
+      "Can you play music",
+      "music_play"
+    ],
+    [
+      "Play jazz music",
+      "music_play"
+    ],
+    [
+      "Can you start my playlist",
+      "music_play"
+    ],
+    [
+      "Please love this track",
+      "music_likeness"
+    ],
+    [
+      "Please add to favorites",
+      "music_likeness"
+    ],
+    [
+      "Can you add to favorites",
+      "music_likeness"
+    ],
+    [
+      "What's the news",
+      "news_query"
+    ],
+    [
+      "Please any breaking news",
+      "news_query"
+    ],
+    [
+      "Can you latest news please",
+      "news_query"
+    ],
+    [
+      "Can you what's today's date",
+      "datetime_query"
+    ],
+    [
+      "What time is it",
+      "datetime_query"
+    ],
+    [
+      "What day is it",
+      "datetime_query"
+    ],
+    [
+      "Can you send message via email",
+      "email_send"
+    ],
+    [
+      "Please compose new email",
+      "email_send"
+    ],
+    [
+      "Please email my boss",
+      "email_send"
+    ],
+    [
+      "Can you show unread messages",
+      "email_query"
+    ],
+    [
+      "Check my email",
+      "email_query"
+    ],
+    [
+      "Read my inbox",
+      "email_query"
+    ],
+    [
+      "Please navigate home",
+      "transport_query"
+    ],
+    [
+      "Please best route to downtown",
+      "transport_query"
+    ],
+    [
+      "Please directions to airport",
+      "transport_query"
+    ],
+    [
+      "Any accidents ahead",
+      "transport_traffic"
+    ],
+    [
+      "Can you any accidents ahead",
+      "transport_traffic"
+    ],
+    [
+      "Please is there congestion",
+      "transport_traffic"
+    ],
+    [
+      "Can you turn on the lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Please turn on the lights",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Please set lights to blue",
+      "iot_hue_lightchange"
+    ],
+    [
+      "Please switch off all lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Can you kill the lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Turn off lights",
+      "iot_hue_lightoff"
+    ],
+    [
+      "Please tell me a joke",
+      "general_quirky"
+    ],
+    [
+      "Please make me laugh",
+      "general_quirky"
+    ],
+    [
+      "Please got any jokes",
+      "general_quirky"
+    ],
+    [
+      "Can you good morning",
+      "general_greet"
+    ],
+    [
+      "Can you hey",
+      "general_greet"
+    ],
+    [
+      "Hello",
+      "general_greet"
+    ],
+    [
+      "Please when did ww2 end",
+      "qa_factoid"
+    ],
+    [
+      "Who is the president",
+      "qa_factoid"
+    ],
+    [
+      "Can you what's the capital of france",
+      "qa_factoid"
+    ],
+    [
+      "Please what is ai",
+      "qa_definition"
+    ],
+    [
+      "Define machine learning",
+      "qa_definition"
+    ],
+    [
+      "What does NLP mean",
+      "qa_definition"
+    ],
+    [
+      "Please order pizza",
+      "takeaway_order"
+    ],
+    [
+      "Can you get food delivered",
+      "takeaway_order"
+    ],
+    [
+      "Can you order pizza",
+      "takeaway_order"
+    ]
+  ],
+  "oos_test": [
+    [
+      "What is the meaning of life",
+      "oos"
+    ],
+    [
+      "Can you sing a song",
+      "oos"
+    ],
+    [
+      "How do I fix my computer",
+      "oos"
+    ],
+    [
+      "What's your favorite color",
+      "oos"
+    ],
+    [
+      "Are you human",
+      "oos"
+    ],
+    [
+      "Calculate 25 times 48",
+      "oos"
+    ],
+    [
+      "Translate hello to German",
+      "oos"
+    ],
+    [
+      "What's the stock price of Apple",
+      "oos"
+    ],
+    [
+      "How do I cook pasta",
+      "oos"
+    ],
+    [
+      "What's the best movie of 2023",
+      "oos"
+    ],
+    [
+      "Do aliens exist",
+      "oos"
+    ],
+    [
+      "What's 2 plus 2",
+      "oos"
+    ],
+    [
+      "Tell me about yourself",
+      "oos"
+    ],
+    [
+      "Can you dance",
+      "oos"
+    ],
+    [
+      "What's your name",
+      "oos"
+    ]
+  ]
+}
