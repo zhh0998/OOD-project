@@ -359,7 +359,7 @@ class HeterophilyEnhancedFixed:
 
 def run_bug_fix_verification():
     """运行Bug修复验证测试"""
-    from quick_fix import FixedKNNDetector, evaluate_ood
+    from src.utils.quick_fix import FixedKNNDetector, evaluate_ood
 
     print("\n" + "="*70)
     print("Bug修复验证测试")

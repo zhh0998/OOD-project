@@ -38,8 +38,8 @@ except ImportError:
 
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import roc_auc_score
-from data_loader import load_clinc150, load_banking77_oos, load_rostd
-from quick_fix import evaluate_ood
+from src.utils.data_loader import load_clinc150, load_banking77_oos, load_rostd
+from src.utils.quick_fix import evaluate_ood
 
 
 # =============================================================================

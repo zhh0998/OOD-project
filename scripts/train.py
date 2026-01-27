@@ -26,8 +26,8 @@ from sklearn.metrics import roc_auc_score, average_precision_score, roc_curve
 # 添加当前目录到路径
 sys.path.insert(0, str(Path(__file__).parent))
 
-from quick_fix import FixedKNNDetector, MahalanobisDetector, LOFDetector, evaluate_ood
-from data_loader import get_dataset
+from src.utils.quick_fix import FixedKNNDetector, MahalanobisDetector, LOFDetector, evaluate_ood
+from src.utils.data_loader import get_dataset
 
 
 class EmbeddingExtractor:

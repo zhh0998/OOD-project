@@ -219,21 +219,13 @@ class EnergyDetector:
             x = torch.FloatTensor(embeddings)
             logits = self.classifier(x)
 
-            # Energy-based OOD Detection (Liu et al., NeurIPS 2020)
-            # E(x) = -T * log(sum(exp(f_i(x)/T)))
-            #
-            # 理论分析:
-            # - ID样本: logits大 → logsumexp大 → E(x)很负 (能量低)
-            # - OOD样本: logits小 → logsumexp小 → E(x)接近0 (能量高)
-            #
-            # 因此: E(x)越大(越接近0)越可能是OOD
+            # Energy = -T * logsumexp(logits/T)
             energy = -self.temperature * torch.logsumexp(
                 logits / self.temperature, dim=1
             )
 
-        # ✅ Bug 1修复: 直接使用energy作为OOD分数
-        # energy越大(接近0) = 越可能是OOD
-        ood_scores = energy.numpy()
+        # 高能量 = 高OOD分数（取负使其变为高=OOD）
+        ood_scores = (-energy).numpy()
 
         if self.verbose:
             print(f"[Energy] Scores: mean={ood_scores.mean():.4f}, std={ood_scores.std():.4f}")

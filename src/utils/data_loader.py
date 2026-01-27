@@ -59,9 +59,7 @@ def load_clinc150(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str]
         test_texts: 测试文本
         test_labels: 测试标签 (0=ID, 1=OOD)
         test_intents: 测试意图
-        train_labels: 训练标签 (intent ID: 0-149)
-
-    Bug 4修复: 训练标签使用intent ID而不是全0
+        train_labels: 训练标签
     """
     if data_dir is None:
         data_dir = DATA_DIR / "clinc150"
@@ -74,34 +72,19 @@ def load_clinc150(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str]
     with open(data_file, 'r') as f:
         data = json.load(f)
 
-    # ✅ Bug 4修复: 建立intent到ID的映射
-    id_intents = sorted(set(
-        intent for _, intent in data['train'] if intent != 'oos'
-    ) | set(
-        intent for _, intent in data['val'] if intent != 'oos'
-    ))
-    intent2id = {intent: idx for idx, intent in enumerate(id_intents)}
-
-    print(f"[CLINC150] 发现 {len(id_intents)} 个ID类别")
-
     # 训练数据（只使用ID类别）
     train_texts = []
     train_labels = []
     for text, intent in data['train']:
         if intent != 'oos':
             train_texts.append(text)
-            train_labels.append(intent2id[intent])  # ✅ 使用intent ID
+            train_labels.append(0)
 
     # 验证数据也加入训练（增加训练样本）
     for text, intent in data['val']:
         if intent != 'oos':
             train_texts.append(text)
-            train_labels.append(intent2id[intent])  # ✅ 使用intent ID
-
-    # ✅ 验证训练标签
-    unique_labels = len(set(train_labels))
-    print(f"[CLINC150] 训练标签验证: {unique_labels} 个唯一类别, 范围 [{min(train_labels)}, {max(train_labels)}]")
-    assert unique_labels == len(id_intents), f"标签数不匹配: {unique_labels} != {len(id_intents)}"
+            train_labels.append(0)
 
     # 测试数据 - 需要合并test(ID)和oos_test(OOD)
     test_texts = []
@@ -111,7 +94,7 @@ def load_clinc150(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str]
     # ID测试样本 (from 'test')
     for text, intent in data['test']:
         test_texts.append(text)
-        test_labels.append(0)  # ID样本 (二值标签用于AUROC)
+        test_labels.append(0)  # ID样本
         test_intents.append(intent)
 
     # OOD测试样本 (from 'oos_test')
@@ -121,7 +104,7 @@ def load_clinc150(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str]
         test_intents.append(intent)
 
     print(f"[CLINC150] 加载完成:")
-    print(f"  - 训练样本: {len(train_texts)} (全部ID, {unique_labels}类)")
+    print(f"  - 训练样本: {len(train_texts)} (全部ID)")
     print(f"  - 测试样本: {len(test_texts)} (ID: {test_labels.count(0)}, OOD: {test_labels.count(1)})")
 
     return train_texts, test_texts, test_labels, test_intents, train_labels
@@ -214,25 +197,17 @@ def load_banking77_oos(data_dir: Optional[Path] = None,
     # 随机选择OOS类别（固定种子保证可复现）
     np.random.seed(42)
     oos_intents = set(np.random.choice(all_intents, n_oos, replace=False))
-    id_intents_set = set(all_intents) - oos_intents
+    id_intents = set(all_intents) - oos_intents
 
-    # ✅ Bug 4修复: 建立intent到ID的映射
-    id_intents_list = sorted(id_intents_set)
-    intent2id = {intent: idx for idx, intent in enumerate(id_intents_list)}
-
-    print(f"[Banking77-OOS] ID类别: {len(id_intents_set)}, OOS类别: {len(oos_intents)}")
+    print(f"[Banking77-OOS] ID类别: {len(id_intents)}, OOS类别: {len(oos_intents)}")
 
     # 过滤训练数据（只保留ID类别）
     train_texts = []
     train_labels = []
     for text, intent in zip(train_texts_all, train_intents_all):
-        if intent in id_intents_set:
+        if intent in id_intents:
             train_texts.append(text)
-            train_labels.append(intent2id[intent])  # ✅ 使用intent ID
-
-    # ✅ 验证训练标签
-    unique_labels = len(set(train_labels))
-    print(f"[Banking77-OOS] 训练标签验证: {unique_labels} 个唯一类别")
+            train_labels.append(0)
 
     # 测试数据（包含ID和OOS）
     test_texts = []
@@ -463,18 +438,13 @@ def load_rostd(data_dir: Optional[Path] = None) -> Tuple[List[str], List[str], L
     with open(data_file, 'r') as f:
         data = json.load(f)
 
-    # ✅ Bug 4修复: 建立intent到ID的映射
-    id_intents = sorted(set(intent for _, intent in data['train'] if intent != 'oos'))
-    intent2id = {intent: idx for idx, intent in enumerate(id_intents)}
-    print(f"[ROSTD] 发现 {len(id_intents)} 个ID类别")
-
     # 训练数据
     train_texts = []
     train_labels = []
     for text, intent in data['train']:
         if intent != 'oos':
             train_texts.append(text)
-            train_labels.append(intent2id[intent])  # ✅ 使用intent ID
+            train_labels.append(0)
 
     # 测试数据 - ID样本
     test_texts = []

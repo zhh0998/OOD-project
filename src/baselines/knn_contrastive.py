@@ -24,7 +24,7 @@ from scipy.spatial.distance import mahalanobis
 import warnings
 
 # 导入数据加载器
-from data_loader import load_clinc150, load_banking77_oos, load_rostd, DATA_DIR
+from src.utils.data_loader import load_clinc150, load_banking77_oos, load_rostd, DATA_DIR
 
 # matplotlib配置
 import matplotlib
@@ -237,7 +237,7 @@ def run_baseline_comparison(dataset_name: str = 'clinc150') -> Dict:
     """
     from sentence_transformers import SentenceTransformer
     from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
-    from quick_fix import evaluate_ood
+    from src.utils.quick_fix import evaluate_ood
 
     print("="*70)
     print(f"Baseline对比实验: {dataset_name.upper()}")
@@ -517,7 +517,7 @@ def run_hyperparameter_sensitivity(dataset_name: str = 'clinc150'):
     """
     from sentence_transformers import SentenceTransformer
     from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
-    from quick_fix import evaluate_ood
+    from src.utils.quick_fix import evaluate_ood
 
     print("="*70)
     print(f"超参数敏感性分析: {dataset_name.upper()}")

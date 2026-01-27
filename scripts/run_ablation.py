@@ -36,9 +36,9 @@ class NumpyEncoder(json.JSONEncoder):
         return super().default(obj)
 
 # Local imports
-from data_loader import load_clinc150, load_banking77_oos, load_rostd, DATA_DIR
+from src.utils.data_loader import load_clinc150, load_banking77_oos, load_rostd, DATA_DIR
 from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
-from quick_fix import evaluate_ood
+from src.utils.quick_fix import evaluate_ood
 
 
 # ==============================================================================
