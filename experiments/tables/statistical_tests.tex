@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Statistical significance tests. Results are mean$\pm$std over 5 runs. ***p$<$0.001}
+\label{tab:statistical}
+\begin{tabular}{llccc}
+\toprule
+Dataset & Method & AUROC (\%) & t-stat & p-value \\
+\midrule
+\multirow{3}{*}{CLINC150}
+& KNN Only & 95.82$\pm$0.00 & -inf & 0.00e+00*** \\
+& Heterophily Only & 86.20$\pm$0.00 & inf & 0.00e+00*** \\
+& Full Model & \textbf{95.41$\pm$0.00} & - & - \\
+\midrule
+\multirow{3}{*}{BANKING77}
+& KNN Only & 84.31$\pm$0.00 & inf & 0.00e+00*** \\
+& Heterophily Only & 77.38$\pm$0.00 & inf & 0.00e+00*** \\
+& Full Model & \textbf{85.68$\pm$0.00} & - & - \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,80 @@
+{
+  "clinc150": {
+    "dataset": "clinc150",
+    "results": {
+      "Full Model": {
+        "mean": 0.9540795555555557,
+        "std": 1.1102230246251565e-16
+      },
+      "KNN Only": {
+        "mean": 0.9582360000000001,
+        "std": 0.0
+      },
+      "Heterophily Only": {
+        "mean": 0.8620238888888888,
+        "std": 1.1102230246251565e-16
+      }
+    },
+    "t_tests": {
+      "KNN Only": {
+        "t_stat": -Infinity,
+        "p_value": 0.0,
+        "significant": "***"
+      },
+      "Heterophily Only": {
+        "t_stat": Infinity,
+        "p_value": 0.0,
+        "significant": "***"
+      }
+    },
+    "correlation": {
+      "pearson_r": 0.5778068972674432,
+      "pearson_p": 0.0,
+      "spearman_r": 0.5249955592176623,
+      "spearman_p": 0.0,
+      "cohens_d": 1.8356103370109975,
+      "effect_interpretation": "Large",
+      "het_id_mean": 0.147119820911886,
+      "het_ood_mean": 0.458484646397924
+    }
+  },
+  "banking77": {
+    "dataset": "banking77",
+    "results": {
+      "Full Model": {
+        "mean": 0.8568001361161525,
+        "std": 1.1102230246251565e-16
+      },
+      "KNN Only": {
+        "mean": 0.843078493647913,
+        "std": 0.0
+      },
+      "Heterophily Only": {
+        "mean": 0.77377722323049,
+        "std": 0.0
+      }
+    },
+    "t_tests": {
+      "KNN Only": {
+        "t_stat": Infinity,
+        "p_value": 0.0,
+        "significant": "***"
+      },
+      "Heterophily Only": {
+        "t_stat": Infinity,
+        "p_value": 0.0,
+        "significant": "***"
+      }
+    },
+    "correlation": {
+      "pearson_r": 0.4818022474762117,
+      "pearson_p": 8.496557650340044e-179,
+      "spearman_r": 0.45669752333171787,
+      "spearman_p": 1.4198418170323906e-158,
+      "cohens_d": 1.2754562900326463,
+      "effect_interpretation": "Large",
+      "het_id_mean": 0.11918891486410657,
+      "het_ood_mean": 0.3043273603078116
+    }
+  }
+}
