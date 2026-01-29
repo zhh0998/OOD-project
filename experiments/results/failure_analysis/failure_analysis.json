@@ -1,0 +1,702 @@
+{
+  "clinc150": {
+    "dataset": "clinc150",
+    "threshold": 0.56494267695199,
+    "confusion_matrix": {
+      "tp": 756,
+      "tn": 4275,
+      "fp": 225,
+      "fn": 244
+    },
+    "metrics": {
+      "precision": 0.7706422018348624,
+      "recall": 0.756,
+      "fpr": 0.05,
+      "fnr": 0.244
+    },
+    "fp_cases": [
+      {
+        "index": 2416,
+        "text": "how many stars does babbo have",
+        "true_label": "ID",
+        "true_intent": "restaurant_reviews",
+        "ood_score": 0.84997374119209,
+        "heterophily": 0.6494850020225431
+      },
+      {
+        "index": 112,
+        "text": "i heard some woman say she was going to yerd me, what's that mean",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.8367308141854701,
+        "heterophily": 0.839794000674386
+      },
+      {
+        "index": 1964,
+        "text": "i appeciate it",
+        "true_label": "ID",
+        "true_intent": "thank_you",
+        "ood_score": 0.8103675009873805,
+        "heterophily": 0.839794000674386
+      },
+      {
+        "index": 111,
+        "text": "i'd like to know what bitcoin means",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7673755209380495,
+        "heterophily": 0.6568636234383145
+      },
+      {
+        "index": 4,
+        "text": "what's the word for trees in norway",
+        "true_label": "ID",
+        "true_intent": "translate",
+        "ood_score": 0.7671067039901125,
+        "heterophily": 0.6568636234383145
+      },
+      {
+        "index": 3531,
+        "text": "tell me how to spent \"frightened",
+        "true_label": "ID",
+        "true_intent": "spelling",
+        "ood_score": 0.7614564679856122,
+        "heterophily": 0.6682258125129742
+      },
+      {
+        "index": 594,
+        "text": "a hidden government facility",
+        "true_label": "ID",
+        "true_intent": "where_are_you_from",
+        "ood_score": 0.7607987553064699,
+        "heterophily": 0.6494850020225431
+      },
+      {
+        "index": 4408,
+        "text": "what is the price of bluetooth speakers on amazon",
+        "true_label": "ID",
+        "true_intent": "order",
+        "ood_score": 0.7605177304546736,
+        "heterophily": 0.7483288120563502
+      },
+      {
+        "index": 108,
+        "text": "what does ferrari mean",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7573103092903912,
+        "heterophily": 0.6682258125129742
+      },
+      {
+        "index": 4401,
+        "text": "i've used the last can of tuna fish and need you to order a new case of it",
+        "true_label": "ID",
+        "true_intent": "order",
+        "ood_score": 0.7572217943337856,
+        "heterophily": 0.839794000674386
+      },
+      {
+        "index": 2421,
+        "text": "how many stars does brasserie les halles have",
+        "true_label": "ID",
+        "true_intent": "restaurant_reviews",
+        "ood_score": 0.7568459184546266,
+        "heterophily": 0.569382002479167
+      },
+      {
+        "index": 114,
+        "text": "please explain the word catastrophic to me",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7557539914230732,
+        "heterophily": 0.4364516252213809
+      },
+      {
+        "index": 95,
+        "text": "what's the definition of luminescent",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.752737579164925,
+        "heterophily": 0.4364516252213809
+      },
+      {
+        "index": 93,
+        "text": "what does confrontation mean",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7507683135197236,
+        "heterophily": 0.40421568589928225
+      },
+      {
+        "index": 2083,
+        "text": "help me to remember to pick up stan later",
+        "true_label": "ID",
+        "true_intent": "reminder_update",
+        "ood_score": 0.748135997990837,
+        "heterophily": 0.7483288120563503
+      },
+      {
+        "index": 4385,
+        "text": "find inner tube and buy it for me",
+        "true_label": "ID",
+        "true_intent": "order",
+        "ood_score": 0.7477960856337342,
+        "heterophily": 0.569382002479167
+      },
+      {
+        "index": 96,
+        "text": "what is the definiton of auspicious",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7439086171771994,
+        "heterophily": 0.516554624764757
+      },
+      {
+        "index": 106,
+        "text": "can you tell me the meaning of fluctuate",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7401265994392433,
+        "heterophily": 0.2887640051320519
+      },
+      {
+        "index": 109,
+        "text": "what is the meaning of the word girn",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.7388873451465003,
+        "heterophily": 0.3449864366033452
+      },
+      {
+        "index": 92,
+        "text": "what is the meaning of incandescent",
+        "true_label": "ID",
+        "true_intent": "definition",
+        "ood_score": 0.738862154303017,
+        "heterophily": 0.4364516252213809
+      }
+    ],
+    "fn_cases": [
+      {
+        "index": 4541,
+        "text": "do laundry",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.23293529390637316,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4744,
+        "text": "check the status of my amazon orders for me",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.23329070150200762,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5138,
+        "text": "look up the conversion rate for the euro to dollar exchange",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.23416261314694323,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5192,
+        "text": "call an uber to take me to the closest grocery store",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.23914638101403154,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5017,
+        "text": "give me the weather forecast for today",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.2479194978259699,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 4543,
+        "text": "how many miles does my car currently have",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.2662019276553813,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4682,
+        "text": "please take all my money out of my checking account and close the account",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.2751314783031169,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4680,
+        "text": "can i use direct deposit for my tax refund",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.2759857022697154,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4584,
+        "text": "can i deposit a check",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.282359614365739,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5241,
+        "text": "what are the words to the chorus for this song",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.29695190429036056,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4577,
+        "text": "when should i remove my snow tires",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.2986976349288646,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5303,
+        "text": "look up the current auto loan rate at chase bank",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.3071480834418956,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5378,
+        "text": "can you tell me who's calling me",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.32717989256748714,
+        "heterophily": 0.2086610055886759
+      },
+      {
+        "index": 4606,
+        "text": "how much time do i have left on my 0% apr",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.3319387578899089,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4747,
+        "text": "disconnect from wifi immediately please",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.33529795646016036,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5487,
+        "text": "what's my current electric bill",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.33735948625941486,
+        "heterophily": 0.3735863110667934
+      },
+      {
+        "index": 5318,
+        "text": "what do you do all day while i'm at work",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.3383011364871684,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 4762,
+        "text": "is anything on my grocery list on sale today",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.3453488031409876,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 4995,
+        "text": "how do you get a safe deposit box",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.3456023478442851,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5284,
+        "text": "find a credit mentoring service number for me please",
+        "true_label": "OOD",
+        "true_intent": "oos",
+        "ood_score": 0.35131339668576156,
+        "heterophily": 0.049999999978285276
+      }
+    ],
+    "heterophily_analysis": {
+      "correct_id_mean": 0.12819842107751797,
+      "correct_id_std": 0.12774944577410297,
+      "fp_mean": 0.5066264177648788,
+      "fp_std": 0.17369895348990289,
+      "correct_ood_mean": 0.5389490431940694,
+      "correct_ood_std": 0.1854717927562172,
+      "fn_mean": 0.20917692517707984,
+      "fn_std": 0.1436184194780848
+    }
+  },
+  "banking77": {
+    "dataset": "banking77",
+    "threshold": 0.4560896865429221,
+    "confusion_matrix": {
+      "tp": 297,
+      "tn": 2204,
+      "fp": 116,
+      "fn": 463
+    },
+    "metrics": {
+      "precision": 0.7191283292978208,
+      "recall": 0.3907894736842105,
+      "fpr": 0.05,
+      "fnr": 0.6092105263157894
+    },
+    "fp_cases": [
+      {
+        "index": 453,
+        "text": "Is a copy of the police report necessary for completing the report process?",
+        "true_label": "ID",
+        "true_intent": "lost_or_stolen_card",
+        "ood_score": 0.812075881399109,
+        "heterophily": 0.3735863110667934
+      },
+      {
+        "index": 2663,
+        "text": "Can you tell me if my pop-up went through?",
+        "true_label": "ID",
+        "true_intent": "top_up_failed",
+        "ood_score": 0.7223859113826295,
+        "heterophily": 0.3735863110667934
+      },
+      {
+        "index": 2402,
+        "text": "I want to order another crad",
+        "true_label": "ID",
+        "true_intent": "getting_spare_card",
+        "ood_score": 0.7008610347293512,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 1416,
+        "text": "Can I use app to freeze account and dispute fraud?",
+        "true_label": "ID",
+        "true_intent": "compromised_card",
+        "ood_score": 0.7005909386735772,
+        "heterophily": 0.7596910011310098
+      },
+      {
+        "index": 3051,
+        "text": "Where do I need to live to get support?",
+        "true_label": "ID",
+        "true_intent": "country_support",
+        "ood_score": 0.6952802435241737,
+        "heterophily": 0.2887640051320519
+      },
+      {
+        "index": 293,
+        "text": "What is the difference between standard and express delivery?",
+        "true_label": "ID",
+        "true_intent": "card_delivery_estimate",
+        "ood_score": 0.6945329644799225,
+        "heterophily": 0.3241126863559062
+      },
+      {
+        "index": 1116,
+        "text": "I think there has been a purchase made that wasn't by me.",
+        "true_label": "ID",
+        "true_intent": "card_payment_not_recognised",
+        "ood_score": 0.64992492693301,
+        "heterophily": 0.35484550057636227
+      },
+      {
+        "index": 1512,
+        "text": "I am concerned about the security in my account and would like to make a dispute.",
+        "true_label": "ID",
+        "true_intent": "direct_debit_payment_not_recognised",
+        "ood_score": 0.6453256391281903,
+        "heterophily": 0.6682258125129742
+      },
+      {
+        "index": 2858,
+        "text": "I tried activating my bill of fare and it didn't workplace",
+        "true_label": "ID",
+        "true_intent": "activate_my_card",
+        "ood_score": 0.636750211620384,
+        "heterophily": 0.4650514996848291
+      },
+      {
+        "index": 1964,
+        "text": "I didn't buy this twice",
+        "true_label": "ID",
+        "true_intent": "transaction_charged_twice",
+        "ood_score": 0.6332588771365778,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 996,
+        "text": "Will filling stations accept my card?",
+        "true_label": "ID",
+        "true_intent": "card_acceptance",
+        "ood_score": 0.6291689969227388,
+        "heterophily": 0.40421568589928225
+      },
+      {
+        "index": 2273,
+        "text": "How do I get my paycheck through this?",
+        "true_label": "ID",
+        "true_intent": "receiving_money",
+        "ood_score": 0.6020148072819141,
+        "heterophily": 0.4364516252213809
+      },
+      {
+        "index": 3058,
+        "text": "Where can I find your locations?",
+        "true_label": "ID",
+        "true_intent": "country_support",
+        "ood_score": 0.600765822269787,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 1096,
+        "text": "Can you freeze my account?  I just saw there are transactions on my account that I don't recognize.  How can I fix this?",
+        "true_label": "ID",
+        "true_intent": "card_payment_not_recognised",
+        "ood_score": 0.5989149184603486,
+        "heterophily": 0.569382002479167
+      },
+      {
+        "index": 1689,
+        "text": "I wasn't charged the correct amount for an item I purchased, how can I fix this?",
+        "true_label": "ID",
+        "true_intent": "request_refund",
+        "ood_score": 0.5926136164655643,
+        "heterophily": 0.7295880015659191
+      },
+      {
+        "index": 1367,
+        "text": "Do these virtual cards have any caps on using them?",
+        "true_label": "ID",
+        "true_intent": "disposable_card_limits",
+        "ood_score": 0.5910618533455925,
+        "heterophily": 0.3548455005763623
+      },
+      {
+        "index": 1709,
+        "text": "I want this amount reversed out of my account.",
+        "true_label": "ID",
+        "true_intent": "request_refund",
+        "ood_score": 0.5866349500545289,
+        "heterophily": 0.5767606238949384
+      },
+      {
+        "index": 1408,
+        "text": "Someone is using my account to do online shopping! Please freeze it asap",
+        "true_label": "ID",
+        "true_intent": "compromised_card",
+        "ood_score": 0.5792259912669284,
+        "heterophily": 0.4536893106101695
+      },
+      {
+        "index": 574,
+        "text": "How do I check my security settings to allow contactless pay?",
+        "true_label": "ID",
+        "true_intent": "contactless_not_working",
+        "ood_score": 0.579047951948642,
+        "heterophily": 0.3241126863559062
+      },
+      {
+        "index": 1603,
+        "text": "How do i finalize a card payment",
+        "true_label": "ID",
+        "true_intent": "pending_card_payment",
+        "ood_score": 0.5663826677176667,
+        "heterophily": 0.489279002935791
+      }
+    ],
+    "fn_cases": [
+      {
+        "index": 1165,
+        "text": "What is the need to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.05969469561521448,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1203,
+        "text": "I am having trouble verifying my identity.",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.08130600988213457,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1222,
+        "text": "I am having difficulties to verify my identity.",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.08541463255230822,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1192,
+        "text": "What other methods are there to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.09019485800806917,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1200,
+        "text": "I cannot verify my identity",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.10103712170664705,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 5,
+        "text": "When will I get my card?",
+        "true_label": "OOD",
+        "true_intent": "card_arrival",
+        "ood_score": 0.10625469624344744,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1239,
+        "text": "for some reason I am having a problem with verifying my identity.",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.1259565198356334,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1197,
+        "text": "Do I have to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.12971451818291582,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1193,
+        "text": "Do I need to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.13016476421896853,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 22,
+        "text": "How long should my new card take to arrive?",
+        "true_label": "OOD",
+        "true_intent": "card_arrival",
+        "ood_score": 0.13076916276757158,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1205,
+        "text": "It is impossible to verify my identity",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.13201002716366686,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1220,
+        "text": "I can't verify my identity.",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.1336038404637996,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1736,
+        "text": "Why was I unable to do a transfer?",
+        "true_label": "OOD",
+        "true_intent": "declined_transfer",
+        "ood_score": 0.13458402995096608,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 521,
+        "text": "Where can I view my PIN?",
+        "true_label": "OOD",
+        "true_intent": "pin_blocked",
+        "ood_score": 0.1358158805901233,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1190,
+        "text": "Why do I have to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.13994752555434145,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1187,
+        "text": "I won't verify my identity.",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.15027797161881365,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1237,
+        "text": "Why can't I verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "unable_to_verify_identity",
+        "ood_score": 0.15077254115883745,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 2477,
+        "text": "How can I top-up my card?",
+        "true_label": "OOD",
+        "true_intent": "top_up_by_cash_or_cheque",
+        "ood_score": 0.15258701685892506,
+        "heterophily": 0.17059087070580864
+      },
+      {
+        "index": 32,
+        "text": "How do I know when my card will arrive?",
+        "true_label": "OOD",
+        "true_intent": "card_arrival",
+        "ood_score": 0.1534645253354732,
+        "heterophily": 0.049999999978285276
+      },
+      {
+        "index": 1183,
+        "text": "Do I really need to verify my identity?",
+        "true_label": "OOD",
+        "true_intent": "why_verify_identity",
+        "ood_score": 0.15402187346760668,
+        "heterophily": 0.049999999978285276
+      }
+    ],
+    "heterophily_analysis": {
+      "correct_id_mean": 0.10524383685683875,
+      "correct_id_std": 0.10238399858058908,
+      "fp_mean": 0.3841453970021949,
+      "fp_std": 0.1811668060313067,
+      "correct_ood_mean": 0.4607122831456278,
+      "correct_ood_std": 0.15543686008719976,
+      "fn_mean": 0.2040113298913291,
+      "fn_std": 0.14933893584728059
+    }
+  }
+}
