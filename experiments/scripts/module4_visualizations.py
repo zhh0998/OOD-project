@@ -99,7 +99,7 @@ class VisualizationGenerator:
         norms = np.linalg.norm(emb, axis=1, keepdims=True)
         return emb / (norms + 1e-12)
 
-    def _compute_scores(self, train_emb, train_labels, test_emb, k=50, alpha=0.3):
+    def _compute_scores(self, train_emb, train_labels, test_emb, k=10, alpha=0.3):
         """计算三种方法的分数"""
         train_emb = self._normalize(train_emb).astype('float32')
         test_emb = self._normalize(test_emb).astype('float32')
@@ -338,7 +338,7 @@ class VisualizationGenerator:
         print(f"消融实验图已保存: {output_path}")
 
     def plot_heterophily_comparison(self, dataset_name: str, train_emb, train_labels,
-                                    test_emb, test_labels, k=50):
+                                    test_emb, test_labels, k=10):
         """绘制ID vs OOD异配性分布对比"""
         train_emb = self._normalize(train_emb).astype('float32')
         test_emb = self._normalize(test_emb).astype('float32')
@@ -433,7 +433,7 @@ class VisualizationGenerator:
 
             # 计算分数
             print("计算OOD分数...")
-            scores = self._compute_scores(train_emb, train_labels, test_emb, k=50, alpha=0.3)
+            scores = self._compute_scores(train_emb, train_labels, test_emb, k=10, alpha=0.3)
 
             # 1. ROC曲线
             print("绘制ROC曲线...")
@@ -447,7 +447,7 @@ class VisualizationGenerator:
             print("绘制异配性分布...")
             self.plot_heterophily_comparison(
                 dataset_name, train_emb, train_labels,
-                test_emb, test_labels, k=50
+                test_emb, test_labels, k=10
             )
 
             # 4. 热力图

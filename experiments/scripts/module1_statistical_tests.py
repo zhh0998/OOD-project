@@ -372,7 +372,7 @@ class StatisticalTestRunner:
 
 def main():
     """主函数"""
-    runner = StatisticalTestRunner(k=50, alpha=0.3, n_bootstrap=1000)
+    runner = StatisticalTestRunner(k=10, alpha=0.3, n_bootstrap=1000)
     results = runner.run_all()
 
     print("\n" + "="*70)
