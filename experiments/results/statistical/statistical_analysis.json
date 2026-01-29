@@ -1,80 +1,84 @@
 {
-  "clinc150": {
-    "dataset": "clinc150",
-    "results": {
-      "Full Model": {
-        "mean": 0.9540795555555557,
-        "std": 1.1102230246251565e-16
-      },
-      "KNN Only": {
-        "mean": 0.9582360000000001,
-        "std": 0.0
-      },
-      "Heterophily Only": {
-        "mean": 0.8620238888888888,
-        "std": 1.1102230246251565e-16
-      }
-    },
-    "t_tests": {
-      "KNN Only": {
-        "t_stat": -Infinity,
-        "p_value": 0.0,
-        "significant": "***"
-      },
-      "Heterophily Only": {
-        "t_stat": Infinity,
-        "p_value": 0.0,
-        "significant": "***"
-      }
-    },
-    "correlation": {
-      "pearson_r": 0.5778068972674432,
-      "pearson_p": 0.0,
-      "spearman_r": 0.5249955592176623,
-      "spearman_p": 0.0,
-      "cohens_d": 1.8356103370109975,
-      "effect_interpretation": "Large",
-      "het_id_mean": 0.147119820911886,
-      "het_ood_mean": 0.458484646397924
-    }
+  "timestamp": "2026-01-29T02:29:29.817428",
+  "config": {
+    "k": 50,
+    "alpha": 0.3,
+    "n_bootstrap": 1000
   },
-  "banking77": {
-    "dataset": "banking77",
-    "results": {
-      "Full Model": {
-        "mean": 0.8568001361161525,
-        "std": 1.1102230246251565e-16
+  "results": {
+    "CLINC150": {
+      "auroc": {
+        "full_model": {
+          "mean": 0.9455717711128493,
+          "std": 0.0035545578406061765
+        },
+        "knn_only": {
+          "mean": 0.9390763948044084,
+          "std": 0.0037902810230763025
+        },
+        "heterophily_only": {
+          "mean": 0.9005547883366943,
+          "std": 0.00538462921014805
+        },
+        "improvement": 0.006495376308440881
       },
-      "KNN Only": {
-        "mean": 0.843078493647913,
-        "std": 0.0
+      "paired_ttest": {
+        "t_statistic": 40.335516625028454,
+        "p_value": 7.158047692424755e-212,
+        "significant": true
       },
-      "Heterophily Only": {
-        "mean": 0.77377722323049,
-        "std": 0.0
+      "effect_size": {
+        "cohens_d": 1.7668970120299086,
+        "interpretation": "Large"
+      },
+      "correlation": {
+        "pearson_r": 0.6195552083581087,
+        "pearson_p": 0.0,
+        "spearman_r": 0.5377716310652184,
+        "spearman_p": 0.0
+      },
+      "heterophily_distribution": {
+        "id_mean": 0.11471046114185143,
+        "ood_mean": 0.3418336271782665,
+        "difference": 0.22712316603641505
       }
     },
-    "t_tests": {
-      "KNN Only": {
-        "t_stat": Infinity,
-        "p_value": 0.0,
-        "significant": "***"
+    "Banking77": {
+      "auroc": {
+        "full_model": {
+          "mean": 0.745843788733901,
+          "std": 0.00907783376337714
+        },
+        "knn_only": {
+          "mean": 0.7301395409258848,
+          "std": 0.009391659969379936
+        },
+        "heterophily_only": {
+          "mean": 0.7137188591736447,
+          "std": 0.01138549671293661
+        },
+        "improvement": 0.01570424780801616
       },
-      "Heterophily Only": {
-        "t_stat": Infinity,
-        "p_value": 0.0,
-        "significant": "***"
+      "paired_ttest": {
+        "t_statistic": 38.16848040193,
+        "p_value": 2.476285368438743e-197,
+        "significant": true
+      },
+      "effect_size": {
+        "cohens_d": 1.699464917700677,
+        "interpretation": "Large"
+      },
+      "correlation": {
+        "pearson_r": 0.34525980076518176,
+        "pearson_p": 6.046121450028593e-87,
+        "spearman_r": 0.3204624330480523,
+        "spearman_p": 1.6776167244570986e-74
+      },
+      "heterophily_distribution": {
+        "id_mean": 0.121662842020497,
+        "ood_mean": 0.20600508333522058,
+        "difference": 0.08434224131472358
       }
-    },
-    "correlation": {
-      "pearson_r": 0.4818022474762117,
-      "pearson_p": 8.496557650340044e-179,
-      "spearman_r": 0.45669752333171787,
-      "spearman_p": 1.4198418170323906e-158,
-      "cohens_d": 1.2754562900326463,
-      "effect_interpretation": "Large",
-      "het_id_mean": 0.11918891486410657,
-      "het_ood_mean": 0.3043273603078116
     }
   }
 }

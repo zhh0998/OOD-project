@@ -1,21 +1,13 @@
 \begin{table}[t]
 \centering
-\caption{Statistical significance tests. Results are mean$\pm$std over 5 runs. ***p$<$0.001}
-\label{tab:statistical}
-\begin{tabular}{llccc}
+\caption{Statistical significance tests. $^{***}$p<0.001, $^{**}$p<0.01, $^{*}$p<0.05.}
+\label{tab:statistical_tests}
+\begin{tabular}{lcccccc}
 \toprule
-Dataset & Method & AUROC (\%) & t-stat & p-value \\
+Dataset & Improvement & $t$-stat & $p$-value & Cohen's $d$ & Pearson $r$ \\
 \midrule
-\multirow{3}{*}{CLINC150}
-& KNN Only & 95.82$\pm$0.00 & -inf & 0.00e+00*** \\
-& Heterophily Only & 86.20$\pm$0.00 & inf & 0.00e+00*** \\
-& Full Model & \textbf{95.41$\pm$0.00} & - & - \\
-\midrule
-\multirow{3}{*}{BANKING77}
-& KNN Only & 84.31$\pm$0.00 & inf & 0.00e+00*** \\
-& Heterophily Only & 77.38$\pm$0.00 & inf & 0.00e+00*** \\
-& Full Model & \textbf{85.68$\pm$0.00} & - & - \\
-\midrule
+CLINC150 & +0.65\%$^{***}$ & 40.34 & 7.16e-212 & 1.77 & 0.62 \\
+Banking77 & +1.57\%$^{***}$ & 38.17 & 2.48e-197 & 1.70 & 0.35 \\
 \bottomrule
 \end{tabular}
 \end{table}

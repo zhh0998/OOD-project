@@ -375,7 +375,7 @@ class ExperimentRunner:
 
 def main():
     """主函数"""
-    runner = ExperimentRunner(n_runs=5, k=10, alpha=0.3)
+    runner = ExperimentRunner(n_runs=5, k=50, alpha=0.3)
     results = runner.run_all()
 
     print("\n" + "="*70)
