@@ -170,13 +170,17 @@ def download_banking77_oos(data_dir: Optional[Path] = None) -> Path:
 
 
 def load_banking77_oos(data_dir: Optional[Path] = None,
-                       oos_ratio: float = 0.25) -> Tuple[List[str], List[str], List[int], List[str], List[int]]:
+                       n_id_classes: int = 50,
+                       n_ood_classes: int = 27,
+                       seed: int = 42) -> Tuple[List[str], List[str], List[int], List[str], List[int]]:
     """
     加载Banking77-OOS数据集
     将部分类别作为OOS (Out-of-Scope)
 
     Args:
-        oos_ratio: OOS类别占比
+        n_id_classes: ID类别数量 (默认50，符合FLatS标准)
+        n_ood_classes: OOD类别数量 (默认27，符合FLatS标准)
+        seed: 随机种子
 
     Returns:
         train_texts, test_texts, test_labels, test_intents, train_labels
@@ -207,20 +211,28 @@ def load_banking77_oos(data_dir: Optional[Path] = None,
     train_texts_all, train_intents_all = load_csv(train_file)
     test_texts_all, test_intents_all = load_csv(data_dir / "test.csv")
 
-    # 获取所有类别
+    # 获取所有类别并验证
     all_intents = sorted(set(train_intents_all))
-    n_oos = int(len(all_intents) * oos_ratio)
+    assert len(all_intents) == 77, f"Banking77应该有77个类别，实际{len(all_intents)}"
+    assert n_id_classes + n_ood_classes == 77, f"ID+OOD必须等于77: {n_id_classes}+{n_ood_classes}={n_id_classes+n_ood_classes}"
 
-    # 随机选择OOS类别（固定种子保证可复现）
-    np.random.seed(42)
-    oos_intents = set(np.random.choice(all_intents, n_oos, replace=False))
+    # 随机选择OOD类别（固定种子保证可复现）
+    np.random.seed(seed)
+    oos_intents = set(np.random.choice(all_intents, n_ood_classes, replace=False))
     id_intents_set = set(all_intents) - oos_intents
+
+    # 验证划分正确性
+    assert len(id_intents_set) == n_id_classes, f"ID类别数错误: {len(id_intents_set)} != {n_id_classes}"
+    assert len(oos_intents) == n_ood_classes, f"OOD类别数错误: {len(oos_intents)} != {n_ood_classes}"
 
     # ✅ Bug 4修复: 建立intent到ID的映射
     id_intents_list = sorted(id_intents_set)
     intent2id = {intent: idx for idx, intent in enumerate(id_intents_list)}
 
-    print(f"[Banking77-OOS] ID类别: {len(id_intents_set)}, OOS类别: {len(oos_intents)}")
+    print(f"[Banking77-OOS] FLatS标准划分:")
+    print(f"  - ID类别: {len(id_intents_set)}")
+    print(f"  - OOD类别: {len(oos_intents)}")
+    print(f"  - 随机种子: {seed}")
 
     # 过滤训练数据（只保留ID类别）
     train_texts = []

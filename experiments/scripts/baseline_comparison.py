@@ -35,7 +35,7 @@ def run_all_baselines(dataset_name, train_embs, train_labels, test_embs, test_la
     # 1. LOF (Local Outlier Factor)
     print("[1/5] LOF...")
     try:
-        lof = LocalOutlierFactor(n_neighbors=min(20, len(train_embs)-1), novelty=True)
+        lof = LocalOutlierFactor(n_neighbors=10, novelty=True, metric='euclidean')
         lof.fit(train_embs)
         lof_scores = -lof.score_samples(test_embs)
 
