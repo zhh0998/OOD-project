@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Comparison with baseline methods on Banking77 (50/27 split). Our method outperforms all baselines except LOF on this challenging near-OOD task.}
+\label{tab:baseline}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method} & \textbf{AUROC (\%)} & \textbf{AUPR (\%)} \\
+\midrule
+LOF (n=10) & 89.29 & 79.60 \\
+Mahalanobis & 73.96 & 62.06 \\
+KNN Distance & 86.37 & 75.35 \\
+Heterophily Only & 78.74 & 67.57 \\
+\textbf{Ours (Het+KNN)} & 87.67 & 79.08 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

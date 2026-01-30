@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Out-of-Distribution Detection Results. We compare KNN baseline with our heterophily-enhanced method across different protocols. Results are averaged over 5 random seeds. $\Delta$ shows the improvement of our method over KNN baseline. $^*$ indicates statistical significance ($p < 0.05$, paired $t$-test).}
+\label{tab:main_results}
+\begin{tabular}{llccccc}
+\toprule
+\textbf{Dataset} & \textbf{Protocol} & \textbf{KIR} & \textbf{KNN Only} & \textbf{Ours (Het+KNN)} & \textbf{$\Delta$ AUROC} & \textbf{$p$-value} \\
+\midrule
+\multirow{4}{*}{CLINC150} & Native OOS & - & 95.8 & 95.4 & -0.42 & - \\
+ & Class-holdout & 25\% & 92.0$\pm$1.3 & 92.9$\pm$1.1 & +0.87$^*$ & 0.0047 \\
+ & Class-holdout & 50\% & 88.5$\pm$1.0 & 89.7$\pm$1.0 & +1.20$^*$ & 0.0003 \\
+ & Class-holdout & 75\% & 85.4$\pm$1.4 & 86.9$\pm$1.6 & +1.44$^*$ & 0.0008 \\
+\midrule
+Banking77 & Class-holdout & 65\% & 87.7$\pm$1.1 & 88.8$\pm$0.9 & +1.13$^*$ & 0.0008 \\
+\bottomrule
+\end{tabular}
+\end{table*}

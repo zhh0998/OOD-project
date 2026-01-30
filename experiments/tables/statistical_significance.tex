@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Statistical Significance Analysis. Our heterophily-enhanced method shows statistically significant improvements across all near-OOD settings (class-holdout protocol). Results based on 5 random seeds.}
+\label{tab:significance}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dataset} & \textbf{$\Delta$ AUROC} & \textbf{95\% CI} & \textbf{$p$-value} \\
+\midrule
+CLINC150 KIR=25% & +0.87\% & [+0.45\%, +1.30\%] & 0.0047 \\
+CLINC150 KIR=50% & +1.20\% & [+0.91\%, +1.49\%] & $<$0.001 \\
+CLINC150 KIR=75% & +1.44\% & [+1.00\%, +1.88\%] & $<$0.001 \\
+Banking77 (50/27) & +1.13\% & [+0.78\%, +1.47\%] & $<$0.001 \\
+\bottomrule
+\end{tabular}
+\end{table}
