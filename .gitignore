@@ -25,3 +25,7 @@ data/hwu64/
 *.log
 *.tmp
 src/datasets/data/
+
+# Finetuned models and extracted features
+finetuned_models/
+features/
