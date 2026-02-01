@@ -29,8 +29,8 @@ import json
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from transformers import (
-    RobertaForSequenceClassification,
-    RobertaTokenizer,
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
     Trainer,
     TrainingArguments,
     DataCollatorWithPadding,
@@ -75,6 +75,8 @@ def main():
                        help='模型保存目录')
     parser.add_argument('--data_root', type=str, default='data',
                        help='数据根目录')
+    parser.add_argument('--model_name', type=str, default='distilroberta-base',
+                       help='预训练模型名称 (distilroberta-base更快)')
 
     args = parser.parse_args()
 
@@ -141,10 +143,10 @@ def main():
     })
 
     # 初始化tokenizer和模型
-    print("\n初始化模型...")
-    tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
-    model = RobertaForSequenceClassification.from_pretrained(
-        'roberta-base',
+    print(f"\n初始化模型: {args.model_name}...")
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(
+        args.model_name,
         num_labels=num_labels
     )
 
@@ -193,6 +195,8 @@ def main():
         seed=args.seed,
         report_to="none",  # 禁用wandb等
         fp16=torch.cuda.is_available(),
+        gradient_checkpointing=True,  # 节省内存
+        dataloader_num_workers=0,  # CPU友好
     )
 
     # Trainer
@@ -224,6 +228,7 @@ def main():
 
     # 保存训练配置
     config = {
+        'model_name': args.model_name,
         'dataset': args.dataset,
         'protocol': args.protocol,
         'kir': args.kir,

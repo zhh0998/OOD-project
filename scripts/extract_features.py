@@ -31,7 +31,7 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from transformers import RobertaModel, RobertaTokenizer
+from transformers import AutoModel, AutoTokenizer, AutoModelForSequenceClassification
 
 
 def extract_and_normalize(model, tokenizer, texts, batch_size=32, max_length=128, device='cuda'):
@@ -69,8 +69,13 @@ def extract_and_normalize(model, tokenizer, texts, batch_size=32, max_length=128
 
             outputs = model(**inputs)
 
-            # 使用pooler_output ([CLS] token经过线性层和tanh)
-            features = outputs.pooler_output  # [batch, 768]
+            # 使用[CLS] token的hidden state
+            # pooler_output可能为None（如DistilRoBERTa提取的base model）
+            if outputs.pooler_output is not None:
+                features = outputs.pooler_output  # [batch, 768]
+            else:
+                # 使用最后一层的[CLS] token
+                features = outputs.last_hidden_state[:, 0, :]  # [batch, hidden_dim]
 
             # L2归一化
             features = F.normalize(features, p=2, dim=1)
@@ -143,8 +148,25 @@ def main():
 
     # 加载模型
     print(f"\n加载模型: {args.model_path}")
-    model = RobertaModel.from_pretrained(args.model_path)
-    tokenizer = RobertaTokenizer.from_pretrained(args.model_path)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_path)
+
+    # 检查是否是微调的分类模型
+    try:
+        # 尝试加载分类模型并提取base模型
+        full_model = AutoModelForSequenceClassification.from_pretrained(args.model_path)
+        # 提取base model (roberta/distilroberta)
+        if hasattr(full_model, 'roberta'):
+            model = full_model.roberta
+            print("  从SequenceClassification模型提取base model")
+        elif hasattr(full_model, 'distilbert'):
+            model = full_model.distilbert
+            print("  从SequenceClassification模型提取base model")
+        else:
+            # fallback to base model
+            model = AutoModel.from_pretrained(args.model_path)
+    except Exception:
+        # 直接加载base模型（预训练模型）
+        model = AutoModel.from_pretrained(args.model_path)
 
     # 提取训练特征
     print("\n提取训练特征...")
