@@ -23,7 +23,8 @@ from datetime import datetime
 from pathlib import Path
 
 # 添加项目路径
-sys.path.insert(0, '/home/user/OOD-project')
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 import matplotlib
 matplotlib.use('Agg')  # 非交互式后端
@@ -66,11 +67,11 @@ class VisualizationGenerator:
         self.embedder = None
 
         # 输出目录
-        self.figure_dir = Path('/home/user/OOD-project/experiments/figures')
+        self.figure_dir = PROJECT_ROOT / "experiments" / "figures"
         self.figure_dir.mkdir(parents=True, exist_ok=True)
 
         # 数据目录
-        self.results_dir = Path('/home/user/OOD-project/experiments/results')
+        self.results_dir = PROJECT_ROOT / "experiments" / "results"
 
         # 颜色方案 (配色友好)
         self.colors = {

@@ -13,7 +13,8 @@ Author: RW3 OOD Detection Project
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import numpy as np
@@ -37,7 +38,7 @@ class NumpyEncoder(json.JSONEncoder):
 
 # Local imports
 from src.utils.data_loader import load_clinc150, load_banking77_oos, load_rostd, DATA_DIR
-from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
+from src.models.heterophily_detector import HeterophilyEnhancedFixed
 from src.utils.quick_fix import evaluate_ood
 
 

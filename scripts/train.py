@@ -24,7 +24,8 @@ from transformers import AutoTokenizer, AutoModel
 from sklearn.metrics import roc_auc_score, average_precision_score, roc_curve
 
 # 添加当前目录到路径
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.utils.quick_fix import FixedKNNDetector, MahalanobisDetector, LOFDetector, evaluate_ood
 from src.utils.data_loader import get_dataset

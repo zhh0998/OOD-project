@@ -13,7 +13,7 @@ from typing import Tuple, List, Dict, Optional
 from pathlib import Path
 
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 
 
 def download_clinc150(data_dir: Optional[Path] = None) -> Path:

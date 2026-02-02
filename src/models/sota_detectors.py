@@ -172,7 +172,15 @@ class FLatSDetector:
 class RMDDetector:
     """
     RMD (Relative Mahalanobis Distance)
-    计算样本到每个类别中心的相对马氏距离
+    论文公式: RMD_k(z) = MD_k(z) - MD_0(z)
+
+    其中:
+    - MD_k(z) = (z - μ_k)^T Σ^{-1} (z - μ_k) 是到类别k中心的马氏距离
+    - MD_0(z) = (z - μ_0)^T Σ_0^{-1} (z - μ_0) 是到背景分布中心的马氏距离
+    - Σ 是共享的类条件协方差
+    - Σ_0 是背景协方差（忽略标签）
+
+    OOD分数 = min_k RMD_k(z)，越大越可能是OOD
 
     Reference: NeurIPS 2021
     """
@@ -181,8 +189,9 @@ class RMDDetector:
         self.reg_factor = reg_factor
         self.verbose = verbose
         self.class_means = {}
-        self.class_inv_covs = {}
-        self.global_mean = None
+        self.inv_cov_shared = None  # 共享的类条件协方差逆
+        self.global_mean = None     # 背景均值 μ_0
+        self.inv_cov_background = None  # 背景协方差逆 Σ_0^{-1}
 
     def _normalize(self, emb: np.ndarray) -> np.ndarray:
         norms = np.linalg.norm(emb, axis=1, keepdims=True)
@@ -190,10 +199,11 @@ class RMDDetector:
 
     def fit(self, train_embeddings: np.ndarray, train_labels: np.ndarray):
         train_norm = self._normalize(train_embeddings).astype('float32')
-        self.global_mean = train_norm.mean(axis=0)
 
         unique_labels = np.unique(train_labels)
 
+        # 1. 计算每个类别的均值
+        residuals = []
         for label in unique_labels:
             mask = train_labels == label
             if mask.sum() < 2:
@@ -201,46 +211,64 @@ class RMDDetector:
 
             class_samples = train_norm[mask]
             class_mean = class_samples.mean(axis=0)
-
-            centered = class_samples - class_mean
-            cov = np.cov(centered.T)
-            cov = np.atleast_2d(cov)
-            cov += np.eye(cov.shape[0]) * self.reg_factor
-
-            try:
-                inv_cov = np.linalg.inv(cov)
-            except:
-                inv_cov = np.linalg.pinv(cov)
-
             self.class_means[label] = class_mean
-            self.class_inv_covs[label] = inv_cov
+
+            # 收集残差用于计算共享协方差
+            residuals.append(class_samples - class_mean)
+
+        # 2. 计算共享协方差 Σ（类条件）
+        all_residuals = np.vstack(residuals)
+        shared_cov = np.cov(all_residuals.T)
+        shared_cov = np.atleast_2d(shared_cov)
+        shared_cov += np.eye(shared_cov.shape[0]) * self.reg_factor
+
+        try:
+            self.inv_cov_shared = np.linalg.inv(shared_cov)
+        except np.linalg.LinAlgError:
+            self.inv_cov_shared = np.linalg.pinv(shared_cov)
+
+        # 3. 计算背景分布（忽略标签的全局统计）
+        self.global_mean = train_norm.mean(axis=0)
+        background_cov = np.cov(train_norm.T)
+        background_cov = np.atleast_2d(background_cov)
+        background_cov += np.eye(background_cov.shape[0]) * self.reg_factor
+
+        try:
+            self.inv_cov_background = np.linalg.inv(background_cov)
+        except np.linalg.LinAlgError:
+            self.inv_cov_background = np.linalg.pinv(background_cov)
 
         if self.verbose:
-            print(f"[RMD] 训练完成, {len(self.class_means)}个类别")
+            print(f"[RMD] 训练完成, {len(self.class_means)}个类别, 共享协方差+背景分布")
 
     def score(self, test_embeddings: np.ndarray) -> np.ndarray:
+        """
+        计算 RMD 分数: min_k [MD_k(z) - MD_0(z)]
+        越大越可能是OOD
+        """
         test_norm = self._normalize(test_embeddings).astype('float32')
         n_samples = len(test_norm)
 
         if len(self.class_means) == 0:
             return np.zeros(n_samples)
 
-        all_distances = np.zeros((n_samples, len(self.class_means)))
+        # 1. 计算背景马氏距离 MD_0(z)
+        centered_bg = test_norm - self.global_mean
+        md0 = np.sqrt(np.sum(centered_bg @ self.inv_cov_background * centered_bg, axis=1))
+
+        # 2. 计算每个类别的马氏距离 MD_k(z)
+        all_md_k = np.zeros((n_samples, len(self.class_means)))
 
         for i, (label, mean) in enumerate(self.class_means.items()):
-            inv_cov = self.class_inv_covs[label]
             centered = test_norm - mean
-            mahal_dist = np.sqrt(np.sum(centered @ inv_cov * centered, axis=1))
-            all_distances[:, i] = mahal_dist
+            md_k = np.sqrt(np.sum(centered @ self.inv_cov_shared * centered, axis=1))
+            all_md_k[:, i] = md_k
 
-        min_distances = all_distances.min(axis=1)
-        mean_distances = all_distances.mean(axis=1)
+        # 3. RMD_k = MD_k - MD_0
+        all_rmd = all_md_k - md0[:, np.newaxis]
 
-        # RMD: 最小距离与平均距离的比值
-        rmd = min_distances / (mean_distances + 1e-8)
-
-        # 转换为OOD分数（越大越OOD）
-        ood_score = min_distances  # 使用最小距离作为分数
+        # 4. OOD分数 = min_k RMD_k（越大越OOD）
+        ood_score = all_rmd.min(axis=1)
 
         return ood_score
 

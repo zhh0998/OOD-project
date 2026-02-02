@@ -20,7 +20,8 @@ from datetime import datetime
 from pathlib import Path
 
 # 添加项目路径
-sys.path.insert(0, '/home/user/OOD-project')
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 from sklearn.metrics import roc_auc_score, average_precision_score, roc_curve
 
@@ -49,10 +50,10 @@ class ExperimentRunner:
         self.embedder = None
 
         # 输出目录
-        self.output_dir = Path('/home/user/OOD-project/experiments/results/complete')
+        self.output_dir = PROJECT_ROOT / "experiments" / "results" / "complete"
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        self.table_dir = Path('/home/user/OOD-project/experiments/tables')
+        self.table_dir = PROJECT_ROOT / "experiments" / "tables"
         self.table_dir.mkdir(parents=True, exist_ok=True)
 
     def _get_embedder(self):

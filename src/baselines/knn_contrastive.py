@@ -13,7 +13,8 @@ Author: RW3 OOD Detection Project
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
 
 import json
 import numpy as np
@@ -236,7 +237,7 @@ def run_baseline_comparison(dataset_name: str = 'clinc150') -> Dict:
     运行所有Baseline方法对比
     """
     from sentence_transformers import SentenceTransformer
-    from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
+    from src.models.heterophily_detector import HeterophilyEnhancedFixed
     from src.utils.quick_fix import evaluate_ood
 
     print("="*70)
@@ -516,7 +517,7 @@ def run_hyperparameter_sensitivity(dataset_name: str = 'clinc150'):
     运行超参数敏感性分析
     """
     from sentence_transformers import SentenceTransformer
-    from heterophily_enhanced_fixed import HeterophilyEnhancedFixed
+    from src.models.heterophily_detector import HeterophilyEnhancedFixed
     from src.utils.quick_fix import evaluate_ood
 
     print("="*70)
