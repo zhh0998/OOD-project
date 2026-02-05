@@ -1,0 +1,72 @@
+{
+  "clinc150": {
+    "dataset": "clinc150",
+    "scales": {
+      "k3": {
+        "knn": 0.9721,
+        "het": 0.6791
+      },
+      "k5": {
+        "knn": 0.9708,
+        "het": 0.7108
+      },
+      "k10": {
+        "knn": 0.9685,
+        "het": 0.7377
+      },
+      "k20": {
+        "knn": 0.9666,
+        "het": 0.7552
+      },
+      "k50": {
+        "knn": 0.9642,
+        "het": 0.7785
+      }
+    },
+    "multiscale": {
+      "avg_het_auroc": 0.7814,
+      "weighted_het_auroc": 0.7814,
+      "best_knn_k": 3,
+      "best_knn_auroc": 0.9721,
+      "fusion_auroc": 0.968
+    },
+    "decision": "FAILED",
+    "decision_reason": "No improvement (-0.0041)",
+    "improvement_over_best_knn": -0.0041
+  },
+  "banking77": {
+    "dataset": "banking77",
+    "scales": {
+      "k3": {
+        "knn": 0.8366,
+        "het": 0.669
+      },
+      "k5": {
+        "knn": 0.8281,
+        "het": 0.6996
+      },
+      "k10": {
+        "knn": 0.8152,
+        "het": 0.7213
+      },
+      "k20": {
+        "knn": 0.796,
+        "het": 0.7179
+      },
+      "k50": {
+        "knn": 0.7609,
+        "het": 0.6885
+      }
+    },
+    "multiscale": {
+      "avg_het_auroc": 0.7257,
+      "weighted_het_auroc": 0.7257,
+      "best_knn_k": 3,
+      "best_knn_auroc": 0.8366,
+      "fusion_auroc": 0.8344
+    },
+    "decision": "FAILED",
+    "decision_reason": "No improvement (-0.0022)",
+    "improvement_over_best_knn": -0.0022
+  }
+}
