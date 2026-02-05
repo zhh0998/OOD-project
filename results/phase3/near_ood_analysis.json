@@ -1,0 +1,72 @@
+{
+  "clinc150": {
+    "dataset": "clinc150",
+    "embedding_dim": 768,
+    "n_id_test": 4500,
+    "n_ood_test": 1000,
+    "semantic_similarity": {
+      "mean": 0.6608,
+      "std": 0.1586,
+      "min": 0.2906,
+      "max": 0.9985,
+      "percentiles": {
+        "25": 0.5458,
+        "50": 0.645,
+        "75": 0.7809,
+        "90": 0.8887
+      }
+    },
+    "ood_breakdown": {
+      "very_near_count": 89,
+      "very_near_pct": 8.9,
+      "near_count": 136,
+      "near_pct": 13.6,
+      "medium_count": 158,
+      "medium_pct": 15.8,
+      "far_count": 617,
+      "far_pct": 61.7
+    },
+    "detection_difficulty": {
+      "very_near": 0.794,
+      "near": 0.9418,
+      "medium": 0.9791,
+      "far": 0.9968
+    },
+    "key_insight": "PRIMARILY FAR-OOD: Most OOD samples are distinguishable"
+  },
+  "banking77": {
+    "dataset": "banking77",
+    "embedding_dim": 768,
+    "n_id_test": 2000,
+    "n_ood_test": 1080,
+    "semantic_similarity": {
+      "mean": 0.825,
+      "std": 0.1374,
+      "min": 0.3963,
+      "max": 0.998,
+      "percentiles": {
+        "25": 0.7243,
+        "50": 0.8604,
+        "75": 0.9439,
+        "90": 0.9803
+      }
+    },
+    "ood_breakdown": {
+      "very_near_count": 429,
+      "very_near_pct": 39.7,
+      "near_count": 243,
+      "near_pct": 22.5,
+      "medium_count": 176,
+      "medium_pct": 16.3,
+      "far_count": 232,
+      "far_pct": 21.5
+    },
+    "detection_difficulty": {
+      "very_near": 0.5881,
+      "near": 0.9272,
+      "medium": 0.9758,
+      "far": 0.9957
+    },
+    "key_insight": "HIGH NEAR-OOD PREVALENCE: 39.7% of OOD samples are very similar to ID (>0.9), and they are HARD to detect (AUROC=0.588)"
+  }
+}
