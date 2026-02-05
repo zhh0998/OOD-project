@@ -1,0 +1,100 @@
+{
+  "description": "Phase 0: near-OOD vs far-OOD heterophily verification",
+  "hypothesis": {
+    "near_ood": "het_relative_gain > 50%",
+    "far_ood": "het_relative_gain < 30%"
+  },
+  "decision": "CONDITIONAL - needs further analysis",
+  "results": {
+    "clinc150": {
+      "dataset": "clinc150",
+      "k": 10,
+      "n_id_test": 4500,
+      "n_ood_test": 1000,
+      "embedding_dim": 768,
+      "overall": {
+        "knn_auroc": 0.9685,
+        "het_auroc": 0.7377,
+        "fused_auroc": 0.964
+      },
+      "near": {
+        "n_ood": 300,
+        "knn_auroc": 0.905,
+        "het_auroc": 0.5517,
+        "fused_auroc": 0.8957,
+        "het_relative_gain": 0.1276,
+        "knn_score_range": [
+          0.0127,
+          0.4081
+        ]
+      },
+      "middle": {
+        "n_ood": 400,
+        "knn_auroc": 0.9928,
+        "het_auroc": 0.7773,
+        "fused_auroc": 0.9894,
+        "het_relative_gain": 0.5627,
+        "knn_score_range": [
+          0.4107,
+          0.6504
+        ]
+      },
+      "far": {
+        "n_ood": 300,
+        "knn_auroc": 0.9995,
+        "het_auroc": 0.871,
+        "fused_auroc": 0.9986,
+        "het_relative_gain": 0.7427,
+        "knn_score_range": [
+          0.6511,
+          1.0
+        ]
+      }
+    },
+    "banking77": {
+      "dataset": "banking77",
+      "k": 10,
+      "n_id_test": 2000,
+      "n_ood_test": 1080,
+      "embedding_dim": 768,
+      "overall": {
+        "knn_auroc": 0.8152,
+        "het_auroc": 0.7213,
+        "fused_auroc": 0.8166
+      },
+      "near": {
+        "n_ood": 324,
+        "knn_auroc": 0.4989,
+        "het_auroc": 0.5064,
+        "fused_auroc": 0.5016,
+        "het_relative_gain": -5.8654,
+        "knn_score_range": [
+          0.0009,
+          0.1563
+        ]
+      },
+      "middle": {
+        "n_ood": 432,
+        "knn_auroc": 0.9187,
+        "het_auroc": 0.782,
+        "fused_auroc": 0.922,
+        "het_relative_gain": 0.6735,
+        "knn_score_range": [
+          0.157,
+          0.4818
+        ]
+      },
+      "far": {
+        "n_ood": 324,
+        "knn_auroc": 0.9934,
+        "het_auroc": 0.8552,
+        "fused_auroc": 0.9911,
+        "het_relative_gain": 0.72,
+        "knn_score_range": [
+          0.4825,
+          1.0
+        ]
+      }
+    }
+  }
+}
