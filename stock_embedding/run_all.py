@@ -8,7 +8,7 @@ run_all.py — 一键运行脚本
 使用:
   python run_all.py                    # 跑全部（需要预先准备数据）
   python run_all.py --mock             # 先生成模拟数据再跑
-  python run_all.py --skip-lstm        # 跳过 LSTM，只跑 PCA 版
+  python run_all.py --skip-lstm        # 跳过 LSTM 模块（只跑 PCA 快速版）
   python run_all.py --mock --skip-lstm # 模拟数据 + 只跑 PCA
 """
 
@@ -87,29 +87,34 @@ def main():
                         help='先生成模拟数据再运行')
     parser.add_argument('--skip-lstm', action='store_true',
                         help='跳过 LSTM 模块（只跑 PCA 快速版）')
-    parser.add_argument('--data_dir', type=str, default='mock_data',
-                        help='数据目录 (默认: mock_data)')
     parser.add_argument('--output_dir', type=str, default='outputs',
                         help='输出目录 (默认: outputs)')
-    parser.add_argument('--dim', type=int, default=16,
-                        help='嵌入维度 (默认: 16)')
+    parser.add_argument('--dim', type=int, default=8,
+                        help='静态嵌入维度 (默认: 8)')
+    parser.add_argument('--pca_dim', type=int, default=4,
+                        help='PCA嵌入维度 (默认: 4)')
+    parser.add_argument('--lstm_dim', type=int, default=16,
+                        help='LSTM嵌入维度 (默认: 16)')
     parser.add_argument('--epochs', type=int, default=30,
                         help='训练轮数 (默认: 30)')
     parser.add_argument('--window', type=int, default=20,
                         help='时间窗口 (默认: 20)')
-    parser.add_argument('--n_stocks', type=int, default=200,
-                        help='模拟股票数 (默认: 200)')
+    parser.add_argument('--n_stocks', type=int, default=100,
+                        help='模拟股票数 (默认: 100)')
     parser.add_argument('--n_dates', type=int, default=60,
                         help='模拟交易日数 (默认: 60)')
-    parser.add_argument('--n_factors', type=int, default=20,
-                        help='模拟因子数 (默认: 20)')
+    parser.add_argument('--n_factors', type=int, default=10,
+                        help='模拟因子数 (默认: 10)')
     parser.add_argument('--n_concepts', type=int, default=500,
                         help='模拟概念数 (默认: 500)')
     args = parser.parse_args()
 
     python = sys.executable
-    data_dir = args.data_dir
     output_dir = args.output_dir
+    # 新的数据路径约定
+    npy_path = 'ashare_stock2concept.npy'
+    codes_path = 'stock_codes.txt'
+    factor_dir = 'stock_transaction_features1'
     results = {}
 
     print("\n" + "#" * 60)
@@ -123,15 +128,11 @@ def main():
         ok = run_step(
             "步骤0: 生成模拟数据",
             [python, 'generate_mock_data.py',
-             '--output_dir', data_dir,
              '--n_stocks', str(args.n_stocks),
              '--n_dates', str(args.n_dates),
              '--n_factors', str(args.n_factors),
              '--n_concepts', str(args.n_concepts)],
-            check_outputs=[
-                f'{data_dir}/concept_matrix.npy',
-                f'{data_dir}/stock_codes.txt',
-            ]
+            check_outputs=[npy_path, codes_path]
         )
         results['生成模拟数据'] = ok
         if not ok:
@@ -139,9 +140,14 @@ def main():
             sys.exit(1)
 
     # 检查数据是否存在
-    data_path = Path(__file__).parent / data_dir
-    if not data_path.exists():
-        print(f"\n[错误] 数据目录不存在: {data_dir}")
+    npy_full = Path(__file__).parent / npy_path
+    factor_full = Path(__file__).parent / factor_dir
+    if not npy_full.exists():
+        print(f"\n[错误] 概念矩阵文件不存在: {npy_path}")
+        print(f"  请先准备数据，或使用 --mock 生成模拟数据")
+        sys.exit(1)
+    if not factor_full.exists():
+        print(f"\n[错误] 因子文件夹不存在: {factor_dir}")
         print(f"  请先准备数据，或使用 --mock 生成模拟数据")
         sys.exit(1)
 
@@ -151,29 +157,29 @@ def main():
     ok = run_step(
         "步骤1: 静态概念嵌入 (SVD)",
         [python, 'concept_embedding.py',
-         '--input', f'{data_dir}/concept_matrix.npy',
-         '--codes', f'{data_dir}/stock_codes.txt',
+         '--input', npy_path,
+         '--codes', codes_path,
          '--method', 'svd',
          '--dim', str(args.dim),
-         '--output', output_dir],
+         '--output', './'],
         check_outputs=[
-            f'{output_dir}/embeddings_{args.dim}d.npy',
-            f'{output_dir}/embeddings_{args.dim}d_with_codes.csv',
+            f'embeddings_{args.dim}d.npy',
+            f'embeddings_{args.dim}d_with_codes.csv',
         ]
     )
     results['静态概念嵌入'] = ok
 
     # ========================================
-    # 步骤2: 动态时序嵌入
+    # 步骤2: 动态时序嵌入 (LSTM)
     # ========================================
     if not args.skip_lstm:
         ok = run_step(
             "步骤2: 动态时序嵌入 (LSTM)",
             [python, 'dynamic_temporal_embedding.py',
-             '--input', f'{data_dir}/factors',
+             '--input', factor_dir,
              '--output', output_dir,
              '--window', str(args.window),
-             '--embed_dim', str(args.dim),
+             '--embed_dim', str(args.lstm_dim),
              '--epochs', str(args.epochs)],
             check_outputs=[f'{output_dir}/embeddings_lstm.csv']
         )
@@ -188,26 +194,26 @@ def main():
     ok = run_step(
         "步骤3: 快速PCA嵌入",
         [python, 'quick_4emb_fastest.py',
-         '--input', f'{data_dir}/factors',
+         '--input', factor_dir,
          '--output', output_dir,
-         '--embed_dim', str(args.dim)],
-        check_outputs=[f'{output_dir}/embeddings_pca.csv']
+         '--embed_dim', str(args.pca_dim)],
+        check_outputs=[f'{output_dir}/embeddings_{args.pca_dim}d.csv']
     )
     results['快速PCA嵌入'] = ok
 
     # ========================================
     # 步骤4: 动静融合嵌入
     # ========================================
-    static_csv = f'{output_dir}/embeddings_{args.dim}d_with_codes.csv'
+    static_csv = f'embeddings_{args.dim}d_with_codes.csv'
     if results.get('静态概念嵌入'):
         ok = run_step(
             "步骤4: 动静融合嵌入",
             [python, 'hybrid_embedding.py',
              '--static', static_csv,
-             '--factors', f'{data_dir}/factors',
+             '--factors', factor_dir,
              '--output', output_dir,
              '--window', str(args.window),
-             '--embed_dim', str(args.dim),
+             '--embed_dim', str(args.lstm_dim),
              '--epochs', str(args.epochs)],
             check_outputs=[f'{output_dir}/hybrid_embeddings.csv']
         )
@@ -236,25 +242,36 @@ def main():
 
     # 显示输出文件
     output_path = Path(__file__).parent / output_dir
+    cwd = Path(__file__).parent
+    print(f"\n  输出文件:")
+    all_output_files = []
+    # 当前目录的输出
+    for pattern in [f'embeddings_{args.dim}d.npy', f'embeddings_{args.dim}d_with_codes.csv']:
+        fp = cwd / pattern
+        if fp.exists():
+            all_output_files.append(fp)
+    # outputs 目录的输出
     if output_path.exists():
-        print(f"\n  输出目录: {output_path}")
-        csv_files = sorted(output_path.glob('*.csv'))
-        npy_files = sorted(output_path.glob('*.npy'))
-        for f in csv_files + npy_files:
-            size = f.stat().st_size
-            print(f"    {f.name:40s} {size:>10,} bytes")
+        all_output_files.extend(sorted(output_path.glob('*.csv')))
+        all_output_files.extend(sorted(output_path.glob('*.npy')))
+
+    for f in all_output_files:
+        size = f.stat().st_size
+        rel = f.relative_to(cwd)
+        print(f"    {str(rel):40s} {size:>10,} bytes")
 
     # 预览所有输出CSV
     print("\n" + "-" * 60)
     print("  输出文件预览")
     print("-" * 60)
 
-    import pandas as pd
-    for csv_name in ['embeddings_lstm.csv', 'embeddings_pca.csv', 'hybrid_embeddings.csv',
-                     f'embeddings_{args.dim}d_with_codes.csv']:
-        csv_path = output_path / csv_name
-        if csv_path.exists():
-            preview_csv(f'{output_dir}/{csv_name}')
+    for csv_rel in [f'embeddings_{args.dim}d_with_codes.csv',
+                    f'{output_dir}/embeddings_{args.pca_dim}d.csv',
+                    f'{output_dir}/embeddings_lstm.csv',
+                    f'{output_dir}/hybrid_embeddings.csv']:
+        fp = cwd / csv_rel
+        if fp.exists():
+            preview_csv(csv_rel)
 
     print(f"\n{'#' * 60}")
     if all_ok:

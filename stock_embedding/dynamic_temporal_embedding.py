@@ -173,8 +173,8 @@ def generate_embeddings(model, X, labels, device, batch_size):
 
 def main():
     parser = argparse.ArgumentParser(description='模块2: 动态时序嵌入 (LSTM)')
-    parser.add_argument('--input', '-i', type=str, required=True,
-                        help='因子CSV文件夹路径')
+    parser.add_argument('--input', '-i', type=str, default='stock_transaction_features1',
+                        help='因子CSV文件夹路径 (默认: stock_transaction_features1)')
     parser.add_argument('--output', '-o', type=str, default='outputs',
                         help='输出目录 (默认: outputs)')
     parser.add_argument('--window', type=int, default=DEFAULT_WINDOW,

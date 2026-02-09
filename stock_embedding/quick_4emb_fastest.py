@@ -128,12 +128,12 @@ def pca_embedding_per_date(data_dict, factor_names, all_dates, embed_dim):
 
 def main():
     parser = argparse.ArgumentParser(description='快速替代版: PCA动态嵌入（无需GPU）')
-    parser.add_argument('--input', '-i', type=str, required=True,
-                        help='因子CSV文件夹路径')
+    parser.add_argument('--input', '-i', type=str, default='stock_transaction_features1',
+                        help='因子CSV文件夹路径 (默认: stock_transaction_features1)')
     parser.add_argument('--output', '-o', type=str, default='outputs',
                         help='输出目录 (默认: outputs)')
-    parser.add_argument('--embed_dim', type=int, default=DEFAULT_EMBED_DIM,
-                        help=f'嵌入维度 (默认: {DEFAULT_EMBED_DIM})')
+    parser.add_argument('--embed_dim', type=int, default=4,
+                        help='嵌入维度 (默认: 4)')
     parser.add_argument('--no_cache', action='store_true',
                         help='禁用缓存')
     args = parser.parse_args()
@@ -172,7 +172,7 @@ def main():
     # 保存
     print("\n[3/3] 保存结果...")
     ensure_output_dir(args.output)
-    output_path = Path(args.output) / 'embeddings_pca.csv'
+    output_path = Path(args.output) / f'embeddings_{actual_dim}d.csv'
     result_df.to_csv(output_path, index=False)
 
     print(f"\n[预览] 前5行:")
