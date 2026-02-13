@@ -1,0 +1,8 @@
+# Large directories (clone and cache)
+agentdojo/
+results/embeddings/
+data/
+
+# Python cache
+__pycache__/
+*.pyc
