@@ -1,0 +1,5 @@
+# Cloned repositories
+agentdojo/
+
+# Large generated data files
+results/simulated_traces.csv
