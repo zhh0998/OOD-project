@@ -1,0 +1,127 @@
+# RW3 Full Experiments - Default Configuration
+# Version: v4.1 (NeurIPS 2026 / EMNLP 2026 / WWW 2026)
+
+# ===== LEAKAGE AUDIT =====
+audit:
+  whitening_fit: "id_train_only"
+  scaler_fit: "id_cal_only"
+  pca_fit: "id_train_only"
+  fusion_fit: "id_cal_only"
+  log_every_fit: true
+  deliberate_leakage_check: true  # A0
+
+# ===== kNN =====
+knn:
+  k_values: [5, 10, 20, 50, 100, 200]
+  k_default: 20
+  distance: "cosine"
+
+# ===== Whitening =====
+whitening:
+  method: "all_but_the_top"
+  k_remove: [0, 1, 2, 3, 5, 10, 20, 50]
+  k_default: 3
+
+# ===== Anisotropy Metrics (I-STAR compliant) =====
+anisotropy:
+  primary: "effective_dim"       # (Σλ)²/Σλ² — I-STAR recommends
+  secondary: "top1_variance_ratio"
+  legacy: "avg_cosine"           # Keep but label as caution
+
+# ===== Conformal Prediction =====
+cp:
+  alpha_values: [0.01, 0.05, 0.10, 0.15, 0.20]
+  alpha_default: 0.10
+  cal_size_ratio: 0.2
+  cal_sizes_ablation: [50, 100, 200, 500, 1000, 2000]
+
+# ===== Graph Features =====
+graph:
+  topK: 20
+  features:
+    - "label_purity"
+    - "retrieval_gap"
+    - "sim_drop_rate"
+    - "neighbor_variance"
+    - "cluster_agreement"
+
+# ===== Fusion =====
+fusion:
+  method: "zscore_mean"
+  alternatives: ["rank_average", "fisher_pvalue", "weighted_sum"]
+  fit_split: "id_cal_only"
+
+# ===== Bootstrap =====
+bootstrap:
+  n_iter: 1000
+  confidence: 0.95
+  stratified: true
+
+# ===== Near-OOD =====
+near_ood:
+  definitions:
+    - "cosine_percentile_25"
+    - "same_domain"
+    - "distance_quartile"
+
+# ===== Banking77 =====
+banking77:
+  random_seeds: [42, 123, 456, 789, 2024]  # ≥5 seeds
+  alphabetical: true  # Keep as historical reference
+
+# ===== Datasets =====
+datasets:
+  clinc150:
+    name: "CLINC150"
+    source: "DeepPavlov/clinc150"
+    n_classes_id: 150
+    ood_type: "oos"
+  banking77:
+    name: "Banking77"
+    source: "banking77"
+    n_classes_id: 50
+    n_classes_ood: 27
+  hwu64:
+    name: "HWU64"
+    source: "jianguoz/Few-Shot-Intent-Detection"
+    n_classes: 64
+  massive:
+    name: "MASSIVE"
+    source: "AmazonScience/massive"
+    subset: "en-US"
+  newsgroups:
+    name: "20Newsgroups"
+    source: "sklearn"
+    n_classes_id: 15
+    n_classes_ood: 5
+  nq_open:
+    name: "NQ-Open"
+    source: "nq_open"
+    task: "retrieval_gating"
+
+# ===== Embedding Models =====
+embedding_models:
+  minilm:
+    name: "all-MiniLM-L6-v2"
+    full_name: "sentence-transformers/all-MiniLM-L6-v2"
+    dim: 384
+    expected_anisotropy: "high"
+  bge:
+    name: "bge-base-en-v1.5"
+    full_name: "BAAI/bge-base-en-v1.5"
+    dim: 768
+    expected_anisotropy: "low"
+  e5:
+    name: "e5-large-v2"
+    full_name: "intfloat/e5-large-v2"
+    dim: 1024
+    expected_anisotropy: "low"
+  mpnet:
+    name: "all-mpnet-base-v2"
+    full_name: "sentence-transformers/all-mpnet-base-v2"
+    dim: 768
+    expected_anisotropy: "medium"
+
+# ===== Experiment Seeds =====
+experiment:
+  seeds: [0, 1, 2]

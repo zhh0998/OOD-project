@@ -1,0 +1,14 @@
+{
+  "name": "NQ-Open",
+  "train_id_n": 2240,
+  "train_id_classes": 1,
+  "cal_id_n": 560,
+  "test_id_n": 1128,
+  "test_ood_n": 72,
+  "test_ood_near": 72,
+  "test_ood_medium": 0,
+  "test_ood_far": 0,
+  "near_ood_definition": "Queries with difficult/ambiguous retrieval targets",
+  "source": "nq_open",
+  "license": "Apache-2.0"
+}

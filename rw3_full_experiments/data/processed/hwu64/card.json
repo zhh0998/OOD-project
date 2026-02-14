@@ -1,0 +1,14 @@
+{
+  "name": "HWU64_synthetic",
+  "train_id_n": 5120,
+  "train_id_classes": 64,
+  "cal_id_n": 1280,
+  "test_id_n": 1280,
+  "test_ood_n": 320,
+  "test_ood_near": 320,
+  "test_ood_medium": 0,
+  "test_ood_far": 0,
+  "near_ood_definition": "synthetic",
+  "source": "synthetic",
+  "license": "N/A"
+}

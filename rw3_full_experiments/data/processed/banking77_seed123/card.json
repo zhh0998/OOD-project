@@ -1,0 +1,14 @@
+{
+  "name": "Banking77_random_seed123",
+  "train_id_n": 5142,
+  "train_id_classes": 50,
+  "cal_id_n": 1286,
+  "test_id_n": 2000,
+  "test_ood_n": 1080,
+  "test_ood_near": 1080,
+  "test_ood_medium": 0,
+  "test_ood_far": 0,
+  "near_ood_definition": "Hold-out 27 intents (random partition)",
+  "source": "banking77",
+  "license": "CC-BY-4.0"
+}

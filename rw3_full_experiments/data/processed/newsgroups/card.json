@@ -1,0 +1,14 @@
+{
+  "name": "20Newsgroups",
+  "train_id_n": 6776,
+  "train_id_classes": 15,
+  "cal_id_n": 1694,
+  "test_id_n": 5640,
+  "test_ood_n": 1892,
+  "test_ood_near": 1892,
+  "test_ood_medium": 0,
+  "test_ood_far": 0,
+  "near_ood_definition": "Same topic group as ID categories",
+  "source": "sklearn.datasets.fetch_20newsgroups",
+  "license": "Public Domain"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "CLINC150",
+  "train_id_n": 14400,
+  "train_id_classes": 150,
+  "cal_id_n": 3600,
+  "test_id_n": 4500,
+  "test_ood_n": 1300,
+  "test_ood_near": 1300,
+  "test_ood_medium": 0,
+  "test_ood_far": 0,
+  "near_ood_definition": "OOS samples designed to be confusable with in-scope",
+  "source": "DeepPavlov/clinc150",
+  "license": "CC-BY-3.0"
+}
