@@ -1,0 +1,78 @@
+[AUDIT H1] CLINC150 splits: train=15250, val=3100, test=5500
+[AUDIT H2] Banking77 split_mode=alphabetical, train=10003(3498 OOD), test=3080(1080 OOD)
+[AUDIT H2] Banking77 split_mode=random, train=10003(3381 OOD), test=3080(1080 OOD)
+[AUDIT L0] Experiment clinc150+all-MiniLM-L6-v2: ID_train=11250, ID_cal=3750, ID_test=4500, OOD_test=1000
+[AUDIT L0]   OOD groups: near=250, medium=500, far=250
+[AUDIT L0]   Near sim range: (0.5294922590255737, 0.9435420036315918)
+[AUDIT L1] spectral_whitening: mean_vec source=ID-train-only, N_fit(PCA+mean)=11250, N_apply: train=11250, cal=3750, id_test=4500, ood_test=1000
+[AUDIT L1]   k=0: near_cohens_d=1.635, near_auroc=0.872
+[AUDIT L1]   k=1: near_cohens_d=1.707, near_auroc=0.882
+[AUDIT L1]   k=2: near_cohens_d=1.648, near_auroc=0.874
+[AUDIT L1]   k=3: near_cohens_d=1.651, near_auroc=0.874
+[AUDIT L1]   k=5: near_cohens_d=1.619, near_auroc=0.869
+[AUDIT L1]   k=10: near_cohens_d=1.567, near_auroc=0.861
+[AUDIT L1]   k=20: near_cohens_d=1.436, near_auroc=0.838
+[AUDIT L1] CP whitened embeddings: k=1, mean_source=ID-train, PCA_source=ID-train, N_fit=11250
+[AUDIT L2] Graph feature fusion: method=unsupervised z-score + equal-weight avg, scaler_fit_source=ID-cal-only, N_cal=3750, OOD_labels_used_for_training=NONE, features_fused=knn+['mean_sim', 'std_sim', 'retrieval_gap', 'label_purity', 'sim_drop_rate']
+[AUDIT L2]   knn_plus_graph_unsupervised near_auroc=0.8795
+[AUDIT L2]   knn_plus_purity_unsupervised near_auroc=0.8511
+[AUDIT L0] Experiment clinc150+bge-base-en-v1.5: ID_train=11250, ID_cal=3750, ID_test=4500, OOD_test=1000
+[AUDIT L0]   OOD groups: near=250, medium=500, far=250
+[AUDIT L0]   Near sim range: (0.7327759265899658, 0.9704596996307373)
+[AUDIT L1] spectral_whitening: mean_vec source=ID-train-only, N_fit(PCA+mean)=11250, N_apply: train=11250, cal=3750, id_test=4500, ood_test=1000
+[AUDIT L1]   k=0: near_cohens_d=1.538, near_auroc=0.857
+[AUDIT L1]   k=1: near_cohens_d=2.017, near_auroc=0.916
+[AUDIT L1]   k=2: near_cohens_d=1.920, near_auroc=0.906
+[AUDIT L1]   k=3: near_cohens_d=1.907, near_auroc=0.905
+[AUDIT L1]   k=5: near_cohens_d=1.877, near_auroc=0.902
+[AUDIT L1]   k=10: near_cohens_d=1.796, near_auroc=0.895
+[AUDIT L1]   k=20: near_cohens_d=1.672, near_auroc=0.882
+[AUDIT L1] CP whitened embeddings: k=1, mean_source=ID-train, PCA_source=ID-train, N_fit=11250
+[AUDIT L2] Graph feature fusion: method=unsupervised z-score + equal-weight avg, scaler_fit_source=ID-cal-only, N_cal=3750, OOD_labels_used_for_training=NONE, features_fused=knn+['mean_sim', 'std_sim', 'retrieval_gap', 'label_purity', 'sim_drop_rate']
+[AUDIT L2]   knn_plus_graph_unsupervised near_auroc=0.8937
+[AUDIT L2]   knn_plus_purity_unsupervised near_auroc=0.8715
+[AUDIT L0] Experiment banking77+all-MiniLM-L6-v2: ID_train=4878, ID_cal=1627, ID_test=2000, OOD_test=1080
+[AUDIT L0]   OOD groups: near=270, medium=540, far=270
+[AUDIT L0]   Near sim range: (0.7654474973678589, 0.9858748912811279)
+[AUDIT L1] spectral_whitening: mean_vec source=ID-train-only, N_fit(PCA+mean)=4878, N_apply: train=4878, cal=1627, id_test=2000, ood_test=1080
+[AUDIT L1]   k=0: near_cohens_d=0.812, near_auroc=0.743
+[AUDIT L1]   k=1: near_cohens_d=0.536, near_auroc=0.653
+[AUDIT L1]   k=2: near_cohens_d=0.534, near_auroc=0.647
+[AUDIT L1]   k=3: near_cohens_d=0.586, near_auroc=0.655
+[AUDIT L1]   k=5: near_cohens_d=0.730, near_auroc=0.689
+[AUDIT L1]   k=10: near_cohens_d=0.976, near_auroc=0.753
+[AUDIT L1]   k=20: near_cohens_d=1.055, near_auroc=0.766
+[AUDIT L1] CP whitened embeddings: k=20, mean_source=ID-train, PCA_source=ID-train, N_fit=4878
+[AUDIT L2] Graph feature fusion: method=unsupervised z-score + equal-weight avg, scaler_fit_source=ID-cal-only, N_cal=1627, OOD_labels_used_for_training=NONE, features_fused=knn+['mean_sim', 'std_sim', 'retrieval_gap', 'label_purity', 'sim_drop_rate']
+[AUDIT L2]   knn_plus_graph_unsupervised near_auroc=0.7901
+[AUDIT L2]   knn_plus_purity_unsupervised near_auroc=0.7327
+[AUDIT L0] Experiment banking77+bge-base-en-v1.5: ID_train=4878, ID_cal=1627, ID_test=2000, OOD_test=1080
+[AUDIT L0]   OOD groups: near=270, medium=540, far=270
+[AUDIT L0]   Near sim range: (0.8595950603485107, 0.9933084845542908)
+[AUDIT L1] spectral_whitening: mean_vec source=ID-train-only, N_fit(PCA+mean)=4878, N_apply: train=4878, cal=1627, id_test=2000, ood_test=1080
+[AUDIT L1]   k=0: near_cohens_d=0.977, near_auroc=0.777
+[AUDIT L1]   k=1: near_cohens_d=0.970, near_auroc=0.762
+[AUDIT L1]   k=2: near_cohens_d=0.886, near_auroc=0.737
+[AUDIT L1]   k=3: near_cohens_d=0.865, near_auroc=0.728
+[AUDIT L1]   k=5: near_cohens_d=0.653, near_auroc=0.675
+[AUDIT L1]   k=10: near_cohens_d=0.849, near_auroc=0.720
+[AUDIT L1]   k=20: near_cohens_d=1.143, near_auroc=0.778
+[AUDIT L1] CP whitened embeddings: k=20, mean_source=ID-train, PCA_source=ID-train, N_fit=4878
+[AUDIT L2] Graph feature fusion: method=unsupervised z-score + equal-weight avg, scaler_fit_source=ID-cal-only, N_cal=1627, OOD_labels_used_for_training=NONE, features_fused=knn+['mean_sim', 'std_sim', 'retrieval_gap', 'label_purity', 'sim_drop_rate']
+[AUDIT L2]   knn_plus_graph_unsupervised near_auroc=0.8281
+[AUDIT L2]   knn_plus_purity_unsupervised near_auroc=0.7878
+[AUDIT L0] Experiment Banking77(random)+BGE: ID_train=4966, ID_cal=1656, ID_test=2000, OOD_test=1080
+[AUDIT L0]   OOD groups: near=270, medium=540, far=270
+[AUDIT L0]   Near sim range: (0.8811055421829224, 0.9913687705993652)
+[AUDIT L1] spectral_whitening: mean_vec source=ID-train-only, N_fit(PCA+mean)=4966, N_apply: train=4966, cal=1656, id_test=2000, ood_test=1080
+[AUDIT L1]   k=0: near_cohens_d=0.604, near_auroc=0.689
+[AUDIT L1]   k=1: near_cohens_d=0.556, near_auroc=0.671
+[AUDIT L1]   k=2: near_cohens_d=0.443, near_auroc=0.637
+[AUDIT L1]   k=3: near_cohens_d=0.484, near_auroc=0.638
+[AUDIT L1]   k=5: near_cohens_d=0.577, near_auroc=0.655
+[AUDIT L1]   k=10: near_cohens_d=0.844, near_auroc=0.713
+[AUDIT L1]   k=20: near_cohens_d=0.756, near_auroc=0.695
+[AUDIT L1] CP whitened embeddings: k=10, mean_source=ID-train, PCA_source=ID-train, N_fit=4966
+[AUDIT L2] Graph feature fusion: method=unsupervised z-score + equal-weight avg, scaler_fit_source=ID-cal-only, N_cal=1656, OOD_labels_used_for_training=NONE, features_fused=knn+['mean_sim', 'std_sim', 'retrieval_gap', 'label_purity', 'sim_drop_rate']
+[AUDIT L2]   knn_plus_graph_unsupervised near_auroc=0.8105
+[AUDIT L2]   knn_plus_purity_unsupervised near_auroc=0.8293
