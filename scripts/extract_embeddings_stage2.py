@@ -15,8 +15,13 @@ from pathlib import Path
 MODELS = {
     "minilm": "sentence-transformers/all-MiniLM-L6-v2",
     "bge": "BAAI/bge-base-en-v1.5",
-    "e5": "intfloat/e5-base-v2",
+    "e5": "intfloat/e5-large-v2",
     "mpnet": "sentence-transformers/all-mpnet-base-v2"
+}
+
+# Prefix required by certain models (e5 requires "query: " prefix)
+MODEL_PREFIX = {
+    "e5": "query: "
 }
 
 SPLITS = ["train_id", "cal_id", "test_id", "test_ood"]
@@ -133,9 +138,13 @@ def process_combination(dataset, model_key, cache_dir, audit_dir):
         print(f"\n  Processing split: {split}")
         texts = get_texts(data, split)
 
+        # Apply model-specific prefix (e.g., e5 requires "query: " prefix)
+        prefix = MODEL_PREFIX.get(model_key)
+        encode_texts = [prefix + t for t in texts] if prefix else texts
+
         start_time = time.time()
         embeddings = model.encode(
-            texts,
+            encode_texts,
             show_progress_bar=True,
             convert_to_numpy=True,
             normalize_embeddings=True
@@ -168,11 +177,12 @@ def process_combination(dataset, model_key, cache_dir, audit_dir):
 
 def main():
     """Main entry point."""
-    # Define combinations to process
+    # Define combinations to process (batch 3: banking77_alpha e5/mpnet + hwu64 minilm/bge)
     combinations = [
-        ("clinc150", "mpnet"),
-        ("banking77_alpha", "minilm"),
-        ("banking77_alpha", "bge"),
+        ("banking77_alpha", "e5"),
+        ("banking77_alpha", "mpnet"),
+        ("hwu64", "minilm"),
+        ("hwu64", "bge"),
     ]
 
     cache_dir = Path("cache/embeddings")

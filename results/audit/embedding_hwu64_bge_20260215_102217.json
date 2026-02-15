@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-15T10:22:17.234729",
+  "dataset": "hwu64",
+  "model_key": "bge",
+  "model_name": "BAAI/bge-base-en-v1.5",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 5120,
+        "dimensions": 768,
+        "time_seconds": 27.72,
+        "output_path": "cache/embeddings/hwu64/bge/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1280,
+        "dimensions": 768,
+        "time_seconds": 3.88,
+        "output_path": "cache/embeddings/hwu64/bge/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1280,
+        "dimensions": 768,
+        "time_seconds": 3.38,
+        "output_path": "cache/embeddings/hwu64/bge/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 320,
+        "dimensions": 768,
+        "time_seconds": 0.72,
+        "output_path": "cache/embeddings/hwu64/bge/test_ood.npy"
+      }
+    },
+    "total_time": 35.72,
+    "embedding_dim": 768
+  }
+}

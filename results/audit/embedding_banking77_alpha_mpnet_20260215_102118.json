@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-15T10:21:18.260959",
+  "dataset": "banking77_alpha",
+  "model_key": "mpnet",
+  "model_name": "sentence-transformers/all-mpnet-base-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 5241,
+        "dimensions": 768,
+        "time_seconds": 43.71,
+        "output_path": "cache/embeddings/banking77_alpha/mpnet/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1311,
+        "dimensions": 768,
+        "time_seconds": 5.84,
+        "output_path": "cache/embeddings/banking77_alpha/mpnet/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 2000,
+        "dimensions": 768,
+        "time_seconds": 8.63,
+        "output_path": "cache/embeddings/banking77_alpha/mpnet/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1080,
+        "dimensions": 768,
+        "time_seconds": 4.82,
+        "output_path": "cache/embeddings/banking77_alpha/mpnet/test_ood.npy"
+      }
+    },
+    "total_time": 63.03,
+    "embedding_dim": 768
+  }
+}
