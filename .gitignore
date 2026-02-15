@@ -29,3 +29,6 @@ src/datasets/data/
 # Finetuned models and extracted features
 finetuned_models/
 features/
+
+# Embedding cache (generated locally)
+cache/embeddings/

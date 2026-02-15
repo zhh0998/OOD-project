@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-15T09:48:33.791373",
+  "dataset": "banking77_alpha",
+  "model_key": "minilm",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 5241,
+        "dimensions": 384,
+        "time_seconds": 4.12,
+        "output_path": "cache/embeddings/banking77_alpha/minilm/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1311,
+        "dimensions": 384,
+        "time_seconds": 0.89,
+        "output_path": "cache/embeddings/banking77_alpha/minilm/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 2000,
+        "dimensions": 384,
+        "time_seconds": 1.31,
+        "output_path": "cache/embeddings/banking77_alpha/minilm/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1080,
+        "dimensions": 384,
+        "time_seconds": 0.71,
+        "output_path": "cache/embeddings/banking77_alpha/minilm/test_ood.npy"
+      }
+    },
+    "total_time": 7.04,
+    "embedding_dim": 384
+  }
+}

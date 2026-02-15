@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-15T09:48:24.123556",
+  "dataset": "clinc150",
+  "model_key": "mpnet",
+  "model_name": "sentence-transformers/all-mpnet-base-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 14400,
+        "dimensions": 768,
+        "time_seconds": 33.82,
+        "output_path": "cache/embeddings/clinc150/mpnet/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 3600,
+        "dimensions": 768,
+        "time_seconds": 8.24,
+        "output_path": "cache/embeddings/clinc150/mpnet/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 4500,
+        "dimensions": 768,
+        "time_seconds": 11.21,
+        "output_path": "cache/embeddings/clinc150/mpnet/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1300,
+        "dimensions": 768,
+        "time_seconds": 12.83,
+        "output_path": "cache/embeddings/clinc150/mpnet/test_ood.npy"
+      }
+    },
+    "total_time": 66.16,
+    "embedding_dim": 768
+  }
+}
