@@ -1,0 +1,32 @@
+{
+  "version": "4.1",
+  "stage": "stage2_targeted",
+  "timestamp": "2026-02-15T05:08:25.514364",
+  "target_dataset": "clinc150",
+  "target_models": [
+    "bge",
+    "e5"
+  ],
+  "entries": [
+    {
+      "timestamp": "2026-02-15T05:03:50.379821",
+      "operation": "embedding_extraction",
+      "dataset": "clinc150",
+      "model": "bge",
+      "fit_split": "N/A",
+      "details": "dim=768, samples=23800, time=132.90s",
+      "compliant": true
+    },
+    {
+      "timestamp": "2026-02-15T05:08:25.514350",
+      "operation": "embedding_extraction",
+      "dataset": "clinc150",
+      "model": "e5",
+      "fit_split": "N/A",
+      "details": "dim=1024, samples=23800, time=275.13s",
+      "compliant": true
+    }
+  ],
+  "total_operations": 2,
+  "compliant_operations": 2
+}
