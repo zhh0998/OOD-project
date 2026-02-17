@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-02-16T15:31:37.945943",
+  "dataset": "massive",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "prefix_used": "query: ",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 4800,
+        "dimensions": 1024,
+        "time_seconds": 48.13,
+        "output_path": "cache/embeddings/massive/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1200,
+        "dimensions": 1024,
+        "time_seconds": 12.06,
+        "output_path": "cache/embeddings/massive/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1200,
+        "dimensions": 1024,
+        "time_seconds": 11.11,
+        "output_path": "cache/embeddings/massive/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 300,
+        "dimensions": 1024,
+        "time_seconds": 2.45,
+        "output_path": "cache/embeddings/massive/e5/test_ood.npy"
+      }
+    },
+    "total_time": 73.79,
+    "model_load_time": 44.47671723365784,
+    "embedding_dim": 1024
+  }
+}

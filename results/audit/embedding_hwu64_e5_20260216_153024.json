@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-02-16T15:30:24.156861",
+  "dataset": "hwu64",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "prefix_used": "query: ",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 5120,
+        "dimensions": 1024,
+        "time_seconds": 49.03,
+        "output_path": "cache/embeddings/hwu64/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1280,
+        "dimensions": 1024,
+        "time_seconds": 13.43,
+        "output_path": "cache/embeddings/hwu64/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1280,
+        "dimensions": 1024,
+        "time_seconds": 11.8,
+        "output_path": "cache/embeddings/hwu64/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 320,
+        "dimensions": 1024,
+        "time_seconds": 2.54,
+        "output_path": "cache/embeddings/hwu64/e5/test_ood.npy"
+      }
+    },
+    "total_time": 76.82,
+    "model_load_time": 44.47671723365784,
+    "embedding_dim": 1024
+  }
+}
