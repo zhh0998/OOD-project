@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-18T00:22:27.193325",
+  "dataset": "newsgroups",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 6776,
+        "dimensions": 1024,
+        "time_seconds": 1024.05,
+        "output_path": "cache/embeddings/newsgroups/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1694,
+        "dimensions": 1024,
+        "time_seconds": 407.26,
+        "output_path": "cache/embeddings/newsgroups/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 5640,
+        "dimensions": 1024,
+        "time_seconds": 1748.14,
+        "output_path": "cache/embeddings/newsgroups/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1892,
+        "dimensions": 1024,
+        "time_seconds": 203.69,
+        "output_path": "cache/embeddings/newsgroups/e5/test_ood.npy"
+      }
+    },
+    "total_time": 3383.32,
+    "embedding_dim": 1024
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-18T01:23:34.000565",
+  "dataset": "newsgroups",
+  "model_key": "bge",
+  "model_name": "BAAI/bge-base-en-v1.5",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 6776,
+        "dimensions": 768,
+        "time_seconds": 1209.9,
+        "output_path": "cache/embeddings/newsgroups/bge/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1694,
+        "dimensions": 768,
+        "time_seconds": 92.5,
+        "output_path": "cache/embeddings/newsgroups/bge/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 5640,
+        "dimensions": 768,
+        "time_seconds": 687.04,
+        "output_path": "cache/embeddings/newsgroups/bge/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1892,
+        "dimensions": 768,
+        "time_seconds": 1111.11,
+        "output_path": "cache/embeddings/newsgroups/bge/test_ood.npy"
+      }
+    },
+    "total_time": 3100.62,
+    "embedding_dim": 768
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-18T01:57:14.540865",
+  "dataset": "nq_open",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 2240,
+        "dimensions": 1024,
+        "time_seconds": 14.89,
+        "output_path": "cache/embeddings/nq_open/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 560,
+        "dimensions": 1024,
+        "time_seconds": 4.12,
+        "output_path": "cache/embeddings/nq_open/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1128,
+        "dimensions": 1024,
+        "time_seconds": 1006.21,
+        "output_path": "cache/embeddings/nq_open/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 72,
+        "dimensions": 1024,
+        "time_seconds": 1.12,
+        "output_path": "cache/embeddings/nq_open/e5/test_ood.npy"
+      }
+    },
+    "total_time": 1026.34,
+    "embedding_dim": 1024
+  }
+}

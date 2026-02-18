@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-17T23:24:37.705457",
+  "dataset": "clinc150",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 14400,
+        "dimensions": 1024,
+        "time_seconds": 91.17,
+        "output_path": "cache/embeddings/clinc150/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 3600,
+        "dimensions": 1024,
+        "time_seconds": 22.41,
+        "output_path": "cache/embeddings/clinc150/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 4500,
+        "dimensions": 1024,
+        "time_seconds": 28.69,
+        "output_path": "cache/embeddings/clinc150/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1300,
+        "dimensions": 1024,
+        "time_seconds": 18.37,
+        "output_path": "cache/embeddings/clinc150/e5/test_ood.npy"
+      }
+    },
+    "total_time": 160.67,
+    "embedding_dim": 1024
+  }
+}

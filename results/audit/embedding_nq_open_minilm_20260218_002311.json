@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-18T00:23:11.732894",
+  "dataset": "nq_open",
+  "model_key": "minilm",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 2240,
+        "dimensions": 384,
+        "time_seconds": 1.64,
+        "output_path": "cache/embeddings/nq_open/minilm/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 560,
+        "dimensions": 384,
+        "time_seconds": 0.67,
+        "output_path": "cache/embeddings/nq_open/minilm/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1128,
+        "dimensions": 384,
+        "time_seconds": 1.58,
+        "output_path": "cache/embeddings/nq_open/minilm/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 72,
+        "dimensions": 384,
+        "time_seconds": 0.41,
+        "output_path": "cache/embeddings/nq_open/minilm/test_ood.npy"
+      }
+    },
+    "total_time": 4.31,
+    "embedding_dim": 384
+  }
+}

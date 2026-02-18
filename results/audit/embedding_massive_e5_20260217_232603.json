@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-17T23:26:03.808616",
+  "dataset": "massive",
+  "model_key": "e5",
+  "model_name": "intfloat/e5-large-v2",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 4800,
+        "dimensions": 1024,
+        "time_seconds": 26.95,
+        "output_path": "cache/embeddings/massive/e5/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 1200,
+        "dimensions": 1024,
+        "time_seconds": 6.88,
+        "output_path": "cache/embeddings/massive/e5/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 1200,
+        "dimensions": 1024,
+        "time_seconds": 6.19,
+        "output_path": "cache/embeddings/massive/e5/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 300,
+        "dimensions": 1024,
+        "time_seconds": 1.33,
+        "output_path": "cache/embeddings/massive/e5/test_ood.npy"
+      }
+    },
+    "total_time": 41.36,
+    "embedding_dim": 1024
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-02-18T00:31:53.318888",
+  "dataset": "clinc150",
+  "model_key": "bge",
+  "model_name": "BAAI/bge-base-en-v1.5",
+  "results": {
+    "splits": {
+      "train_id": {
+        "samples": 14400,
+        "dimensions": 768,
+        "time_seconds": 31.64,
+        "output_path": "cache/embeddings/clinc150/bge/train_id.npy"
+      },
+      "cal_id": {
+        "samples": 3600,
+        "dimensions": 768,
+        "time_seconds": 7.94,
+        "output_path": "cache/embeddings/clinc150/bge/cal_id.npy"
+      },
+      "test_id": {
+        "samples": 4500,
+        "dimensions": 768,
+        "time_seconds": 9.73,
+        "output_path": "cache/embeddings/clinc150/bge/test_id.npy"
+      },
+      "test_ood": {
+        "samples": 1300,
+        "dimensions": 768,
+        "time_seconds": 8.84,
+        "output_path": "cache/embeddings/clinc150/bge/test_ood.npy"
+      }
+    },
+    "total_time": 58.18,
+    "embedding_dim": 768
+  }
+}
